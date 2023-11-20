@@ -2,6 +2,6 @@ import { create } from "@storybook/theming";
 
 export default create({
   base: "light",
-  brandTitle: "NextUI",
-  brandUrl: "https://nextui.org",
+  brandTitle: "Elearnco",
+  brandUrl: "https://elearnco-web.vercel.app/",
 });

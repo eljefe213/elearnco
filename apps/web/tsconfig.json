@@ -1,8 +1,26 @@
 {
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.svg"
+, "../../packages/ui/modals/GlobalModalUI.tsx", "../../packages/ui/share/shareWithTrainer.tsx", "../../packages/store/index.ts", "../../packages/lib/requests/api.request.ts", "../../packages/lib/providers/auth.provider.tsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

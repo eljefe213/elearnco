@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "jsx": "react"
+    },
+    "extends": "../tsconfig/base.json",
+    "include": ["**/*.ts", "**/*.d.ts", "**/*.svg", "../schemas/auth/Auth.ts", "forms/user/index.tsx", "loading/index.tsx", "writeEditor/index.tsx", "writeEditor/writeEditor.styles.tsx"],
+    "exclude": ["node_modules", "build", "dist"]
+}
+  

@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "../../packages/customhooks","../../packages/ui/icon/nodes"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

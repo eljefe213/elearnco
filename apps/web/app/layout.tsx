@@ -1,11 +1,8 @@
-export default function RootLayout({
-  children,
-}: {
+import "@/styles/globals.css";
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return children;
 }

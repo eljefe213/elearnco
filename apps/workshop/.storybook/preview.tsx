@@ -1,42 +1,55 @@
-import { Preview } from '@storybook/react';
+import { Preview } from "@storybook/react";
 import { NextUIProvider } from "@nextui-org/react";
-import React from 'react';
-import { themes } from '@storybook/theming';
-import { useDarkMode } from 'storybook-dark-mode';
-import '../src/tailwind.css'; 
-
+import { NextIntlClientProvider } from "next-intl";
+import React from "react";
+import { themes } from "@storybook/theming";
+import Style from "./style";
+import * as messages from "../../web/messages/en.json";
 const preview: Preview = {
-  decorators: [(Story)=> <NextUIProvider><main className="dark text-foreground bg-background"><Story/></main></NextUIProvider>],
+  decorators: [
+    (Story, { globals: { locale } }) => {
+      //const direction =locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
+
+      return (
+        <NextUIProvider locale={locale}>
+          <NextIntlClientProvider locale="en" messages={messages}>
+            <div className="bg-dark" lang={locale} dir="ltr">
+              <Style />
+              <Story />
+            </div>
+          </NextIntlClientProvider>
+        </NextUIProvider>
+      );
+    },
+  ],
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: ["Foundations", "Components"],
+      },
+    },
     darkMode: {
+      current: "dark",
       stylePreview: true,
-      darkClass: 'dark',
-      lightClass: 'light',
+      darkClass: "dark",
+      lightClass: "light",
+      classTarget: "html",
       dark: {
         ...themes.dark,
-        // accent0, accent1
-        appBg: '#161616',
-        barBg: '#262626',
-        background: '#161616',
-        appContentBg: '#161616',
-        // radii xs
-        appBorderRadius: 7
+        appBg: "#161616",
+        barBg: "black",
+        background: "black",
+        appContentBg: "black",
+        appBorderRadius: 14,
       },
       light: {
-        ...themes.normal,
-        // accent0, accent1
-        appBg: '#F5F5F5',
-        barBg: '#EDEDED',
-        background: '#F5F5F5',
-        appContentBg: '#F5F5F5',
-        // radii xs
-        appBorderRadius: 7
-      }
+        ...themes.light,
+        appBorderRadius: 14,
+      },
     },
-    backgrounds: {
-      default: 'dark'
-    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,

@@ -1,18 +1,106 @@
-# Turborepo starter
+[![og:image](./apps/web/public/og-image.png)](https://elearnco-web.vercel.app/)
 
-This is an official starter turborepo.
 
-## Using this example
+## Summary
+
+- <a href="#presentation">Presentation</a>
+- <a href="#structure">Project Structure</a>
+- <a href="#prerequisites">Prerequisites</a>
+  - <a href="#stack">The stack</a>
+  - <a href="#install">Install the project</a>
+  - <a href="#run">Run the Services</a>
+  - <a href="#serve">Serve the Applications</a>
+  - <a href="#access">Access the Applications and services</a>
+  - <a href="#build">Build the Applications</a>
+- <a href="#contributing">Contributing</a>
+  - <a href="#commit">Commit message</a>
+- <a href="#utilities">Utilities</a>
+
+### <a id="presentation" href="#presentation">Presentation</a>
+
+Elearnco is an open source platform for creating learning paths by simply dragging and dropping.
+This is in development and it is not recommended to use it in production at this time.
+
+### <a id="prerequisites" href="#prerequisites">Prerequisites</a>
+
+- Node.js 20.x
+- yarn
+- Docker and docker-compose _(recommended)_
+
+### <a id="stack" href="#stack">The stack</a>
+
+- [Next.js (App router)](https://nextjs.org)
+- [NextAuth](https://next-auth.js.org)
+- [Prisma](https://prisma.io)
+- [NextUI](https://nextui.org/)
+- [Postgres](https://www.postgresql.org/)
+- [Yjs](https://docs.yjs.dev/)
+- [Zod](https://zod.dev/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [Resend](https://resend.com/)
+- [React Email](https://react.email/)
+- [framer motion](https://www.framer.com/motion/)
+- [Supabase](https://supabase.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
+
+
+### <a id="install" href="#install">Install the project</a>
+
+> A global installation of [turbo](https://turbo.build/repo/docs/installing) is recommended.
+
+```bash
+# Install turbo globally
+$ yarn global add turbo
+```
+
+```bash
+# Clone the repository
+$ git clone git@github.com:Edukeasy/quizwer.git && cd quizwer
+
+# Install Node dependencies
+$ yarn install
+```
+> ⚠ For performance reasons, this project uses [Yarn](https://yarnpkg.com/). **Do not use `npm install`**. You should never have a `package-lock.json`.
+
+
+## Storybook
+
+You can use the storybook for adding or creating UI/UX components and add them to Elearnco.
+![story_1](https://i.imgur.com/eXHzd9z.png)
+
+### <a id="access" href="#access">Access the Applications and services</a>
+
+
+- **Frontend**
+  - URL: *http://localhost:3000*
+- **Design System - Storybook**
+  - URL: *https://localhost:6006*
+- **Database - Prisma - Studio**
+  - URL: *https://localhost:5555*
+
+
+### Check version packages to update
 
 Run the following command:
 
-```sh
-npx create-turbo@latest -e with-prisma
+```bash
+yarn outdated
+
 ```
 
-## What's inside?
+### Update version package
 
-This turborepo includes the following packages/apps:
+Run the following command:
+
+```bash
+yarn upgrade 
+
+```
+
+## Structure
+
+This project under turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
@@ -33,14 +121,13 @@ This turborepo has some additional tools already setup for you:
 - [Prisma](https://prisma.io/) for database ORM
 - [Docker Compose](https://docs.docker.com/compose/) for local database
 
-### Database
+### <a id="run" href="#run">Run database</a>
 
 We use [Prisma](https://prisma.io/) to manage & access our database. As such you will need a database for this project, either locally or hosted in the cloud.
 
-To make this process easier, we offer a [`docker-compose.yml`](https://docs.docker.com/compose/) file to deploy a MySQL server locally with a new database named `turborepo` (To change this update the `MYSQL_DATABASE` environment variable in the `docker-compose.yml` file):
+To make this process easier, we offer a [`docker-compose.yml`](https://docs.docker.com/compose/) file to deploy a postgres server locally with a new database named `edukeasy` (To change this update the `POSTGRES_DB` environment variable in the `docker-compose.yml` file):
 
 ```bash
-cd my-turborepo
 docker-compose up -d
 ```
 
@@ -80,9 +167,19 @@ Once edited run the following command to run tell Prisma to run the seed script 
 yarn run db:seed
 ```
 
+you can quickly have a look at the data of your local database and check if your app is working correctly with [Prisma Studio](https://www.prisma.io/studio)
+
+```bash
+npx prisma studio
+```
+
+![Data](https://i.imgur.com/3XXVb3p.png)
+
+
+
 For further more information on migrations, seeding & more, we recommend reading through the [Prisma Documentation](https://www.prisma.io/docs/).
 
-### Build
+### <a id="build" href="#build">Build</a>
 
 To build all apps and packages, run the following command:
 
@@ -90,13 +187,33 @@ To build all apps and packages, run the following command:
 yarn run build
 ```
 
-### Develop
+### <a id="run" href="#run">Run</a>
 
 To develop all apps and packages, run the following command:
 
 ```bash
 yarn run dev
 ```
+
+## <a id="contributing" href="#contributing">Contributing</a>
+
+### <a id="commit" href="#commit">Commit message</a>
+
+Each commit message must follow the convention [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+
+The command message should be structured as follows:
+
+```plaintext
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+To make it easier, an interface will appear when commiting to create structured commit messages.
+
+> You can find the hook for running commitizen in `.husky/prepare-commit-msg`
 
 ## Useful Links
 
@@ -108,6 +225,3 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
-
-
-## Commit

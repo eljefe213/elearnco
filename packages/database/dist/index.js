@@ -32,7 +32,7 @@ __export(client_exports, {
 });
 var import_client = require("@prisma/client");
 __reExport(client_exports, require("@prisma/client"));
-var prisma = global.prisma || new import_client.PrismaClient();
+var prisma = global.prisma || new import_client.PrismaClient({ log: ["info"] });
 if (process.env.NODE_ENV !== "production")
   global.prisma = prisma;
 

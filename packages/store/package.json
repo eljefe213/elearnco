@@ -1,0 +1,9 @@
+{
+    "name": "store",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "dependencies": {
+        "zustand": "^4.4.1"
+    }
+  }
+  

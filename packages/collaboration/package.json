@@ -1,0 +1,12 @@
+{
+  "name": "collaboration",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "customhooks": "*",
+    "webrtc.io": "^0.0.4",
+    "y-protocols": "^1.0.5",
+    "y-webrtc": "^10.2.5",
+    "yjs": "13.5.52"
+  }
+}

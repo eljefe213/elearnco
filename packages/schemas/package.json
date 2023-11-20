@@ -1,0 +1,14 @@
+{
+  "name": "schemas",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "lib": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
