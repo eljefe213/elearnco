@@ -14,11 +14,6 @@ const meta = {
 
 export default meta;
 
-interface IProps {
-  onChange: () => void;
- 
-}
-
 export const Select = {
-  render: (args: IProps) => <></>,
+  render: () => <></>,
 };

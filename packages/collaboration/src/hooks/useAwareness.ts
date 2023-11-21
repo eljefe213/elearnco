@@ -25,12 +25,10 @@ export const useAwarenessState = <T extends { [x: string]: any }>() => {
   );
 
   const update = useCallback(() => {
-    setData(
-      [...awareness.getStates().entries()]
-        .map(([clientId, state]) => [clientId, state] as [number, T])
-        .filter(([clientId, state]) => !!state)
-        .reduce((a, b) => ({ ...a, [b[0]]: b[1] }), {})
-    );
+    const entries = awareness.getStates().entries()
+    const data = [...Array.from(entries)].map(([clientId, state]) => [clientId, state] as [number, T]).filter(([clientId, state]) => !!state)
+    .reduce((a, b) => ({ ...a, [b[0]]: b[1] }), {})
+    setData( data);
   }, [awareness]);
 
   useEffect(() => {
@@ -66,7 +64,7 @@ export const useAwarenessStateField = <T>(key: string) => {
     (force?: boolean) => {
       // For performance purpose to avoid rerendering
       // TODO : Create context to add in-memory cache to avoid doing this multiple time for the same key
-      const newData = [...awareness.getStates().entries()]
+      const newData = [...Array.from(awareness.getStates().entries())]
         .map(([clientId, state]) => [clientId, state[key]])
         // .filter(([clientId, state]) => !!state)
         .reduce((a, b) => ({ ...a, [b[0]]: b[1] }), {} as { [key: number]: T });

@@ -4,9 +4,12 @@ import { toast } from "sonner";
 import { create } from "zustand";
 import { Course } from "database";
 import { Page } from "database";
-// Define the interface of the Courses state
+
+type Tpages = {pages:Page[]}
+type CourseExtend = Course & Tpages
+
 interface State {
-  course: Course;
+  course:  CourseExtend;
   pages: Page[];
   isLoading: boolean;
   error: unknown;
@@ -27,7 +30,7 @@ interface Actions {
 
 // Initialize a default state
 const INITIAL_STATE: State = {
-  course: {} as Course,
+  course: {} as CourseExtend,
   pages: [],
   isLoading: false,
   error: null,

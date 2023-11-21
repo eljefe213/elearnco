@@ -10,6 +10,7 @@ import {
 import { useCallback } from "react";
 import React from "react";
 import { IconUI } from "../icon/IconUI";
+import { GenericObject } from "schemas/global";
 
 type TColor =
   | "default"
@@ -50,7 +51,8 @@ interface IProps {
   showArrow?: boolean;
   placement?: OverlayPlacement | undefined;
   classNamesDropdown?: IClassNamesDropdown;
-  data: IData[];
+  data: GenericObject;
+  //IData[];
   actionHandler?: (action: string) => void;
   color?: TColor;
 }

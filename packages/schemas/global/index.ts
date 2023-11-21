@@ -4,4 +4,5 @@ export type IdMap<T> = { [id: string]: T };
 export interface GenericObject {
     [key: string]: any;
   }
-  
+export type TFixedInPosition = "top" | "bottom" | "left" | "right";
+export type TPosition = "relative" | "fixed";

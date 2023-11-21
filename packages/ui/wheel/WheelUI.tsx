@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { Button, Input } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import  { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { IconUI } from "ui/icon/IconUI";
 import { nanoid } from "nanoid";
+
 /**
  * It takes a center point, a radius, and an angle in degrees, and returns the point on the
  * circumference of a circle that corresponds to that angle
@@ -215,42 +216,46 @@ const Sectors = (props: ITimestamp): JSX.Element => {
           </Button>
         ) : null}
       </div>
-      <div style={{display:'grid'}} className="grid-cols-4 gap-4 w-full bg-default-50">
+      <div
+        style={{ display: "grid" }}
+        className="grid-cols-4 gap-4 w-full bg-default-50"
+      >
         {timestamp?.map((step) => {
           return (
-            
-              <div key={step.id} className="flex justify-start items-center gap-2">
-                <div>
-                  <Input
-                    onChange={(event): void => _updateTimeStep(event, step.id)}
-                    placeholder={step.title}
-                    value={step.title}
-                    type="text"
-                    label=""
-                    size="sm"
-                  />
-                </div>
-
-                <div className="flex gap-1 justify-center">
-                  <Button
-                    isIconOnly
-                    onClick={(): void => _removeTimeStep(step.id)}
-                    aria-label=""
-                    startContent={<IconUI name="delete" {...propsButton} />}
-                  />
-                </div>
+            <div
+              key={step.id}
+              className="flex justify-start items-center gap-2"
+            >
+              <div>
+                <Input
+                  onChange={(event): void => _updateTimeStep(event, step.id)}
+                  placeholder={step.title}
+                  value={step.title}
+                  type="text"
+                  label=""
+                  size="sm"
+                />
               </div>
-           
+
+              <div className="flex gap-1 justify-center">
+                <Button
+                  isIconOnly
+                  onClick={(): void => _removeTimeStep(step.id)}
+                  aria-label=""
+                  startContent={<IconUI name="delete" {...propsButton} />}
+                />
+              </div>
+            </div>
           );
         })}
       </div>
     </>
   );
 };
-const createDatas = () => {
-  const datas = [];
+const createDatas = (): TTimestamp[] => {
+  const data = [] as TTimestamp[];
   for (let pas = 0; pas < MIN_SECTORS; pas++) {
-    datas.push({
+    data.push({
       index: pas + 1,
       time: 0,
       title: "Section",
@@ -258,7 +263,7 @@ const createDatas = () => {
     });
   }
 
-  return datas;
+  return data;
 };
 export const Wheel = (): JSX.Element => {
   const data = createDatas();

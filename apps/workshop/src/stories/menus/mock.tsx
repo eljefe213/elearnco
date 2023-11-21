@@ -1,3 +1,17 @@
+type TShortcut = {
+  name: string;
+  action: () => void;
+};
+
+export interface IData {
+  id: string;
+  label: string;
+  shortcut: TShortcut;
+  description: string;
+  icon: React.Component;
+  hastooltip: boolean;
+}
+
 export const data = [
   {
     id: "home",

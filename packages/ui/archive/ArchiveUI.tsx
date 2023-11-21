@@ -1,5 +1,5 @@
 "use client";
-import { Course } from "database";
+import { Course,Folder } from "database";
 import {
   createCourseFromApi,
   deleteCourseFromApi,
@@ -147,24 +147,15 @@ const MessageToDuplicateCourse = ({
 }) => {
   const courses = useCoursesStore();
   const { onStopDisabled, onBeginDisabled } = useDisabledStore();
-  const _id= id
+  const _id = id;
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
-  
     event.preventDefault();
-    
-    
     const data = courses.courses.find((c) => c.id === _id);
-   console.log(data);
-   
-    const { id,folder,updatedAt,createdAt,author, ...rest } = data;
-    console.log(rest)
-    const newCourse =await createCourseFromApi(rest);
-    const { course } = newCourse as Course;
-
-    courses.addCourse(course);
-
-    // courses.duplicateCourse(id);
+   // const { id, folder, updatedAt, createdAt, author, ...rest } = data as unknown as Course & Folder;
+   // const newCourse = await createCourseFromApi(rest);
+   // const { course } = newCourse as Course;
+   // courses.addCourse(course);
     onBeginDisabled();
     onClose();
   };
@@ -181,8 +172,7 @@ const MessageToDuplicateCourse = ({
       </div>
       <p>
         This course will be duplicate in the same folder.
-        {/* <br />
-        Do you want to duplicate this course in another folder ? */}
+       
       </p>
     </form>
   );

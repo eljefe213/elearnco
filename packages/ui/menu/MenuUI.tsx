@@ -4,12 +4,11 @@ import { matchRoute } from "lib/utils";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next13-progressbar";
 import React, { useMemo } from "react";
-
 import { IconUI } from "../icon/IconUI";
 import BarUI from "./BarUI";
+import { TFixedInPosition, TPosition } from "schemas/global";
 
-type TFixedInPosition = "top" | "bottom" | "left" | "right";
-type TPosition = "relative" | "fixed";
+
 interface IProps {
   fixedInPosition: TFixedInPosition;
   data: any;

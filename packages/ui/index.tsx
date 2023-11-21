@@ -1,4 +1,3 @@
-//export * from "./ButtonUI";
 export * from "./layout/LayoutUI";
 export * from "./layout/LayoutGridUI";
 export * from "./header/HeaderUI";
@@ -17,7 +16,6 @@ export * from "./nodes/BlockNodesListUI";
 export * from "./card/CardUI";
 export * from "./logo/index";
 export * from "./menu/NavBarTopUI";
-export * from "./modals/SearchModalUI";
 export * from "./card/AddCardUI";
 export * from "./share/ShareWithLearnerUI";
 export * from "./share/ShareWithTrainerUI";

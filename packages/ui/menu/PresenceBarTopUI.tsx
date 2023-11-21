@@ -24,7 +24,7 @@ export const PresenceBarTopUI = (props) => {
               key={clientId}
               size="sm"
               isBordered
-              name={username ? username : "username"}
+              name={username ? username as string : "username"}
               color="primary"
               src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
             />

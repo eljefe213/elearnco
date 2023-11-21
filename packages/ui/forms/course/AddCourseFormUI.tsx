@@ -20,7 +20,7 @@ import React, { useRef } from "react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { CourseMode, CourseStatus, CourseType } from "schemas";
-import { newCourseSchema, TFolder } from "schemas/courses";
+import { newCourseSchema, TFolder, TotalCourse } from "schemas/courses";
 import { useCoursesStore, useFoldersStore } from "store";
 import * as z from "zod";
 
@@ -47,7 +47,7 @@ type FormData = z.infer<typeof newCourseSchema>;
 export const AddCourseUI = (props: IProps) => {
   const user = useUser();
   const { title, description, folder, id, onClose, switchView } = props;
-  const [selected, setSelected] = React.useState(CourseType.CLASSIC);
+  const [selected, setSelected] = React.useState<string>(CourseType.CLASSIC);
   const [banner, setBanner] = useState<string>("default");
   const folders = useFoldersStore((state) => state.folders);
   const courses = useCoursesStore();
@@ -90,9 +90,8 @@ export const AddCourseUI = (props: IProps) => {
       authorId: "cln4kv8xl000j0989p42rcs3i",
     });
 
-    const { course } = newCourse as Course;
 
-    courses.addCourse(course);
+    courses.addCourse(newCourse as TotalCourse);
 
     onClose();
   };

@@ -8,7 +8,6 @@ import {
 } from "../banner/BannerGenericUI";
 import { BlockNodesListUI } from "../nodes/BlockNodesListUI";
 import { LoadingSpinnerUI } from "../loading";
-import { useCollaboration,useYMapItem } from "collaboration";
 
 //TODO - REMOVE STYLES AND ADD CLASSNAME
 //TODO - PASS CONST LAYOUT
@@ -16,19 +15,15 @@ import { useCollaboration,useYMapItem } from "collaboration";
 
 const BlockList = () => {
   const { blocks } = usePageStore();
-  const { doc } = useCollaboration();
-  const [block, setBlock] = useYMapItem<any[]>(doc?.getMap("page"), "block");
- // console.log(block)
-  useEffect(()=>{
-    
-    console.log(blocks)
-    setBlock(blocks)
-  },[blocks])
-  console.log(block)
-  return block?.length>0 &&<BlockNodesListUI data={block} />;
+  //const { doc } = useCollaboration();
+  //const [block, setBlock] = useYMapItem<Block[]>(doc?.getMap("page"), "block");
+
+  /* useEffect(() => {
+    setBlock(blocks);
+  }, [blocks]); */
+
+  return blocks && blocks.length > 0 && <BlockNodesListUI data={blocks} />;
 };
-
-
 
 // this is the editor part
 export const LayoutEditorUI = () => {
@@ -105,7 +100,7 @@ export const LayoutEditorUI = () => {
               padding: "0 32px 32px",
               marginTop: "-32px",
               borderRadius: "32px",
-              paddingTop :"32px",
+              paddingTop: "32px",
               zIndex: 200,
             }}
           >

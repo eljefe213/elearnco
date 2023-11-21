@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/react";
 import { MenuUI } from "ui";
-import { data } from "./mock";
+import {  data } from "./mock";
+import { TFixedInPosition } from "schemas/global";
 
 const meta = {
   title: "Components/Menu",
@@ -20,7 +21,7 @@ const meta = {
 export default meta;
 
 export const Menu = {
-  render: (args: any) => (
+  render: (args: { fixedInPosition: TFixedInPosition }) => (
     <MenuUI data={data} fixedInPosition={args.fixedInPosition} />
   ),
 };
