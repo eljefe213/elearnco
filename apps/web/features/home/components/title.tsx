@@ -7,13 +7,13 @@ const HomeTitle = () => {
   const TITLE_3 = t("title 3");
   const TITLE_4 = t("title 4");
   return (
-    <>
+    <span className="pl-4 pr-4">
       <span className="text-primary">{TITLE_1}</span>,{" "}
       <span className="text-primary">{TITLE_2}</span> &{" "}
       <span className="text-primary">{TITLE_3}</span>
       <br />
       {TITLE_4}
-    </>
+    </span>
   );
 };
 

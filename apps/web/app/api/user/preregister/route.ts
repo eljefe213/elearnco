@@ -37,7 +37,6 @@ export async function POST(request: Request) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    console.log(error)
     if (error.code === "P2002") {
       const error_response = {
         status: "fail",
