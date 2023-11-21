@@ -4,6 +4,7 @@ import { useCoursesParams } from "customhooks";
 import { useRouter } from "next13-progressbar";
 import React from "react";
 import {
+  CompleteBlock,
   DATA_MENU_PAGES,
   EActionsCourse,
   EActionsPage,
@@ -133,9 +134,9 @@ export const PaginationWithCollaboration = ({
   isCollaboration: boolean;
 }) => {
   const { doc } = useCollaboration();
-  const [block] = useYMapItem<any[]>(doc?.getMap("page"), "bloc");
+  const [block] = useYMapItem<CompleteBlock[]>(doc?.getMap("page"), "bloc");
   //TODO: ADD TYPES INSTEAD OF any[]
-  const _testpage = block && block.pages ? block.pages.length : null;
+  const _testpage = 0//block && block.pages ? block.pages.length : null;
 
   return (
     <PaginationGeneric

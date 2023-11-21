@@ -1,9 +1,10 @@
 import { Button } from "@nextui-org/react";
-import { CLASSNAME_BLOCK } from "../const";
 import { deleteUserFromApi, getUserFromApi, pathApiUser } from "lib";
-import { SafeUser } from "schemas/auth/Auth";
 import { useState } from "react";
-import { generateTitle, setSchema, setBlock } from "../components";
+import { SafeUser } from "schemas/auth/Auth";
+
+import { generateTitle, setBlock,setSchema } from "../components";
+import { CLASSNAME_BLOCK } from "../const";
 
 const UsersApi = () => {
   // GET USER

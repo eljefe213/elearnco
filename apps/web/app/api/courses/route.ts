@@ -24,16 +24,16 @@ export async function GET(
     const req = request.nextUrl.searchParams;
     //const date = request.nextUrl.searchParams.get("date") || CourseDate.RECENT;
     const page = Number(req.get("page")) || (1 as number);
-    const status = (req.get("status") as CourseStatus) || CourseStatus.DRAFT;
+    const status = (req.get("status") as CourseStatus) || CourseStatus.DRAFT as CourseStatus;
     const folder = (req.get("folder") as string) || "all";
-    const order = (req.get("order") as CourseTitle) || CourseTitle.AZ;
+    const order = (req.get("order") as CourseTitle) || CourseTitle.AZ as CourseTitle;
     let courses;
     if (folder === "all") {
       courses = await prisma.$transaction([
         prisma.course.findMany({
           orderBy: [
             {
-              title: order === (CourseTitle.ZA as string) ? "desc" : "asc",
+              title: order === (CourseTitle.ZA as CourseTitle) ? "desc" : "asc",
             },
           ],
           where: {
@@ -51,9 +51,6 @@ export async function GET(
         prisma.course.count({
           where: {
             status: status,
-            /* folder: {
-              name: folder,
-            }, */
           },
         }),
       ]);
@@ -62,7 +59,7 @@ export async function GET(
         prisma.course.findMany({
           orderBy: [
             {
-              title: order === (CourseTitle.ZA as string) ? "desc" : "asc",
+              title: order === (CourseTitle.ZA as CourseTitle) ? "desc" : "asc",
             },
           ],
           where: {
@@ -90,7 +87,6 @@ export async function GET(
         }),
       ]);
     }
-    
 
     const json_response = {
       status: "success",
@@ -128,12 +124,11 @@ export async function POST(
   try {
     const json = await request.json();
 
-    
     const course = await prisma.course.create({
       data: json,
-      include : {
-        author: true
-      }
+      include: {
+        author: true,
+      },
     });
 
     const json_response = {

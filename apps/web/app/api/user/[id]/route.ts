@@ -1,4 +1,4 @@
-import { User, prisma } from "database";
+import { prisma,User } from "database";
 import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";

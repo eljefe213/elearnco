@@ -14,8 +14,7 @@ export async function GET(
   }
 
   try {
-    const req = request.nextUrl.searchParams;
-    const page = Number(req.get("page")) || (1 as number);
+    
     const id = params.id;
     const course = await prisma.course.findUnique({
       where: {

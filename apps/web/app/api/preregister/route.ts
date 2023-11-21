@@ -11,7 +11,7 @@ export async function GET() {
     redirect(`/${ERoutes.SIGN}`);
   }
 
-  if (session.user.role !== "admin") {
+  if (session.user.role !== "ADMIN") {
     redirect(`/${ERoutes.DASHBOARD}`);
   }
   const _prismaPreregister = prisma.preregisteredUser;

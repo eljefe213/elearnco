@@ -39,15 +39,7 @@ const DynamicSettings = dynamic(() => import("ui/settings/SettingsUI"), {
 const DynamicProfil = dynamic(() => import("ui/forms/auth/ProfilUI"), {
   loading: () => <Spinner />,
 });
-/* const DynamicMediaFromUser = dynamic(() => import("ui/forms/auth/ProfilUI"), {
-  loading: () => <Spinner />,
-});
-const DynamicMediaFromLibrary = dynamic(
-  () => import("ui/forms/auth/ProfilUI"),
-  {
-    loading: () => <Spinner />,
-  }
-); */
+
 const DynamicMediaFomService = dynamic(
   () => import("ui/media/fromservice/LibraryUI"),
   {
@@ -139,7 +131,7 @@ export const ParentModalUI = () => {
     if (action === (EActionsMedia.ADD_FROM_SERVICE as string)) {
       return "2xl";
     }
-    if (action === EActionsPage.PREVIEW || action === EActionsPage.REORDER) {
+    if (action === EActionsPage.PREVIEW as string || action === EActionsPage.REORDER as string) {
       return "full";
     }
     return "md";

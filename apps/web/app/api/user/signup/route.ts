@@ -1,3 +1,4 @@
+import { Role } from "@prisma/client"
 import bcrypt from "bcrypt";
 import { randomBytes } from "crypto";
 import { prisma } from "database";
@@ -6,7 +7,6 @@ import { NextResponse } from "next/server";
 
 import { sendEmail } from "@/emails";
 import WelcomeEmail from "@/emails/welcome-email";
-import { Role } from "@prisma/client"
 interface IData {
   data: { email: string; name: string; password: string; role: Role };
 }

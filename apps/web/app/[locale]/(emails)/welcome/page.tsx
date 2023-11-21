@@ -1,14 +1,16 @@
-import WelcomeEmail from "@/emails/welcome-email";
-
+"use client";
+//import WelcomeEmail from "@/emails/welcome-email";
+/* 
 interface IProps {
   code: string;
   name: string;
   email: string;
   url: string;
 }
+ */
+export default function EmailPage() {
+  //const { code, name, email, url } = props;
 
-export default function SigninPage(props: IProps) {
-  const { code, name, email, url } = props;
-
-  return <WelcomeEmail name={name} email={email} code={code} url={url} />;
+  return <></>
+  //<WelcomeEmail name={name} email={email} code={code} url={url} />;
 }

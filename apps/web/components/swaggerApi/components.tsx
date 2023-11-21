@@ -1,9 +1,12 @@
-import { Chip } from "@nextui-org/react";
-import { setPath } from "./utils";
-import { CLASSNAME_BLOCK_CHILD } from "./const";
 import 'react-json-syntax-highlighter/dist/ReactJsonSyntaxHighlighter.css'
+
+import { Chip } from "@nextui-org/react";
 import JsonEditor from "react-json-editor-ui";
 import ReactJsonSyntaxHighlighter from 'react-json-syntax-highlighter'
+
+import { CLASSNAME_BLOCK_CHILD } from "./const";
+import { setPath } from "./utils";
+import { GenericObject } from 'schemas/global';
 export const generateTitle = (method: string, title: string, path: string):JSX.Element => {
     return (
       <div className="flex items-center gap-2 p-2 bg-slate-200 mb-2 mt-2">
@@ -53,7 +56,7 @@ export const generateTitle = (method: string, title: string, path: string):JSX.E
 
   
 
-  export const setSchema = (title: string, data, action) => {
+  export const setSchema = (title: string, data:GenericObject, action:(data:GenericObject)=>void) => {
     return (
       <div className={`${CLASSNAME_BLOCK_CHILD} !w-4/12`}>
         {sectionTitle(title)}

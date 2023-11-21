@@ -1,7 +1,8 @@
 "use client";
-import { Tabs, Tab, Spinner } from "@nextui-org/react";
-import dynamic from "next/dynamic";
 import "react-json-editor-ui/dist/react-json-editor-ui.cjs.development.css";
+
+import { Spinner,Tab, Tabs } from "@nextui-org/react";
+import dynamic from "next/dynamic";
 
 const DynamicFolders = dynamic(
   () => import("@/components/swaggerApi/folders"),

@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/react";
-
+import { Course } from "database";
 import {
   createCourseFromApi,
   deleteCourseFromApi,
@@ -11,10 +11,10 @@ import {
   updateCourseFromApi,
 } from "lib";
 import { useState } from "react";
-import { Course } from "database";
-import { CLASSNAME_BLOCK } from "../const";
 import { CourseMode, CourseStatus, CourseType } from "schemas";
+
 import { generateTitle, setBlock, setSchema } from "../components";
+import { CLASSNAME_BLOCK } from "../const";
 
 
 

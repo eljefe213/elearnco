@@ -2,9 +2,10 @@ import AuthProvider from "lib/providers/auth.provider";
 import { redirect } from "next/navigation";
 import { ERoutes } from "schemas";
 import { NavBarTopUI } from "ui";
+
 import { ParentModalUI } from "@/components/parentModalUI";
-import { getServerSession } from "@/lib/auth.options";
 import WrapperChild from "@/components/wrapperChild";
+import { getServerSession } from "@/lib/auth.options";
 
 export default async function Layout({
   children,

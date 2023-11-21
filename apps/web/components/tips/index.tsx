@@ -1,4 +1,4 @@
-import { ListboxItem, Input, Listbox } from "@nextui-org/react";
+import { Input, Listbox,ListboxItem } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from "react";
 import { EActionsUser, ERoutes } from "schemas";
@@ -32,7 +32,7 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         window.open(link, "_blank");
       } else {
         onClose()
-        await router.push(link);
+        router.push(link);
       }
     })();
   };
@@ -49,7 +49,7 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         icon: <IconUI name="user" width={18} />,
         name: "Profile",
         label: "Navigate to your profile",
-        action: (ctrl: boolean): void =>
+        action: (): void =>
           modalStore.onOpen(EActionsUser.EDIT_PROFIL),
         shouldShow: (): boolean => window.location.pathname !== "/profile",
       },
@@ -57,8 +57,8 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         icon: <IconUI name="setting" width={18} />,
         name: "Settings",
         label: "Navigate to settings",
-        action: (ctrl: boolean): void => modalStore.onOpen(EActionsUser.SETTINGS),
-        shouldShow: (): boolean => window.location.pathname !== ERoutes.SETTINGS,
+        action: (): void => modalStore.onOpen(EActionsUser.SETTINGS as string),
+        shouldShow: (): boolean => window.location.pathname !== ERoutes.SETTINGS as string,
       },
       {
         icon: <IconUI name="users" width={18} />,
@@ -80,7 +80,7 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
   );
 
   const filteredOptions: MenuOption[] = options
-    .filter((o) => (!!o.shouldShow ? o.shouldShow() : true))
+    .filter((o) => (o.shouldShow ? o.shouldShow() : true))
     .filter((e) =>
       (e.searchableName ?? e.name).toLowerCase().includes(query.toLowerCase())
     );
