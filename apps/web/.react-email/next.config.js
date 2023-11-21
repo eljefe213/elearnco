@@ -4,7 +4,12 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     appDir: true,
-    externalDir: true // compile files that are located next to the .react-email directory
+    externalDir: true, // compile files that are located next to the .react-email directory
+   
+      serverComponentsExternalPackages: [
+      '@react-email/components',
+      '@react-email/render',
+      '@react-email/tailwind']
   },
 };
 
