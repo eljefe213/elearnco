@@ -12,11 +12,8 @@ import {
 } from "lib";
 import { useState } from "react";
 import { CourseMode, CourseStatus, CourseType } from "schemas";
-
 import { generateTitle, setBlock, setSchema } from "../components";
 import { CLASSNAME_BLOCK } from "../const";
-
-
 
 const CoursesApi = () => {
   // GET COURSES
@@ -111,9 +108,9 @@ const CoursesApi = () => {
     <>
       {/* GET COURSES */}
       {generateTitle("GET", "Return all user courses", pathApiCourses)}
-      
+
       <div className={CLASSNAME_BLOCK}>
-       {/*  {setBlock("Model", getParametersCourses, Course)} */}
+        {/*  {setBlock("Model", getParametersCourses, Course)} */}
         {setSchema("FormData", getParametersCourses, setParametersCourses)}
         {setBlock("Parameters", getParametersCourses)}
         {setBlock("Result", getResultCourses)}
