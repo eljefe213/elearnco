@@ -1,12 +1,11 @@
-import { Input, Listbox,ListboxItem } from "@nextui-org/react";
-import { useRouter } from 'next/navigation';
+import { Input, Listbox, ListboxItem } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import { EActionsUser, ERoutes } from "schemas";
 import { useGlobalModalStore } from "store";
 import { IconUI } from "ui/icon/IconUI";
 
 //TODO - Translation
-
 
 export interface MenuOption {
   icon: React.ReactNode;
@@ -20,7 +19,7 @@ export interface MenuOption {
   isLoading?: boolean;
 }
 
-const Tips = ({onClose}:{onClose:()=>void}) => {
+const Tips = ({ onClose }: { onClose: () => void }) => {
   const modalStore = useGlobalModalStore();
   const router = useRouter();
   const [query, setQuery] = useState<string>("");
@@ -31,7 +30,7 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
       if (ctrl) {
         window.open(link, "_blank");
       } else {
-        onClose()
+        onClose();
         router.push(link);
       }
     })();
@@ -49,8 +48,7 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         icon: <IconUI name="user" width={18} />,
         name: "Profile",
         label: "Navigate to your profile",
-        action: (): void =>
-          modalStore.onOpen(EActionsUser.EDIT_PROFIL),
+        action: (): void => modalStore.onOpen(EActionsUser.EDIT_PROFIL),
         shouldShow: (): boolean => window.location.pathname !== "/profile",
       },
       {
@@ -58,14 +56,16 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         name: "Settings",
         label: "Navigate to settings",
         action: (): void => modalStore.onOpen(EActionsUser.SETTINGS as string),
-        shouldShow: (): boolean => window.location.pathname !== ERoutes.SETTINGS as string,
+        shouldShow: (): boolean =>
+          window.location.pathname !== (ERoutes.SETTINGS as string),
       },
       {
         icon: <IconUI name="users" width={18} />,
         name: "Learners",
         label: "Navigate to learners",
         action: (ctrl: boolean): void => openLink(`/learners`, ctrl),
-        shouldShow: (): boolean => window.location.pathname !== `/${ERoutes.LEARNERS}`,
+        shouldShow: (): boolean =>
+          window.location.pathname !== `/${ERoutes.LEARNERS}`,
       },
       {
         icon: <IconUI name="cards" width={18} />,
@@ -74,7 +74,6 @@ const Tips = ({onClose}:{onClose:()=>void}) => {
         action: (ctrl: boolean): void => openLink(`/courses`, ctrl),
         shouldShow: (): boolean => window.location.pathname !== "/courses",
       },
-      
     ],
     []
   );
