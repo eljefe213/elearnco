@@ -37,6 +37,7 @@ export async function POST(request: Request) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
+    console.log(error)
     if (error.code === "P2002") {
       const error_response = {
         status: "fail",
@@ -50,7 +51,7 @@ export async function POST(request: Request) {
     } else {
       const error_response = {
         status: "fail",
-        message: error,
+        message: "error server",
       };
       return new NextResponse(JSON.stringify(error_response), {
         status: 409,

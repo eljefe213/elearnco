@@ -6,8 +6,11 @@ import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import React from "react";
+import HomeTitle from "./components/title";
+import HomeParagraph from "./components/paragraph";
+import Cartridge from "./components/cartridge";
+import TitleBloc from "./components/titleBloc";
 
-//TODO: Translate text
 //ANCHOR This is a temporary page presentation of ELEARNCO
 
 const FeatureHomeImage = ({ theme }: { theme: string }) => {
@@ -39,7 +42,7 @@ const FeatureHome = () => {
 
   return (
     <div className="fixed w-full h-full ">
-      <div className="absolute top-1/4 left-24 scale-150 hidden md:block">
+      <div className="absolute top-1/4 left-24 scale-150 hidden xl:block">
         <svg width="150" height="150" viewBox="0 0 96 96">
           <g fill="currentColor">
             <path d="M78.33,41.79C75.14,55.37,42,72.84,33.31,75.14a.86.86,0,0,1-.78-.12L29,72.12S55.89,59,60.61,54.46,78.05,40.77,78.05,40.77Z" />
@@ -50,7 +53,7 @@ const FeatureHome = () => {
         </svg>
       </div>
 
-      <div className="absolute top-1/3 right-20 scale-150 rotate-12 hidden md:block">
+      <div className="absolute top-1/3 right-20 scale-150 rotate-12 hidden xl:block">
         <svg width="150" height="150" viewBox="0 0 96 96">
           <g fill="currentColor">
             <path d="M29.83,51.47a12.46,12.46,0,0,1-.65-2.86,13,13,0,0,1-.07-2.85,14.25,14.25,0,0,1,1.53-5.46c.36-.59.67-1.21,1.05-1.77a16.24,16.24,0,0,1,1.24-1.6,23.86,23.86,0,0,1,5.39-4.33c1-.58,1.94-1.17,3-1.65l1.49-.77,1.53-.68c.91-.4,1.81-.81,2.72-1.17s1.81-.78,2.72-1.13c1.17-.44,2.34-.91,3.52-1.33a15.74,15.74,0,0,1,3.69-.78c.78-.13.72.05.19.54-.27.24-.63.61-1.08,1.05a6.46,6.46,0,0,1-.75.58l-.43.29c-.16.06-.31.14-.48.2A136.78,136.78,0,0,0,40.82,34a21.35,21.35,0,0,0-6.7,5.73A11.91,11.91,0,0,0,32,43.86L31.77,45l-.12,1.18,0,1.2.13,1.17a10.1,10.1,0,0,0,2.42,5.21,28.91,28.91,0,0,0,7.43,5.6c2.14,1.23,4.36,2.28,6.48,3.73.46.33.93.63,1.38,1,1.53,1.52,1.76,2.3,1.48,3a4.12,4.12,0,0,1-.14.45c-.16.33-1.16.06-2.19-.77-3.23-2.42-7.33-4.29-11.34-7A25.19,25.19,0,0,1,33,56.4a14.63,14.63,0,0,1-3.21-4.9Z" />
@@ -66,7 +69,7 @@ const FeatureHome = () => {
           </g>
         </svg>
       </div>
-      <div className="absolute flex gap-2 items-center left-1/2 md:left-5 top-0">
+      <div className="absolute flex gap-2 items-center left-5 top-3 md:top-0">
         <LogoSymbolUI
           color={theme !== "light" ? "white" : "black"}
           width={70}
@@ -82,12 +85,9 @@ const FeatureHome = () => {
       </div>
 
       <div className="flex justify-start items-center flex-col pt-24">
-        <h1 className="text-center text-5xl p-5 font-bold relative">
-          <span className="text-primary">Create</span>,{" "}
-          <span className="text-primary">Co-create</span> &{" "}
-          <span className="text-primary">Share</span>
-          <br />
-          Engaging Learning
+        <h1 className="text-center p-5 font-bold relative text-3xl md:text-5xl">
+          <HomeTitle />
+
           <div className="absolute left-full top-48 -rotate-12">
             <svg width="96" height="96" viewBox="0 0 96 96">
               <g fill="currentColor">
@@ -99,53 +99,44 @@ const FeatureHome = () => {
             </svg>
           </div>
         </h1>
-        <p className="text-2xl py-5 text-center">
-          <b className="text-primary">ElearnCo</b> is a platform that allows you
-          to create <b>engaging educational courses with IA</b> <br />
-          or give your <b>learners a hand in building them</b>.
-        </p>
+        <HomeParagraph />
+
         <PreregisterFeature />
         <div className="flex justify-center relative top-10 w-full -z-0 p-5">
           <FeatureHomeImage theme={theme as string} />
         </div>
       </div>
 
-      <div className="absolute right-0 bottom-0 bg-current h-unit-96 rounded-none p-10  w-full md:w-3/12 hidden md:block  md:rounded-tl-3xl">
-        <p className="text-center font-bold text-default  text-2xl md:text-xl">
-          Multiple modules to help you{" "}
-          <b className="text-amber-500">build innovative learning</b>.
-        </p>
+      <div className="absolute right-0 bottom-0 bg-current h-unit-96 rounded-none p-5  w-full md:w-3/12 hidden md:block  md:rounded-tl-3xl">
+        {<TitleBloc txt="bloc right title" />}
+
         <div className="flex h-full gap-4 justify-center">
           <div className="bg-primary mt-10 rounded-full w-20 h-full flex items-center justify-center  text-4xl p-5 ">
             <div className="flex flex-col items-center relative -top-10 font-bold text-white">
               30
-              <p className="text-small text-white text-center ">
-                interactive learning modules
-              </p>
+              {<Cartridge txt="cartridge 1" />}
             </div>
           </div>
           <div className="bg-secondary mt-20 rounded-full w-20 h-full flex items-center justify-center text-4xl p-5">
             <div className="flex flex-col items-center relative -top-12 font-bold text-white">
               20
-              <p className="text-small text-center text-white">
-                standard learning modules
-              </p>
+              {<Cartridge txt="cartridge 2" />}
             </div>
           </div>
-          <div className="bg-warning mt-28 rounded-full w-20 h-full flex items-center justify-center text-4xl p-5">
+          <div className="bg-warning mt-28 rounded-full w-20 h-full  items-center justify-center text-4xl p-5 hidden xl:flex">
             <div className="flex flex-col items-center relative -top-10 font-bold text-white">
               10
-              <p className="text-small text-center text-white">logic modules</p>
+              {<Cartridge txt="cartridge 3" />}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute min-w-min left-0 bottom-0 bg-current h-unit-96 rounded-tr-3xl p-10  hidden w-6/12 md:block md:w-3/12">
-        <div className=" h-full flex items-center justify-center text-default text-2xl md:text-xl p-5">
+      <div className="absolute min-w-min left-0 bottom-0 bg-current h-unit-96 rounded-tr-3xl p-5  hidden w-6/12 md:block md:w-3/12">
+        <div className=" h-full flex items-start justify-center text-default text-2xl md:text-xl p-5">
           <div className="flex flex-col items-center relative font-bold">
-            <div className="absolute -top-20 -left-14 scale-150">
-              <svg width="96" height="96" viewBox="0 0 96 96">
+            <div className="absolute top-36 -left-14  md:scale-100 xl:scale-150">
+              <svg width="150" height="150" viewBox="0 0 96 96">
                 <g fill="background">
                   <path d="M18.94,69.84a4.24,4.24,0,0,0,.45-.85l0,0h0a.35.35,0,0,1,.12,0,2.32,2.32,0,0,0,.35-.14c.19-.16-.11.11-.16.28,0,0-.11-.06-.29-.08l-.11,0h0s0,0-.11,0a5.07,5.07,0,0,0-.94.3,37.51,37.51,0,0,1-3.93,1.48,6.3,6.3,0,0,1-3.1.1,4.13,4.13,0,0,1-.86-.37,2.39,2.39,0,0,1-.91-1,4.2,4.2,0,0,1,.06-3,5.36,5.36,0,0,1,.67-1.12c.3-.33.61-.65,1-1a14,14,0,0,1,3.4-2.21,9.79,9.79,0,0,0,.89-.48c.23-.14.54-.31.53-.36a.6.6,0,0,0,.16-.24.41.41,0,0,1,.07-.11l.05-.19.06-.26h0l.18,0a1.58,1.58,0,0,0,.24-.09,1.67,1.67,0,0,0-.18.32c0,.05-.06,0-.17,0a8.34,8.34,0,0,0-2.51.47c-.93.27-1.88.56-2.88.81-.63.15-.78-.36-.54-1.13a4.5,4.5,0,0,1,2-2.48,17,17,0,0,1,1.6-.75,7.57,7.57,0,0,1,2-.53,4.23,4.23,0,0,1,1.57.1,3.45,3.45,0,0,1,1.1.51,3.19,3.19,0,0,1,1,1.08,4.07,4.07,0,0,1,.5,2.15,5.2,5.2,0,0,1-.09.73,3.89,3.89,0,0,1-.19.67c-.09.25-.19.5-.3.74a6.89,6.89,0,0,1-.4.64l-.22.3C19,64,19,64,19,64l-.15.12-.26,0a7.44,7.44,0,0,0-1.12.3c-.66.21-1,.72-.91,1.14.08.21.36.19.55.15l.55-.16a6,6,0,0,1,1.31-.32c.08,0,.09,0,.45,0s.5.06.75.1a4.32,4.32,0,0,1,.77.22,3.21,3.21,0,0,1,.8.38,3.81,3.81,0,0,1,.74.61,3.64,3.64,0,0,1,.85,2.48,6.73,6.73,0,0,1-.94,3.22,6.86,6.86,0,0,1-1,1.35c-.12.11-.19.21-.34.33s-.3.24-.42.32a7.35,7.35,0,0,1-.7.39c-.73.32-1.37.51-2.11.84a5.7,5.7,0,0,0-1,.54c-.3.19-.65.52-.47.89s.57.29.9.27.7-.08,1-.12A6.17,6.17,0,0,1,19.86,77h.2l.21.09a4.17,4.17,0,0,1,.83.44,3.16,3.16,0,0,1,1.45,1.94,1.67,1.67,0,0,1-.63,1.35,4.34,4.34,0,0,1-.57.5,1.54,1.54,0,0,1-1.14.14A2.78,2.78,0,0,1,19.06,81a2.06,2.06,0,0,0-.62-.35l-.17-.07-.09,0-.3-.09a1.37,1.37,0,0,0-.7-.1c-.28,0-.53,0-.88.06a19.07,19.07,0,0,1-2,.15,6.73,6.73,0,0,1-.83-.06c-.22,0-.48-.08-.65-.13a4.51,4.51,0,0,1-.89-.34,3,3,0,0,1-.55-.3,2.92,2.92,0,0,1-.63-.53,2.51,2.51,0,0,1-.54-1.06,3.1,3.1,0,0,1-.12-1l.1-.77a2.52,2.52,0,0,1,.47-1.31,1.91,1.91,0,0,1,.37-.49c.16-.16.29-.32.47-.48l.55-.51c.23-.16.5-.31.74-.47s.53-.32.8-.48a7.87,7.87,0,0,1,.87-.46l1.87-.89.94-.46.61-.32a1.64,1.64,0,0,1,.23-.07s0,0,0,0l.25.36a7,7,0,0,0,.56.66l.15.16,0,0,0,0h0l-1.09-1.18h0l0,0a2.46,2.46,0,0,0,.72-.79Z" />
                   <path d="M23.42,66.67l.33,2.27c.07.77.16,1.53.21,2.29,0,.56.18,1.09.19,1.65a30.07,30.07,0,0,1-.59,5.85c-.13.86-.26,1.71-.38,2.56A6.87,6.87,0,0,1,22,84.43c-.23.29-.75,0-1.25-.47a2.71,2.71,0,0,1-1-1.66,40,40,0,0,1,.66-5.84,16.06,16.06,0,0,0-.14-3.72c-.06-.69-.11-1.38-.21-2.06s-.18-1.38-.31-2.07c-.13-.85-.35-1.68-.55-2.52A22,22,0,0,0,18,62.39a17.76,17.76,0,0,0-1.76-2.46c-.13-.18-.29-.33-.41-.52-.42-.7-.3-1.06.51-1.75.19-.15.36-.32.56-.46a1.55,1.55,0,0,1,1.94-.08,11.47,11.47,0,0,1,1.16,1,8.33,8.33,0,0,1,.9,1.24,17,17,0,0,1,1.36,2.78,34,34,0,0,1,1.3,4.46Z" />
@@ -158,13 +149,8 @@ const FeatureHome = () => {
                 </g>
               </svg>
             </div>
-            <p className="text-center">You are the author</p>
-            <p className="text-center">or</p>
-            <p className="text-center">
-              give your <b className="text-amber-500">learners</b> the{" "}
-              <b className="text-amber-500">power</b>
-              <b> to create</b>
-            </p>
+
+            <TitleBloc txt="bloc left title" />
           </div>
         </div>
       </div>

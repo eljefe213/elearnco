@@ -1,3 +1,4 @@
+import * as DOMPurify from 'isomorphic-dompurify';
 import { KbdKey } from "@nextui-org/react";
 import { customAlphabet } from "nanoid";
 import { ChangeEvent } from "react";
@@ -16,7 +17,7 @@ import {
 } from "schemas";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-
+const sanitizer = DOMPurify.sanitize;
 export const PATTERNS = [
   "Aare",
   "Clarence",
@@ -587,4 +588,12 @@ export const changeCursor = (newCursor: string): void => {
 
 export const resetCursor = (): void => {
   document.body.style.cssText = `cursor: default;overflow:hidden;`;
+};
+/**
+* It takes a string, sanitizes it, and returns the sanitized string
+* @param {string} str - The string to be cleaned.
+* @returns A function that takes a string and returns a sanitized string.
+*/
+export const clean = (str: string): string => {
+ return sanitizer(str);
 };

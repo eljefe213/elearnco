@@ -48,19 +48,24 @@ export const LangUI = () => {
   const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lg = DATA_FLAG.filter((flag) => flag.id === e.target.value);
     setValue(new Set([e.target.value]));
+  
     startTransition(() => {
-      router.replace(
-        pathname +
-          `?page=${currentPage}&status=${currentStatus}&folder=${currentFolder}&date=${currentDate}&order=${currentOrder}`,
-        { locale: lg[0].locale }
-      );
+      if (!pathname.includes("dashboard")) {
+        router.replace(pathname, { locale: lg[0].locale });
+      } else {
+        router.replace(
+          pathname +
+            `?page=${currentPage}&status=${currentStatus}&folder=${currentFolder}&date=${currentDate}&order=${currentOrder}`,
+          { locale: lg[0].locale }
+        );
+      }
     });
   };
   return (
     <Select
       items={DATA_FLAG}
       onChange={handleSelectionChange}
-     label="Language" 
+      label="Language"
       className="max-w-xs min-w-full"
       variant="bordered"
       color="default"
@@ -68,7 +73,7 @@ export const LangUI = () => {
       selectedKeys={value}
       defaultSelectedKeys={value}
       classNames={{
-       trigger: "min-h-unit-16",
+        trigger: "min-h-unit-16",
         listboxWrapper: "max-h-[400px]",
       }}
       renderValue={(items) => {

@@ -173,10 +173,27 @@
     "failed_to_fetch": "Api non accessible",
     "no_user_found": "Utilisateur inexistant",
     "user_exist" : "User with email already exists",
+    "error server" : "error server : databas is not ready",
     "cannot_read_properties_of_undefined_(reading_'length')": "Error"
   },
 
   "settings" : {
     "message" : "Choose your langage :"
+  },
+  "home":{
+    "title 1":"Create",
+    "title 2":"Co-create",
+    "title 3":"Share",
+    "title 4":"Engaging Learning",
+    "paragraph 1": "ElearnCo",
+    "paragraph 2": "is a platform that allows you to create",
+    "paragraph 3" :"engaging educational courses with IA",
+    "paragraph 4" :"or give your learners a hand in building them.",
+    "bloc left title": "You are the author or give your learners the power to create.",
+    "bloc right title": "Multiple modules to help you build innovative learning.",
+    "cartridge 1": "interactive learning modules",
+    "cartridge 2": "standard learning modules",
+    "cartridge 3": "logic modules"
+
   }
 }

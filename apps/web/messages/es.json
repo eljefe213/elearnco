@@ -1,174 +1,189 @@
 {
-    "auth": {
-      "signin": {
-        "title": "Content de vous revoir !",
-        "message": "Bienvenue sur Elearnco !",
-        "info": "Elearnco une <b>plateforme gratuite</b> pour produire des <b>parcours pédagogiques engageants</b>."
-      },
-      "signup": {
-        "title": "Super !",
-        "message": "Bienvenue sur Elearnco !",
-        "info": "Entrez le code à 6 chiffres reçu par email pour valider votre compte.",
-        "success": "Vous allez recevoir une email pour valider votre compte.<br/>Pensez à regarder dans vos spams..."
-      },
-      "resetpassword": {
-        "title": "Mot de passe oublié",
-        "message": "Mot de passe oublié ?",
-        "info": "Pas de panique ! On va vous aider."
-      },
-      "validation": {
-        "title": "Validation de votre compte",
-        "message": "Oh Oh, vous y êtes presque !",
-        "info": "Entrez le code à 6 chiffres reçu par email pour valider votre compte.",
+  "auth": {
+    "signin": {
+      "title": "Content de vous revoir !",
+      "message": "Bienvenue sur Elearnco !",
+      "info": "Elearnco une <b>plateforme gratuite</b> pour produire des <b>parcours pédagogiques engageants</b>."
+    },
+    "signup": {
+      "title": "Super !",
+      "message": "Bienvenue sur Elearnco !",
+      "info": "Entrez le code à 6 chiffres reçu par email pour valider votre compte.",
+      "success": "Vous allez recevoir une email pour valider votre compte.<br/>Pensez à regarder dans vos spams..."
+    },
+    "resetpassword": {
+      "title": "Mot de passe oublié",
+      "message": "Mot de passe oublié ?",
+      "info": "Pas de panique ! On va vous aider."
+    },
+    "validation": {
+      "title": "Validation de votre compte",
+      "message": "Oh Oh, vous y êtes presque !",
+      "info": "Entrez le code à 6 chiffres reçu par email pour valider votre compte.",
+      "errors": {
+        "required": ""
+      }
+    },
+    "form": {
+      "email": {
+        "label": "Email*",
+        "placeholder": "Veuillez saisir votre e-mail",
         "errors": {
-          "required": ""
-        }
-      },
-      "form": {
-        "email": {
-          "label": "Email*",
-          "placeholder": "Veuillez saisir votre e-mail",
-          "errors": {
-            "required": "Une adresse email doit être renseignée.",
-            "email": "Email invalide."
-          },
-          "help": ""
+          "required": "Une adresse email doit être renseignée.",
+          "email": "Email invalide."
         },
-        "firstname": {
-          "label": "Prénom*",
-          "placeholder": "Veuillez saisir votre prénom",
-          "errors": {
-            "required": "Ce champ est obligatoire.",
-            "min": "Trop court!",
-            "max": "Trop long!"
-          },
-          "help": ""
+        "help": ""
+      },
+      "firstname": {
+        "label": "Prénom*",
+        "placeholder": "Veuillez saisir votre prénom",
+        "errors": {
+          "required": "Ce champ est obligatoire.",
+          "min": "Trop court!",
+          "max": "Trop long!"
         },
-        "lastname": {
-          "label": "Nom*",
-          "placeholder": "Veuillez saisir votre nom",
-          "errors": {
-            "required": "Ce champ est obligatoire.",
-            "min": "Trop court!",
-            "max": "Trop long!"
-          },
-          "help": ""
+        "help": ""
+      },
+      "lastname": {
+        "label": "Nom*",
+        "placeholder": "Veuillez saisir votre nom",
+        "errors": {
+          "required": "Ce champ est obligatoire.",
+          "min": "Trop court!",
+          "max": "Trop long!"
         },
-        "password": {
-          "label": "Mot de passe*",
-          "placeholder": "Veuillez saisir votre mot de passe",
-          "errors": {
-            "required": "Un mot de passe doit être renseigné.",
-            "password": "Mot de passe invalide.",
-            "min": "Votre mot de passe doit contenir au moins 8 caractères.",
-            "max": "Votre mot de passe doit contenir au plus 50 caractères.",
-            "int": "Au moins un entier.",
-            "uppercase": "Au moins une majuscule."
-          },
-          "help": ""
+        "help": ""
+      },
+      "password": {
+        "label": "Mot de passe*",
+        "placeholder": "Veuillez saisir votre mot de passe",
+        "errors": {
+          "required": "Un mot de passe doit être renseigné.",
+          "password": "Mot de passe invalide.",
+          "min": "Votre mot de passe doit contenir au moins 8 caractères.",
+          "max": "Votre mot de passe doit contenir au plus 50 caractères.",
+          "int": "Au moins un entier.",
+          "uppercase": "Au moins une majuscule."
         },
-        "password_confirmation": {
-          "label": "Confirmation du mot de passe*",
-          "placeholder": "Veuillez confirmer votre mot de passe",
-          "error": "Les mots de passe doivent être identiques",
-          "help": ""
-        },
-        "terms": {
-          "label": "Vous devez accepter les conditions d'utilisation."
-        },
-        "preregister": {
-          "title": "Se pré-enregistrer",
-          "success": "Vous êtes pré-enregistré !",
-          "error": "Oups, essayez plus tard."
-        },
-  
-        "submit": "Soumettre",
-        "try": "Essayer à nouveau"
-      }
-    },
-  
-    "seo": {
-      "signin": {
-        "title": "S'identifier",
-        "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+        "help": ""
       },
-      "signup": {
-        "title": "S'inscrire",
-        "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+      "password_confirmation": {
+        "label": "Confirmation du mot de passe*",
+        "placeholder": "Veuillez confirmer votre mot de passe",
+        "error": "Les mots de passe doivent être identiques",
+        "help": ""
       },
-      "reset-password": {
-        "title": "Mot de passe oublié",
-        "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+      "terms": {
+        "label": "Vous devez accepter les conditions d'utilisation."
       },
-      "validation-account": {
-        "title": "Validation du compte",
-        "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+      "preregister": {
+        "title": "Se pré-enregistrer",
+        "success": "Vous êtes pré-enregistré !",
+        "error": "Oups, essayez plus tard."
       },
-      "dashboard": {
-        "title": "Elearnco | Dashboard",
-        "description": "Toutes vos activités récentes."
-      },
-      "courses": {
-        "title": "Elearnco | Dashboard",
-        "description": "Toutes vos parcours pédagogiques."
-      },
-      "default": {
-        "title": "Elearnco",
-        "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
-      }
-    },
-  
-    "sidebard": {
-      "dashboard": {
-        "dashboard": "Accueil",
-        "courses": "Mes parcours",
-        "evaluations": "Mes évaluations",
-        "users": "Mes apprenants",
-        "events": "Mes évènements",
-        "results": "Mon suivi"
-      }
-    },
-  
-    "alert": {
-      "logout": {
-        "title": "Êtes-vous sûr de vouloir vous déconnecter ?",
-        "message": "Vous êtes sur le point de vous déconnecter. Vos modifications ne seront pas enregistrées."
-      }
-    },
-  
-    "button": {
-      "close": "Fermer",
-      "open": "Ouvrir",
-      "valid": "Valider",
-      "cancel": "Annuler",
-      "confirm": "Confirmer"
-    },
-    "tooltip": {
-      "back": "Retour"
-    },
-  
-    "user": {
-      "profil": "Mon profil",
-      "settings": "Mes paramètres",
-      "logout": "Me deconnecter"
-    },
-  
-    "route": {},
-  
-    "modal": {
-      "none": {
-        "title": ""
-      },
-      "profil": {
-        "title": "Mon profil"
-      }
-    },
-  
-    "errors": {
-      "failed_to_fetch": "Api non accessible",
-      "no_user_found": "Utilisateur inexistant",
-      "user_exist" : "User with email already exists",
-      "cannot_read_properties_of_undefined_(reading_'length')": "Error"
+
+      "submit": "Soumettre",
+      "try": "Essayer à nouveau"
     }
+  },
+
+  "seo": {
+    "signin": {
+      "title": "S'identifier",
+      "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+    },
+    "signup": {
+      "title": "S'inscrire",
+      "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+    },
+    "reset-password": {
+      "title": "Mot de passe oublié",
+      "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+    },
+    "validation-account": {
+      "title": "Validation du compte",
+      "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+    },
+    "dashboard": {
+      "title": "Elearnco | Dashboard",
+      "description": "Toutes vos activités récentes."
+    },
+    "courses": {
+      "title": "Elearnco | Dashboard",
+      "description": "Toutes vos parcours pédagogiques."
+    },
+    "default": {
+      "title": "Elearnco",
+      "description": "Elearnco une plateforme gratuite pour produire des parcours pédagogiques engageants."
+    }
+  },
+
+  "sidebard": {
+    "dashboard": {
+      "dashboard": "Accueil",
+      "courses": "Mes parcours",
+      "evaluations": "Mes évaluations",
+      "users": "Mes apprenants",
+      "events": "Mes évènements",
+      "results": "Mon suivi"
+    }
+  },
+
+  "alert": {
+    "logout": {
+      "title": "Êtes-vous sûr de vouloir vous déconnecter ?",
+      "message": "Vous êtes sur le point de vous déconnecter. Vos modifications ne seront pas enregistrées."
+    }
+  },
+
+  "button": {
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "valid": "Valider",
+    "cancel": "Annuler",
+    "confirm": "Confirmer"
+  },
+  "tooltip": {
+    "back": "Retour"
+  },
+
+  "user": {
+    "profil": "Mon profil",
+    "settings": "Mes paramètres",
+    "logout": "Me deconnecter"
+  },
+
+  "route": {},
+
+  "modal": {
+    "none": {
+      "title": ""
+    },
+    "profil": {
+      "title": "Mon profil"
+    }
+  },
+
+  "errors": {
+    "failed_to_fetch": "Api non accessible",
+    "no_user_found": "Utilisateur inexistant",
+    "user_exist": "User with email already exists",
+    "error server": "error server : databas is not ready",
+    "cannot_read_properties_of_undefined_(reading_'length')": "Error"
+  },
+  "home": {
+    "title 1": "Crear",
+    "title 2": "Co-crear",
+    "title 3": "Compartir",
+    "title 4": "Aprendizaje atractivo",
+    "paragraph 1": "ElearnCo",
+    "paragraph 2": "es una plataforma que te permite crear",
+    "paragraph 3" :"atractivos cursos educativos con IA",
+    "paragraph 4" :"o ayuda a tus alumnos a construirlos.",
+    "bloc left title": "Eres el autor o das a tus alumnos el poder de crear..",
+    "bloc right title": "Múltiples módulos para ayudarle a desarrollar un aprendizaje innovador.",
+    "cartridge 1": "módulos de aprendizaje interactivos",
+    "cartridge 2": "módulos de aprendizaje estándar",
+    "cartridge 3": "módulos lógicos"
   }
-  
+}

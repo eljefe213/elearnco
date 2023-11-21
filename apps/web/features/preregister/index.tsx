@@ -118,12 +118,9 @@ const PreregisterFeature = () => {
         <Button onClick={handleOpen} size="md" color="primary">
           Pre-register
         </Button>
-        <p className="tex-2xl py-5 text-center">
-          Or
-        </p>
+        <p className="tex-2xl py-5 text-center">Or</p>
         <PreviewFeature />
       </div>
-      
     </>
   );
 };
