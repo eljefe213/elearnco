@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import { NavBarTopUI, SearchModalUI } from "ui";
+import { NavBarTopUI } from "ui";
 
 const meta = {
   title: "Components/Menu",
@@ -20,9 +20,6 @@ export default meta;
 
 export const NavBarTop = {
   render: () => (
-    <>
-      <SearchModalUI />
-      {/* <NavBarTopUI data={data} fixedInPosition={args.fixedInPosition} /> */}
-    </>
+    <> </>
   ),
 };
