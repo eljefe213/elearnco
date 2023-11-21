@@ -1,9 +1,9 @@
 "use client";
+import { ConditionalWrapper } from "@/components/ConditionalWrapperUI";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { createContext, ReactNode, useContext } from "react";
 import { SafeUser } from "schemas/auth/Auth";
-import { ConditionalWrapperUI } from "ui";
 
 export type AuthState = {
   user: SafeUser;
@@ -20,14 +20,14 @@ export default function AuthProvider({
 }) {
   return (
     <AuthContext.Provider value={{ user: session.user as SafeUser }}>
-      <ConditionalWrapperUI
+      <ConditionalWrapper
         condition={!!session}
         wrapper={(children) => (
           <SessionProvider session={session}>{children}</SessionProvider>
         )}
       >
         {children}
-      </ConditionalWrapperUI>
+      </ConditionalWrapper>
     </AuthContext.Provider>
   );
 }

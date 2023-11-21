@@ -31,7 +31,6 @@ export * from "./hotkeys/HotkeysUI";
 export * from "./layout/LayoutEditorUI";
 export * from "./editor/EditorUI";
 export * from "./help/HelpUI";
-export * from "./ConditionalWrapperUI";
 export * from "./forms/auth/ProfilUI";
 export * from "./settings/SettingsUI";
 export * from "./archive/ArchiveUI";

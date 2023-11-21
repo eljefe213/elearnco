@@ -65,7 +65,7 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    // Add user data to token
+  
     async jwt({ token, user, trigger, session }) {
       if (trigger === "update" && session) {
         const user = await prisma.user.update({
@@ -110,6 +110,6 @@ export async function getServerUser() {
   const session = await getServerSession();
   const user = session?.user as SafeUser;
 
-  if (!user) redirect(`/${ERoutes.SIGN}`);
+  if (!user) redirect(`/${ERoutes.WELCOME}`);
   return user;
 }

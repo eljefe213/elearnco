@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from "react";
 
-export const ConditionalWrapperUI = ({
+export const ConditionalWrapper = ({
   condition,
   wrapper,
   children,
