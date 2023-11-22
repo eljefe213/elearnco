@@ -1,3 +1,4 @@
+
 import { JSXElementConstructor, ReactElement } from "react";
 import { Resend } from "resend";
 
@@ -18,6 +19,7 @@ export const sendEmail = async ({
   marketing?: boolean;
   test?: boolean;
 }) => {
+  console.log(resend)
   if (!resend) {
     console.log(
       "Resend is not configured. You need to add a RESEND_API_KEY in your .env file for emails to work."

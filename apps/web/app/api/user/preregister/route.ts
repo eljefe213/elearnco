@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
     await sendEmail({
       email: data.email,
-      subject: "Pre-registerd to Elearnco",
+      subject: "Pre-registered to Elearnco",
       react: PregisterEmail({
         email: data.email,
       }),
