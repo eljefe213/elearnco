@@ -26,10 +26,10 @@ export const sendEmail = async ({
     return Promise.resolve();
   }
  
-  console.log('send to email',email)
+
   try {
 
-    const data = await resend.emails.send({
+    const { data, error }  = await resend.emails.send({
       from: marketing
         ? "laurent.heneman@edukeasy.com"
         : "laurent.heneman@edukeasy.com",
@@ -38,9 +38,15 @@ export const sendEmail = async ({
       react,
     });
     console.log("sucess",data)
-    return Promise.resolve("Success");
-  } catch (err) {
-    console.log("Error sending", err);
-    Promise.resolve(err);
+    console.log(error)
+    if (error) {
+      return  Promise.resolve(error);
+    } else {
+      return Promise.resolve("Success");
+    }
+    
+  } catch (error) {
+    console.log("Error sending", error);
+    Promise.resolve(error);
   }
 };
