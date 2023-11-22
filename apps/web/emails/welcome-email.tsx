@@ -59,7 +59,7 @@ export default function WelcomeEmail({
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-gray-200 px-10 py-5">
             <Section className="mt-8">
               <Img
-                src="https://res.cloudinary.com/dx65nxpkq/image/upload/t_media_lib_thumb/v1692740777/logo_edukeasy_ukptzb.jpg"
+                src="https://res.cloudinary.com/dx65nxpkq/image/upload/v1700661141/logo_elearnco_t355te.jpg"
                 width="152"
                 height="48"
                 alt="Elearnco"

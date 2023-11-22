@@ -48,7 +48,7 @@ export default function PreregisterEmail({ email = "" }: { email: string }) {
           <Container className="mx-auto my-10 max-w-[500px] rounded border border-solid border-gray-200 px-10 py-5">
             <Section className="mt-8">
               <Img
-                src="https://res.cloudinary.com/dx65nxpkq/image/upload/t_media_lib_thumb/v1692740777/logo_edukeasy_ukptzb.jpg"
+                src="https://res.cloudinary.com/dx65nxpkq/image/upload/v1700661141/logo_elearnco_t355te.jpg"
                 width="152"
                 height="48"
                 alt="Elearnco"
@@ -68,7 +68,7 @@ export default function PreregisterEmail({ email = "" }: { email: string }) {
               />
             </Section>
             <Text className="text-sm leading-6 text-black">
-              Thanks for your registration !
+              Thanks for your pre-registration !
             </Text>
             <Text className="text-sm leading-6 text-black">
               Elearnco is an open source educational platform
@@ -91,7 +91,7 @@ export default function PreregisterEmail({ email = "" }: { email: string }) {
             </Text>
 
             <Text className="text-sm leading-6 text-black">
-              Let me know if you have any questions or feedback. I'm always
+              Let us know if you have any questions or feedback. We are always
               happy to help!
             </Text>
             <Hr style={hr} />
