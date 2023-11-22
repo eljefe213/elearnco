@@ -15,7 +15,7 @@ import { pathApiCourse, pathApiCourses } from "./course";
 import { pathApiUser } from "./user";
 import { SafeUser } from "schemas/auth/Auth";
 
-//process.env.PRODUCTION_URL
+//process.env.PRODUCTION_URL"https://elearnco-web.vercel.app"
 const SERVER_ENDPOINT = "https://elearnco-web.vercel.app" || "http://localhost:3000";
 async function handleResponse<T>(response: Response): Promise<T> {
   const contentType = response.headers.get("Content-Type") || "";
