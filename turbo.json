@@ -14,7 +14,8 @@
     "FACEBOOK_CLIENT_SECRET",
     "VERCEL_URL",
     "NEXTAUTH_SECRET",
-    "UNSPLASH_KEY"
+    "UNSPLASH_KEY",
+    "RESEND_API_KEY"
   ],
   "pipeline": {
     "build": {

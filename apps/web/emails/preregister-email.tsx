@@ -61,19 +61,19 @@ export default function PreregisterEmail({ email = "" }: { email: string }) {
             <Section className="my-8">
               <Img
                 src="http://res.cloudinary.com/dx65nxpkq/image/upload/t_media_lib_thumb/v1692772540/avatar_1_c9w31h.jpg"
-                alt="Laurent"
+                alt="Elearnco"
                 width="70"
                 height="70"
                 className="mx-auto my-0"
               />
             </Section>
             <Text className="text-sm leading-6 text-black">
-              Thanks for signing up !
+              Thanks for your registration !
             </Text>
             <Text className="text-sm leading-6 text-black">
-              My name is Heneman, and i'm the founder of Elearnco - The platform
+              Elearnco is an open source educational platform
               that allows you to create engaging educational paths and give your
-              learners a hand in creating their content. I'm excited to have you
+              learners a hand in creating their content. We are excited to have you
               on board!
             </Text>
             <Text className="text-sm leading-6 text-black">
@@ -96,7 +96,7 @@ export default function PreregisterEmail({ email = "" }: { email: string }) {
             </Text>
             <Hr style={hr} />
             <Text className="text-sm font-light leading-6 text-gray-400">
-              Laurent from Edukeasy
+              Team from Elearnco
             </Text>
           </Container>
         </Body>
