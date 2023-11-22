@@ -17,7 +17,6 @@ export async function POST(request: Request) {
   try {
     await prisma.preregisteredUser.create({ data: new_registered });
 
-    
     await sendEmail({
       email: data.email,
       subject: "Pre-registerd to Elearnco",
