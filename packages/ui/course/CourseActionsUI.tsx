@@ -1,12 +1,12 @@
 "use client";
-import { Course,Folder } from "database";
+import { Folder } from "database";
 import {
   createCourseFromApi,
   deleteCourseFromApi,
   updateCourseFromApi,
 } from "lib";
 import React, { FormEvent, useEffect } from "react";
-import { CourseStatus, EActionsCourse, EActionsCourseInDrop } from "schemas";
+import { CourseStatus, EActionsCourse, EActionsCourseInDrop, TotalCourse } from "schemas";
 import { useCoursesStore, useDisabledStore } from "store";
 
 const MessageToArchiveCourse = ({
@@ -152,10 +152,9 @@ const MessageToDuplicateCourse = ({
   const onSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const data = courses.courses.find((c) => c.id === _id);
-    const { id, folder, updatedAt, createdAt, author, ...rest } = data as unknown as Course & Folder;
+    const { id, folder, updatedAt, createdAt, author, ...rest } = data as unknown as TotalCourse & Folder;
     const newCourse = await createCourseFromApi(rest);
-    const { course } = newCourse as Course;
-    courses.addCourse(course);
+    courses.addCourse(newCourse as TotalCourse);
     onBeginDisabled();
     onClose();
   };
