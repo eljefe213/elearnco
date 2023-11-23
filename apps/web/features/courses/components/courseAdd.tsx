@@ -9,7 +9,7 @@ import { AddCardUI } from "ui";
 const CourseAdd = () => {
   const modalStore = useGlobalModalStore();
   const { getCurrentStatus } = useCoursesParams();
-  useHotkeys([[EActionskeysCourse.ADD, () => openModal()]]);
+  useHotkeys([[EActionskeysCourse.ADD, ():void => openModal()]]);
 
   const STATUS = getCurrentStatus();
 

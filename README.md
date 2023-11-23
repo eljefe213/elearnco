@@ -20,6 +20,7 @@
 
 Elearnco is an open source platform for creating learning paths by simply dragging and dropping.
 This is in development and it is not recommended to use it in production at this time.
+⚠ WORK IN PROGRESS ⚠
 
 ### <a id="prerequisites" href="#prerequisites">Prerequisites</a>
 
@@ -69,6 +70,12 @@ $ yarn install
 You can use the storybook for adding or creating UI/UX components and add them to Elearnco.
 ![story_1](https://i.imgur.com/eXHzd9z.png)
 
+## React Email
+
+You can preview your emails.
+![Capture d’écran 2023-11-23 à 14.59.33](https://i.imgur.com/UerdFo9.png)
+
+
 ### <a id="access" href="#access">Access the Applications and services</a>
 
 
@@ -78,7 +85,8 @@ You can use the storybook for adding or creating UI/UX components and add them t
   - URL: *https://localhost:6006*
 - **Database - Prisma - Studio**
   - URL: *https://localhost:5555*
-
+- **Preview Email - React Email**
+  - URL: *https://localhost:3002*
 
 ### Check version packages to update
 

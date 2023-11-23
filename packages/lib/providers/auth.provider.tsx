@@ -1,5 +1,5 @@
 "use client";
-import { ConditionalWrapper } from "@/components/ConditionalWrapperUI";
+import { ConditionalWrapper } from "@/components/conditionalWrapper";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { createContext, ReactNode, useContext } from "react";

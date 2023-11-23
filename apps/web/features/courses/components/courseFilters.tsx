@@ -8,6 +8,8 @@ import { IconUI } from "ui/icon/IconUI";
 import { DATA_DATE, DATA_STATUS, DATA_TITLE } from "@/const";
 
 import FolderFilter from "./folderFilter";
+//TODO - TRANSLATION
+//TODO - ADD SEARCH BY TITLE
 
 const CourseFilters = () => {
   const {
@@ -78,7 +80,7 @@ const CourseFilters = () => {
     [currentStatus, currentFolder, currentDate]
   );
 
-  const changeHandlerDate = useCallback((value: string) => {
+  const changeHandlerDate = useCallback((value: string):void => {
     const course = DATA_DATE.filter((item) => value === item.id);
     if (course.length > 0) {
       updateSearchParams(
@@ -91,7 +93,7 @@ const CourseFilters = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between w-full h-16 sticky top-0 z-50 backdrop-blur-sm">
+    <div className="flex items-center justify-between w-full h-16 sticky z-50 backdrop-blur-sm">
       <div className="flex gap-2 items-center justify-start">
         <SelectUI
           data={DATA_STATUS}

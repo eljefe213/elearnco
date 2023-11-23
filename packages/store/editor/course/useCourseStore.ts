@@ -5,11 +5,11 @@ import { create } from "zustand";
 import { Course } from "database";
 import { Page } from "database";
 
-type Tpages = {pages:Page[]}
-type CourseExtend = Course & Tpages
+type Tpages = { pages: Page[] };
+type CourseExtend = Course & Tpages;
 
 interface State {
-  course:  CourseExtend;
+  course: CourseExtend;
   pages: Page[];
   isLoading: boolean;
   error: unknown;
@@ -25,7 +25,7 @@ interface Actions {
   addPage: () => void;
   deletePage: (page: number) => void;
   updatePage: (page: number) => void;
-  duplicatePage: (page: number) => void
+  duplicatePage: (page: number) => void;
 }
 
 // Initialize a default state
@@ -52,7 +52,9 @@ export const useCourseStore = create<State & Actions>((set, get) => ({
   fetchData: async (numPage: number, id: string): Promise<void> => {
     try {
       set({ isLoading: true, error: null });
-      const response = await fetch(`/api/${ERoutes.COURSE}/${id}?page=${numPage}`);
+      const response = await fetch(
+        `/api/${ERoutes.COURSE}/${id}?page=${numPage}`
+      );
       const { data } = await response.json();
 
       set({
@@ -68,7 +70,6 @@ export const useCourseStore = create<State & Actions>((set, get) => ({
     }
   },
 
- 
   //NOTE -  we need to update the image course only if banner !==""
   updateBanner: async (banner) => {
     const currentIdCourse = get().course.id;
@@ -92,26 +93,26 @@ export const useCourseStore = create<State & Actions>((set, get) => ({
     });
     try {
       const page = await apiCreatePage(pageData);
+      const pages = [...get().course.pages]
+      set((state) => ({ ...state, ...{pages:[...pages,page]}  }));
       toast.success("page created successfully !");
-      return page;
+    
     } catch (error: any) {
       toast.error(error);
     }
   },
 
-  updatePage: async():Promise<void> => {
+  updatePage: async (): Promise<void> => {},
+  duplicatePage: async (): Promise<void> => {},
 
-  },
-  duplicatePage:async():Promise<void>=>{
-
-  },
-
-  
-  deletePage: async (page):Promise<void> => {
+  deletePage: async (page): Promise<void> => {
     const pages = get().course.pages;
     const pageFinded = pages[page - 1];
+    const pageFindedId = pageFinded.id;
     try {
-      const page = await apiDeletePage(pageFinded.id);
+      const pages = await apiDeletePage(pageFindedId);
+
+      //set((state) => ({ ...state, ...{ ...pages } }));
       toast.success("page deleted successfully !");
     } catch (error) {
       toast.error("error");

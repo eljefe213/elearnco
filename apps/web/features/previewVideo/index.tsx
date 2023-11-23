@@ -31,9 +31,7 @@ const PreviewFeature = () => {
         <ModalContent>
           {() => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Preview
-              </ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Preview</ModalHeader>
               <ModalBody>
                 <Plyr
                   ref={ref}

@@ -28,6 +28,7 @@ const PreregisterFeature = () => {
   const te = useTranslations("errors");
   const SUCCESS = t("auth.form.preregister.success");
   const TITLE = t("auth.form.preregister.title");
+  const PREVIEW_IS_READY = false;
 
   const [isLoading, setLoading] = useState<boolean>(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -118,8 +119,12 @@ const PreregisterFeature = () => {
         <Button onClick={handleOpen} size="md" color="primary">
           Pre-register
         </Button>
-        <p className="tex-2xl py-5 text-center">Or</p>
-        <PreviewFeature />
+        {PREVIEW_IS_READY && (
+          <>
+            <p className="tex-2xl py-5 text-center">Or</p>
+            <PreviewFeature />
+          </>
+        )}
       </div>
     </>
   );

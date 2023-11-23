@@ -73,7 +73,7 @@ export const LangUI = () => {
       selectedKeys={value}
       defaultSelectedKeys={value}
       classNames={{
-        trigger: "min-h-unit-16",
+        trigger: "min-h-unit-12",
         listboxWrapper: "max-h-[400px]",
       }}
       renderValue={(items) => {

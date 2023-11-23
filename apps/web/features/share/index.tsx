@@ -2,6 +2,9 @@ import { Spinner, Tab, Tabs } from "@nextui-org/react";
 import dynamic from "next/dynamic";
 import { IconUI } from "ui/icon/IconUI";
 
+//TODO - TRANSLATIONS
+//NOTE - FAKE DATAS
+
 const DynamicShareWithTrainers = dynamic(
   () => import("ui/share/ShareWithTrainerUI"),
   {
@@ -24,7 +27,7 @@ const ShareWith = () => {
           title={
             <div className="flex items-center space-x-2">
               <IconUI width={22} height={22} name="trainer" />
-              <span>Avec mes collègues</span>
+              <span>With my colleagues</span>
             </div>
           }
         >
@@ -35,7 +38,7 @@ const ShareWith = () => {
           title={
             <div className="flex items-center space-x-2">
               <IconUI width={22} height={22} name="learner" />
-              <span>Avec mes apprenants</span>
+              <span>With my learners</span>
             </div>
           }
         >

@@ -32,15 +32,6 @@ const DATA_FOLDERS = [
   },
 ];
 
-/* const DATA_DATES = [{
-    id: 1,
-    label: 'Recently updated',
-    value : "RECENT"
-},{
-    id: 2,
-    label: 'Creation date',
-    value : "DEFAULT"
-}] */
 const meta = {
   title: "Components/Select",
   component: SelectUI,
@@ -72,7 +63,7 @@ interface IProps {
 type TLabelPlacement = "inside" | "outside" | "outside-left";
 export const Select = {
   render: (args: IProps) => (
-    <>
+    <div className="p-2">
       <SelectUI
         onChange={args.onChange}
         data={DATA_STATUS}
@@ -89,6 +80,6 @@ export const Select = {
         labelPlacement={args.labelPlacement}
         selectedKey={""}
       />
-    </>
+    </div>
   ),
 };

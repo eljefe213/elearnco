@@ -52,7 +52,6 @@ export const LibraryUI = (props: IProps) => {
   const _handleSearch = async (query: string): Promise<void> => {
     setIsLoading(true);
     setSearch(query);
-    console.log(unsplashApi);
     if (unsplashApi) {
       const [fetchedPhotos, fetchedTotalPages] = await unsplashApi.searchPhotos(
         query,
@@ -61,7 +60,6 @@ export const LibraryUI = (props: IProps) => {
       );
 
       setMedias(fetchedPhotos);
-      console.log(fetchedPhotos);
       setTotalPages(fetchedTotalPages);
     } else {
       setError("error");

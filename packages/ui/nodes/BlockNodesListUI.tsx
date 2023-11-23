@@ -105,13 +105,11 @@ export const BlockNodesListUI = (props: IProps): JSX.Element => {
     setDraggedBlockType(undefined);
   };
 
-  //EVENT MOUSE FOR A BLOCK IN A GROUP BLOCKS
   useEventListener("mousemove", handleMouseMoveGlobal);
   useEventListener("mouseup", () => {
     setDraggedBlock(undefined);
     setDraggedBlockType(undefined);
   });
-  // Detect mousemove event when dragging label from drawer component (groupeRef is the super parent of group)
   useEventListener("mousemove", handleMouseMoveOnGroup, groupRef);
   useEventListener("mouseup", handleMouseUpOnGroup, groupRef, {
     capture: true,

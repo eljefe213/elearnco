@@ -8,10 +8,7 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-  argTypes: {
-    //authSignin : { action :'Signin-Submit'},
-    //authSignup : { action :'Signup-Submit'}
-  },
+  argTypes: {},
 } satisfies Meta<typeof AddCourseUI>;
 
 export default meta;

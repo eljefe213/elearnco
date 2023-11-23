@@ -22,7 +22,7 @@ export function Providers({
           <Next13ProgressBar
             height="4px"
             color="#0A2FFF"
-            options={{ showSpinner: true }}
+            options={{ showSpinner: false }}
             showOnShallow
           />
           {children}

@@ -41,7 +41,6 @@ export const SelectUI = (props: IProps) => {
 
   return (
     <Select
-   
       isRequired={isRequired}
       items={data}
       label={label}
@@ -52,7 +51,7 @@ export const SelectUI = (props: IProps) => {
       classNames={{
         label: "group-data-[filled=true]:-translate-y-5",
         base: "max-w-xs w-auto",
-        trigger: "min-h-unit-16 h-12 bg-default-50",
+        trigger: "min-h-unit-12 h-12 bg-default-50",
       }}
       style={{
         width: "12.5rem",
@@ -62,7 +61,6 @@ export const SelectUI = (props: IProps) => {
       defaultSelectedKeys={selectedValue}
       selectedKeys={selectedValue}
       disabledKeys={selectedValue}
-      
       renderValue={(items: SelectedItems<any>) => {
         return items.map((item) => (
           <div key={item.data.id} className="flex items-center gap-2">
@@ -87,7 +85,6 @@ export const SelectUI = (props: IProps) => {
         <SelectItem
           key={item?.id}
           textValue={capitalizeFirstLetterOfEachWord(item.name)}
-          
         >
           <div className="flex gap-2 items-center">
             {hasAvatar ? (

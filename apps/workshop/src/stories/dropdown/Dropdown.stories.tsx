@@ -22,13 +22,13 @@ const defaultChild = (
 
 export const Dropdown = {
   render: () => (
-    <>
+    <div className="p-2">
       <DropdownUI showArrow data={dataWithSection}>
         {defaultChild}
       </DropdownUI>
       <DropdownUI showArrow data={dataWithNoSection}>
         {defaultChild}
       </DropdownUI>
-    </>
+    </div>
   ),
 };

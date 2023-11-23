@@ -5,6 +5,7 @@ export interface IProps {
   height?: number;
   color?: string;
   className?: string;
+  isBlack?: boolean;
 }
 
 export const LogoSymbolUI = (props: IProps) => {

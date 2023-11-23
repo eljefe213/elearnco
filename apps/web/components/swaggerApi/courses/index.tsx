@@ -12,6 +12,7 @@ import {
 } from "lib";
 import { useState } from "react";
 import { CourseMode, CourseStatus, CourseType } from "schemas";
+
 import { generateTitle, setBlock, setSchema } from "../components";
 import { CLASSNAME_BLOCK } from "../const";
 

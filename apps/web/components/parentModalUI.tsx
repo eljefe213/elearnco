@@ -14,7 +14,15 @@ import { useGlobalModalStore } from "store";
 import { ModalFooterUI } from "ui";
 import { Ebackdrop, EPlacement, GlobalModalUI } from "ui/modals/GlobalModalUI";
 
+const DynamicProfil = dynamic(() => import("ui/forms/auth/ProfilUI"), {
+  loading: () => <Spinner />,
+});
+
 const DynamicTips = dynamic(() => import("./tips"), {
+  loading: () => <Spinner />,
+});
+
+const DynamicHelp = dynamic(() => import("ui/help/HelpUI"), {
   loading: () => <Spinner />,
 });
 
@@ -26,20 +34,15 @@ const DynamicAddCourse = dynamic(() => import("ui/forms/course/AddCourseUI"), {
   loading: () => <Spinner />,
 });
 
-//TODO: Rename UI
-const DynamicArchive = dynamic(() => import("ui/archive/ArchiveUI"), {
-  loading: () => <Spinner />,
-});
-const DynamicHelp = dynamic(() => import("ui/help/HelpUI"), {
-  loading: () => <Spinner />,
-});
-const DynamicSettings = dynamic(() => import("ui/settings/SettingsUI"), {
-  loading: () => <Spinner />,
-});
-const DynamicProfil = dynamic(() => import("ui/forms/auth/ProfilUI"), {
+const DynamicArchive = dynamic(() => import("ui/course/CourseActionsUI"), {
   loading: () => <Spinner />,
 });
 
+const DynamicSettings = dynamic(() => import("ui/settings/SettingsUI"), {
+  loading: () => <Spinner />,
+});
+
+//
 const DynamicMediaFomService = dynamic(
   () => import("ui/media/fromservice/LibraryUI"),
   {
@@ -56,18 +59,12 @@ export const ParentModalUI = () => {
     if (action === (EActionsUser.EDIT_PROFIL as string)) {
       return <DynamicProfil action={EActionsUser.EDIT_PROFIL} />;
     }
-    //TODO - REFACTOR THIS PART AND RENAME ARCHIVE TO STANDARD
-    if (action === (EActionsCourseInDrop.ARCHIVE as string)) {
-      return <DynamicArchive onClose={onClose} {...data} />;
-    }
-    if (action === (EActionsCourseInDrop.DELETE as string)) {
-      return <DynamicArchive onClose={onClose} {...data} />;
-    }
-    if (action === (EActionsCourseInDrop.DUPLICATE as string)) {
-      return <DynamicArchive onClose={onClose} {...data} />;
-    }
-
-    if (action === (EActionsCourse.UNARCHIVE as string)) {
+    if (
+      action === (EActionsCourseInDrop.ARCHIVE as string) ||
+      action === (EActionsCourseInDrop.DELETE as string) ||
+      action === (EActionsCourseInDrop.DUPLICATE as string) ||
+      action === (EActionsCourse.UNARCHIVE as string)
+    ) {
       return <DynamicArchive onClose={onClose} {...data} />;
     }
 
@@ -75,7 +72,7 @@ export const ParentModalUI = () => {
       return <DynamicTips onClose={onClose} />;
     }
     if (action === EActionsMenuShortcuts.FEATURES) {
-      return <p>Features in progress</p>;
+      return <>{action}</>;
     }
 
     if (action === (EActionsCourse.ADD as string)) {
@@ -105,10 +102,10 @@ export const ParentModalUI = () => {
       );
     }
     if (action === (EActionsMedia.ADD_FROM_LIBRARY as string)) {
-      return <>EActionsMedia.ADD_FROM_LIBRARY</>;
+      return <>{action}</>;
     }
     if (action === (EActionsMedia.ADD_FROM_USER as string)) {
-      return <>EActionsMedia.ADD_FROM_USER</>;
+      return <>{action}</>;
     }
     return <></>;
   }, [action, data, onClose]);
@@ -131,7 +128,10 @@ export const ParentModalUI = () => {
     if (action === (EActionsMedia.ADD_FROM_SERVICE as string)) {
       return "2xl";
     }
-    if (action === EActionsPage.PREVIEW as string || action === EActionsPage.REORDER as string) {
+    if (
+      action === (EActionsPage.PREVIEW as string) ||
+      action === (EActionsPage.REORDER as string)
+    ) {
       return "full";
     }
     return "md";

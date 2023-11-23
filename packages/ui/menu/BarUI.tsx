@@ -13,10 +13,10 @@ export const BarUI = (props: IProps): JSX.Element => {
   const { fixedInPosition = "top", children, position = "fixed" } = props;
 
   const getPosition = useMemo((): string => {
-    if (fixedInPosition === "top") return "top-0";
-    if (fixedInPosition === "bottom") return "bottom-0";
-    if (fixedInPosition === "left") return "left-0";
-    if (fixedInPosition === "right") return "right-0";
+    if (fixedInPosition === "top") return "top-0 left-0";
+    if (fixedInPosition === "bottom") return "bottom-0 left-0";
+    if (fixedInPosition === "left") return "left-0 top-0";
+    if (fixedInPosition === "right") return "right-0 top-0";
     return "top-0";
   }, []);
   const orientation = useMemo((): string => {
@@ -36,8 +36,10 @@ export const BarUI = (props: IProps): JSX.Element => {
   }, []);
 
   return (
-    <div className={`${position} ${getPosition} ${dimension} px-2 z-50`}>
-      <div className={`flex py-2 ${dimension}`}>
+    <div
+      className={`${position} ${getPosition} ${dimension} z-50 bg-background`}
+    >
+      <div className={`flex ${dimension}`}>
         <div
           className={`flex bg-background rounded-full p-2 gap-2 ${orientation}`}
         >

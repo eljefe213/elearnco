@@ -15,5 +15,3 @@ export const BannerWithCollaboration = () => {
 
   return <BannerUI setBanner={setBanner} bannerT={banner} isHidden={false} />;
 };
-// const { doc } = useCollaboration();
-//const [block, setBlock] = useYMapItem<any[]>(doc?.getMap("page"), "bloc");

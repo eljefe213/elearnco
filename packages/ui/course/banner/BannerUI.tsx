@@ -11,16 +11,15 @@ import {
   TPoint,
 } from "schemas";
 import { useCourseStore, useGlobalModalStore } from "store";
-
-import { GoupeButtonUI } from "../button/groupeButton/GroupeButtonUI";
-import { IconUI } from "../icon/IconUI";
+import { GoupeButtonUI } from "../../button/groupeButton/GroupeButtonUI";
+import { IconUI } from "../../icon/IconUI";
 
 interface IProps {
   isHidden: boolean;
   bannerT?: string | null;
   setBanner?: (path: string) => void;
 }
-
+//FIXME - CALCULS && RESPONSIVE
 const BACKGROUND_NO_IMAGE = {
   backgroundColor: "#c084fc1a",
   backgroundImage:
@@ -31,7 +30,7 @@ const BACKGROUND_NO_IMAGE = {
 type mode = "fill" | "fit";
 
 export const BannerUI = (props: IProps) => {
-  const { isHidden = false, bannerT, setBanner } = props;
+  const { bannerT, setBanner } = props;
   const { onOpen } = useGlobalModalStore();
   const { banner, updateBanner } = useCourseStore();
   const { width } = useWindowSize();
@@ -81,7 +80,6 @@ export const BannerUI = (props: IProps) => {
 
     if (isDragging.current || !isMoving) return;
     isDragging.current = true;
-    //setIsDraging(isDraging=>!isDraging)
     let _event;
     let clientY = 0;
     event.preventDefault();
@@ -103,14 +101,14 @@ export const BannerUI = (props: IProps) => {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const handleMouseMove = (event: MouseEvent): void => {
+  const handleMouseMove = (event: MouseEvent | TouchEvent): void => {
     if (!isDragging.current || !RefImage.current) return;
     event.preventDefault();
 
     let _event;
     let clientY = 0;
     if (event.type === "mousemove") {
-      _event = event;
+      _event = event as MouseEvent;
       clientY = _event.clientY;
     } else {
       _event = event as unknown as TouchEvent;
@@ -130,13 +128,13 @@ export const BannerUI = (props: IProps) => {
     });
   };
 
-  const handleMouseUp = (event): void => {
+  const handleMouseUp = (event: MouseEvent | TouchEvent): void => {
     if (!isDragging.current || !isMoving) return;
     isDragging.current = false;
     let _event;
     let clientY = 0;
     if (event.type === "mouseup") {
-      _event = event;
+      _event = event as MouseEvent;
       clientY = _event.clientY;
     } else {
       _event = event as unknown as TouchEvent;
@@ -295,7 +293,7 @@ export const BannerUI = (props: IProps) => {
                 <img
                   style={{
                     height: "calc(100% - 32px)",
-                   /*  objectFit: "contain",
+                    /*  objectFit: "contain",
                     maxWidth: "unset", */
                   }}
                   src={BANNER_COURSE}

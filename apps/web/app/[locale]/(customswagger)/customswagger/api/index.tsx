@@ -1,7 +1,7 @@
 "use client";
 import "react-json-editor-ui/dist/react-json-editor-ui.cjs.development.css";
 
-import { Spinner,Tab, Tabs } from "@nextui-org/react";
+import { Spinner, Tab, Tabs } from "@nextui-org/react";
 import dynamic from "next/dynamic";
 
 const DynamicFolders = dynamic(
@@ -21,7 +21,7 @@ const DynamicUsers = dynamic(() => import("@/components/swaggerApi/users"), {
   loading: () => <Spinner />,
 });
 
-const CustomSwager = () => {
+const CustomSwagger = () => {
   return (
     <div className="bg-white p-4 min-h-screen">
       <Tabs aria-label="Api">
@@ -31,15 +31,15 @@ const CustomSwager = () => {
         <Tab key="Courses" title="Courses">
           <DynamicCourses />
         </Tab>
-        <Tab key="Pages" title="Pages"></Tab>
-        <Tab key="Blocks" title="Blocks"></Tab>
+        <Tab key="Pages" title="Pages" />
+        <Tab key="Blocks" title="Blocks" />
         <Tab key="Folders" title="Folders">
           <DynamicFolders />
         </Tab>
-        <Tab key="Images" title="Images"></Tab>
+        <Tab key="Images" title="Images" />
       </Tabs>
     </div>
   );
 };
 
-export default CustomSwager;
+export default CustomSwagger;

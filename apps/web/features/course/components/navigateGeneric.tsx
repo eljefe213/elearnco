@@ -57,21 +57,21 @@ export const PaginationGeneric = ({
     if (action === EActionsPage.DELETE) {
       if (totalPages > 1) _deletePage(currentPage);
     } else if (action === EActionsPage.DUPLICATE) {
-      alert("DUPLICATE PAGE: " + currentPage);
-    } else if (action === EActionsPage.PREVIEW) {
-      modalStore.onOpen(action);
-    } else if (action === EActionsPage.REORDER) {
+      //("DUPLICATE PAGE: " + currentPage);
+    } else if (
+      action === EActionsPage.PREVIEW ||
+      action === EActionsPage.REORDER ||
+      action === EActionsCourse.SHARE
+    ) {
       modalStore.onOpen(action);
     } else if (action === EActionsPage.VALIDATE) {
       updatePage(currentPage);
     } else if (action === EActionsCourse.PREVIEW) {
       router.push(`/preview/${courseID}`);
-    } else if (action === EActionsCourse.SHARE) {
-      modalStore.onOpen(action);
     }
   };
 
-  const addPageComponent = (): JSX.Element => (
+  const addPageComponent = () => (
     <Tooltip content="Add page">
       <Button
         radius="full"
@@ -86,7 +86,7 @@ export const PaginationGeneric = ({
     </Tooltip>
   );
 
-  const settingsPageComponent = (): JSX.Element => {
+  const settingsPageComponent = () => {
     return (
       <DropdownUI
         showArrow={false}
@@ -117,6 +117,7 @@ export const PaginationGeneric = ({
       fixedInPosition="bottom"
       onChange={_gotoPage}
       classnames="z-50"
+     
     >
       {addPageComponent()}
       {settingsPageComponent()}
@@ -136,7 +137,7 @@ export const PaginationWithCollaboration = ({
   const { doc } = useCollaboration();
   const [block] = useYMapItem<CompleteBlock[]>(doc?.getMap("page"), "bloc");
   //TODO: ADD TYPES INSTEAD OF any[]
-  const _testpage = 0//block && block.pages ? block.pages.length : null;
+  const _testpage = 0; //block && block.pages ? block.pages.length : null;
 
   return (
     <PaginationGeneric

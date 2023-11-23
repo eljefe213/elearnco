@@ -15,6 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Breadcrumb = {
   render: () => (
-    <div className="flex gap-4">{/* <BreadcrumbUI><></></BreadcrumbUI> */}</div>
+    <div className="flex gap-4">
+      <BreadcrumbUI />
+    </div>
   ),
 } as unknown as Story;

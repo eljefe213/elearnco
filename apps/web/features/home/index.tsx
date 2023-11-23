@@ -37,6 +37,7 @@ const FeatureHome = () => {
   const t = useTranslations();
 
   useEffect(() => {
+    
     if (theme) setTheme(theme);
   }, [theme]);
 

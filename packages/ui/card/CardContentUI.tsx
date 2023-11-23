@@ -1,44 +1,43 @@
-"use client";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Chip,
+  Divider,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Image,
+  Tooltip,
+} from "@nextui-org/react";
+import { IconUI } from "../icon/IconUI";
+import {
+  CourseMode,
+  CourseStatus,
+  CourseType,
+  EActionsCourse,
+  EActionsCourseInDrop,
+  EActionsCourseInFooterCard,
+} from "schemas";
 
-import { useRouter } from "next13-progressbar";
-import { useCallback } from "react";
-import { EActionsCourseInFooterCard, ERoutes, TotalCourse } from "schemas";
-import { CardContentUI } from "./CardContentUI";
-import { useGlobalModalStore } from "../../store";
-import { checkHttps } from "lib/utils";
-
-//TODO: USE UI DROPDOWN !!
-export const CardUI = (props: TotalCourse): JSX.Element => {
+export const CardContentUI = (props: any) => {
   const {
-    image,
-    title = "Title",
-    id = "id",
+    actionHandler,
+    banner,
+    title,
+    description,
+    mode,
+    status,
+    type,
+    updatedAt,
+    author,
   } = props;
 
-  const router = useRouter();
-  const modalStore = useGlobalModalStore();
-
-  const actionHandler = useCallback((action: string) => {
-    if (action === EActionsCourseInFooterCard.EDIT) {
-      router.push(`/${ERoutes.EDITOR}/${id}?page=${1}`);
-      return;
-    }
-    if (action === EActionsCourseInFooterCard.PREVIEW) {
-      router.push(`/${ERoutes.PREVIEW} /${id}?page=${1}`);
-      return;
-    }
-
-    modalStore.onOpen(action, { id: id, title: title, action: action });
-  }, []);
-
-  const BANNER_COURSE = checkHttps(image) ? image : `/patterns/${image}.svg`;
-  
-
-  return <CardContentUI banner={BANNER_COURSE} {...props} actionHandler={actionHandler} />;
-};
-
-{
-  /* <div className="relative flex justify-center items-center">
+  return (
+    <div className="relative flex justify-center items-center">
       {status === CourseStatus.ARCHIVED ? (
         <div className="absolute z-20">
           <Button
@@ -54,15 +53,17 @@ export const CardUI = (props: TotalCourse): JSX.Element => {
       )}
       <Card
         isDisabled={status === CourseStatus.ARCHIVED}
-        className="py-0 w-[300px] h-[350px]"
+        className="py-0"
+        style={{ width: 300, height: 350 }}
       >
         <CardBody className="p-0">
           <Image
             alt="Course image"
             className="object-cover h-[120px]"
-            src={`${BANNER_COURSE}?x=200&y=200&mode=fill`}
+            src={`${banner}?x=200&y=200&mode=fill`}
             width="100%"
             radius="none"
+            style={{ height: "120px" }}
           />
           <div className="pt-4 px-4 flex-col items-start">
             <h4 className="font-bold text-large line-clamp-1">{title}</h4>
@@ -180,5 +181,6 @@ export const CardUI = (props: TotalCourse): JSX.Element => {
           </Tooltip>
         </CardFooter>
       </Card>
-    </div> */
-}
+    </div>
+  );
+};

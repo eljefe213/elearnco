@@ -3,57 +3,50 @@ import {
   BlockNodesListUI,
   WorkspaceDndProvider,
 } from "ui";
-
-const datas = [
+import { Block } from "database";
+const data = [
   {
-    id: "group_1",
-
-    data: [
-      { id: 0, content: "bloc 1", groupId: "group_1" },
-      { id: 1, content: "bloc 2", groupId: "group_1" },
-      { id: 2, content: "bloc 3", groupId: "group_1" },
-      { id: 3, content: "bloc 4", groupId: "group_1" },
-    ],
+    index: 0,
+    uuid: "bloc 0",
+    content: "bloc 0",
+    groupId: "group_1",
+    type: "warning",
   },
   {
-    id: "group_2",
-    data: [
-      { id: 0, content: "bloc 1", groupId: "group_2" },
-      { id: 1, content: "bloc 2", groupId: "group_2" },
-      { id: 2, content: "bloc 3", groupId: "group_2" },
-      { id: 3, content: "bloc 4", groupId: "group_2" },
-    ],
+    index: 1,
+    uuid: "bloc 1",
+    content: "bloc 1",
+    groupId: "group_1",
+    type: "audio",
   },
-];
+  {
+    index: 2,
+    uuid: "bloc 2",
+    content: "bloc 2",
+    groupId: "group_1",
+    type: "video",
+  },
+  {
+    index: 3,
+    uuid: "bloc 3",
+    content: "bloc 3",
+    groupId: "group_1",
+    type: "timeline",
+  },
+] as Partial<Block>[];
+
 export const DndWithDrop = () => {
-  /*  const [datas, setData] = useState([
-   {id: 'group_1',
-   
-   data: [
-      { id: 0, content: "bloc 1",groupId: 'group_1'},
-      { id: 1, content: "bloc 2",groupId: 'group_1' },
-      { id: 2, content: "bloc 3",groupId: 'group_1' },
-      { id: 3, content: "bloc 4",groupId: 'group_1' },
-    ]},
-   {id: 'group_2',
-   data: [
-      { id: 0, content: "bloc 1",groupId: 'group_2' },
-      { id: 1, content: "bloc 2",groupId: 'group_2' },
-      { id: 2, content: "bloc 3",groupId: 'group_2' },
-      { id: 3, content: "bloc 4",groupId: 'group_2' },
-    ]}
-  ]); */
-
   return (
     <WorkspaceDndProvider>
       <BlockCardSectionsUI />
       <div className=" gap-2">
-        {datas.map((data, index) => (
-          <div className="flex-col">
+      <BlockNodesListUI data={data} />
+        {/* {data.map((block, index) => (
+          <div key={data.id} className="flex-col">
             <div className="mb-2 mt-2 ml-2">{"Group" + index}</div>
-            <BlockNodesListUI data={data} />
+            <BlockNodesListUI data={block} />
           </div>
-        ))}
+        ))} */}
       </div>
     </WorkspaceDndProvider>
   );

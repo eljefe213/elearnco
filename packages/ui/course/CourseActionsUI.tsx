@@ -152,10 +152,10 @@ const MessageToDuplicateCourse = ({
   const onSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const data = courses.courses.find((c) => c.id === _id);
-   // const { id, folder, updatedAt, createdAt, author, ...rest } = data as unknown as Course & Folder;
-   // const newCourse = await createCourseFromApi(rest);
-   // const { course } = newCourse as Course;
-   // courses.addCourse(course);
+    const { id, folder, updatedAt, createdAt, author, ...rest } = data as unknown as Course & Folder;
+    const newCourse = await createCourseFromApi(rest);
+    const { course } = newCourse as Course;
+    courses.addCourse(course);
     onBeginDisabled();
     onClose();
   };
@@ -178,7 +178,7 @@ const MessageToDuplicateCourse = ({
   );
 };
 
-const ArchiveUI = (course) => {
+const CourseActionsUI = (course) => {
   const { title, id, action, onClose } = course;
 
   return action === EActionsCourse.UNARCHIVE ? (
@@ -212,4 +212,4 @@ const ArchiveUI = (course) => {
   );
 };
 
-export default ArchiveUI;
+export default CourseActionsUI;

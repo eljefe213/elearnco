@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 export default function NotFound() {
   return (
     <div className="flex flex-col justify-center items-center h-screen w-full">
@@ -45,9 +44,10 @@ export default function NotFound() {
           <path d="M241.85,394.27l-5.64-.15-5.65-.06c-1.37,0-2.75.09-4.12.09-4.84,0-9.69,0-14.52.24-2.15.08-4.29.3-6.4.56-2.67.36-5.46.84-7.88,1.24-.75.11-1-.59-.56-1.5a4,4,0,0,1,1.31-1.39,5.55,5.55,0,0,1,2.12-.85,97.53,97.53,0,0,1,17-1c3.4.07,6.92-.19,10.39-.21,1.91,0,3.82,0,5.73,0s3.82,0,5.72.09c2.35,0,4.7.12,7.05.19,3.55.12,7.12.32,10.65.48l4.1.14c1.36,0,2.72.06,4.09.18.6.05,1.2.06,1.81.12,2.26.31,3,.68,3.26,1.52a2.72,2.72,0,0,1,.19.57c.07.63-.92,1-2.49.85l-14.84-.68-5.67-.21-5.69-.14Z" />
         </g>
       </svg>
-    
-      
-      <Link className="text-primary cursor-pointer" href="home">Home</Link>
+
+      <Link className="text-primary cursor-pointer" href="home">
+        Home
+      </Link>
     </div>
   );
 }

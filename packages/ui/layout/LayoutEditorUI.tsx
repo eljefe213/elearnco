@@ -1,11 +1,11 @@
 "use client";
 import { useIsCollaboration } from "customhooks";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useCourseStore, usePageStore } from "store";
 import {
   BannerGeneric,
   BannerWithCollaboration,
-} from "../banner/BannerGenericUI";
+} from "../course/banner/BannerGenericUI";
 import { BlockNodesListUI } from "../nodes/BlockNodesListUI";
 import { LoadingSpinnerUI } from "../loading";
 
@@ -15,14 +15,11 @@ import { LoadingSpinnerUI } from "../loading";
 
 const BlockList = () => {
   const { blocks } = usePageStore();
+  // TEST COLLABORATION :-)
   //const { doc } = useCollaboration();
   //const [block, setBlock] = useYMapItem<Block[]>(doc?.getMap("page"), "block");
 
-  /* useEffect(() => {
-    setBlock(blocks);
-  }, [blocks]); */
-
-  return blocks && blocks.length > 0 && <BlockNodesListUI data={blocks} />;
+  return blocks?.length > 0 && <BlockNodesListUI data={blocks} />;
 };
 
 // this is the editor part
@@ -34,6 +31,9 @@ export const LayoutEditorUI = () => {
   useEffect(() => {
     if (pages.length) {
       const page = pages[currentPage - 1];
+      console.log(pages.length)
+      console.log(currentPage)
+      console.log(page)
 
       try {
         fetchData(page.id);
@@ -86,7 +86,7 @@ export const LayoutEditorUI = () => {
         >
           {/* Banner is only for the first page */}
           {currentPage === 1 ? (
-            !isCollaboration ? (
+            isCollaboration ? (
               <BannerWithCollaboration />
             ) : (
               <BannerGeneric />

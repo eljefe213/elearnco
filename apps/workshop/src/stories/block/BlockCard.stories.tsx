@@ -24,5 +24,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const BlockCard: Story = {
-  render: (args) => <BlockCardUI type={args.type} onMouseDown={() => void 0} />,
+  render: (args: any) => (
+    <BlockCardUI
+      type={args.type}
+      onMouseDown={() => void 0}
+      draggedBlockType={undefined}
+      category=""
+    />
+  ),
 } as unknown as Story;

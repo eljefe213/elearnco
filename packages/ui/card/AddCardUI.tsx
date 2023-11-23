@@ -18,7 +18,7 @@ export const AddCardUI = (props: IProps): JSX.Element => {
 
   return (
     <>
-      <Card className="py-0 w-[300px] h-[350px] cursor-pointer">
+      <Card style={{width:300, height:350}} className="py-0 cursor-pointer">
         <CardBody className="p-0">
           <Image
             removeWrapper

@@ -27,7 +27,7 @@ export default async function Layout({
             <NavBarTopUI />
             <div
               style={{ height: `calc(100% - 93px` }}
-              className="ml-3 mr-3 mb-3 overflow-hidden rounded-e-3xl rounded-s-3xl bg-default-100"
+              className="ml-3 mr-3 mb-3 overflow-hidden rounded-e-3xl rounded-s-3xl bg-default-100 z-0"
             >
               <WrapperChild>{children}</WrapperChild>
             </div>

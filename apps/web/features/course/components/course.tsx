@@ -3,7 +3,6 @@ import { useIsCollaboration } from "customhooks";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { BlockCardSectionsUI, DrawerUI, WorkspaceDndProvider } from "ui";
-
 import {
   CourseQueryGeneric,
   CourseQueryWithCollaboration,
@@ -57,7 +56,7 @@ const CourseCore = ({
         >
           <BlockCardSectionsUI />
         </DrawerUI>
-        {!isCollaboration ? (
+        {isCollaboration ? (
           <CourseQueryWithCollaboration courseID={id} />
         ) : (
           <CourseQueryGeneric courseID={id} />
@@ -77,7 +76,6 @@ const CourseCore = ({
 };
 
 const CourseEditor = () => {
-  
   const pathname = usePathname();
   const id = pathname.substring(pathname.lastIndexOf("/") + 1);
   const isCollaboration = useIsCollaboration("/collaboration");

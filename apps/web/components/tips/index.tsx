@@ -24,7 +24,7 @@ const Tips = ({ onClose }: { onClose: () => void }) => {
   const router = useRouter();
   const [query, setQuery] = useState<string>("");
   const [selectionIndex, setSelectionIndex] = useState<number>(0);
-  const [options, setOptions] = React.useState<MenuOption[]>([]);
+  const [options, setOptions] = useState<MenuOption[]>([]);
   const openLink = (link: string, ctrl: boolean) => {
     void (async () => {
       if (ctrl) {
@@ -84,7 +84,7 @@ const Tips = ({ onClose }: { onClose: () => void }) => {
       (e.searchableName ?? e.name).toLowerCase().includes(query.toLowerCase())
     );
 
-  const onActionHandler = (i: number) => filteredOptions[i].action(false);
+  const onActionHandler = (i: number):void | Promise<void> => filteredOptions[i].action(false);
 
   useEffect(() => {
     setQuery("");

@@ -19,8 +19,6 @@ const Paginate = () => {
     setNewSearchParams(String(newPage));
   };
 
- 
-
   return totalCourses > 0 &&
     currentPage > 0 &&
     currentPage < Math.ceil(totalCourses / MAX_CARDS) + 1 ? (
@@ -70,16 +68,10 @@ const CoursesQuery = () => {
     (courses && courses.length === 0 && isMonted.current) ||
     (!courses && isMonted.current)
   )
-    return  <CourseAdd />
-      
-    
-
-
-   
+    return <CourseAdd />;
 
   return courses?.length > 0 ? (
     <>
-     
       <CourseAdd />
       {[...courses]?.map((course) => (
         <CardUI

@@ -16,24 +16,26 @@ export const BreadcrumbUI = () => {
   const [breadcrumbs, setBreadcrumbs] = useState<IBreadcrumbItem[]>([]);
 
   useEffect(() => {
-    const pathWithoutQuery = router.split("?")[0];
+    if (router) {
+      const pathWithoutQuery = router.split("?")[0];
 
-    let pathArray = pathWithoutQuery.split("/");
-    pathArray.shift();
+      let pathArray = pathWithoutQuery.split("/");
+      pathArray.shift();
 
-    pathArray = pathArray.filter((path) => path !== "");
+      pathArray = pathArray.filter((path) => path !== "");
 
-    const breadcrumbs = pathArray.map((path, index) => {
-      const href = "/" + pathArray.slice(0, index + 1).join("/");
+      const breadcrumbs = pathArray.map((path, index) => {
+        const href = "/" + pathArray.slice(0, index + 1).join("/");
 
-      return {
-        href,
-        label: path.charAt(0).toUpperCase() + path.slice(1),
-        isCurrent: index === pathArray.length - 1,
-      };
-    });
+        return {
+          href,
+          label: path.charAt(0).toUpperCase() + path.slice(1),
+          isCurrent: index === pathArray.length - 1,
+        };
+      });
 
-    setBreadcrumbs(breadcrumbs);
+      setBreadcrumbs(breadcrumbs);
+    }
   }, [router]);
   return (
     <BreadcrumbItemsUI>

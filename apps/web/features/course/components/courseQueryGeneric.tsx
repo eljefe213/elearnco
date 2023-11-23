@@ -1,4 +1,3 @@
-import { useCollaboration, useYMapItem } from "collaboration";
 import { useCoursesParams } from "customhooks";
 import { useEffect, useRef } from "react";
 import { useCourseStore } from "store";
@@ -34,8 +33,6 @@ export const CourseQueryWithCollaboration = ({
 }) => {
   //const { doc } = useCollaboration();
   //const [block, setBlock] = useYMapItem<any[]>(doc?.getMap("page"), "block");
-
- 
 
   return <CourseQueryGeneric courseID={courseID} />;
 };

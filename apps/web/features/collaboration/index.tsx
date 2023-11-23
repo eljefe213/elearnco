@@ -30,13 +30,13 @@ const FeatureCollaboration = () => {
 };
 const couleurAleatoire = () => {
   const couleur = Math.floor(Math.random() * 16777215).toString(16);
-  return '#' + '0'.repeat(6 - couleur.length) + couleur; 
+  return "#" + "0".repeat(6 - couleur.length) + couleur;
 };
 const Cursor = (props) => {
   const { x, y, username } = props;
-  const color =useMemo(()=>couleurAleatoire(),[username])
+  const color = useMemo(() => couleurAleatoire(), [username]);
 
-  changeCursor('none')
+  changeCursor("none");
 
   return (
     <div
@@ -77,19 +77,11 @@ const Cursor = (props) => {
 
 const Editor = () => {
   const { connect, doc, isLeader, connected, disconnect } = useCollaboration();
-  //const page = doc.getMap("page");
   const [name, setName] = useYMapItem<string>(doc.getMap("page"), "name");
-  const [usernames] = useAwarenessStateField<AwarenessState["username"]>("username");
-  //    ^^^^^^^^^^^^^^ Synchronisé à travers les clients
+  const [usernames] =
+    useAwarenessStateField<AwarenessState["username"]>("username");
   ///const [mouses, mouse, setMouse] =useAwarenessStateField<AwarenessState['bloc']>('bloc');
   //const [block, setBlock] = useYMapItem<any[]>(doc.getMap("page"), "bloc");
-
-  /*  const addBlocl = () => {
-    const newBloc = { id: nanoid(4), label: nanoid(4) };
-    const _clone = block || [];
-
-    setBlock([..._clone, newBloc]);
-  }; */
 
   useEffect(() => {
     if (connected) return;
@@ -127,14 +119,4 @@ const Editor = () => {
   );
 };
 
-{
-  /* <div>
-         <button onClick={() => connect('numero-de-session')}>Connect</button> 
-         <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        /> 
-      </div> */
-}
 export default FeatureCollaboration;

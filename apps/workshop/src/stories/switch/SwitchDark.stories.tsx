@@ -1,19 +1,19 @@
 import type { Meta } from "@storybook/react";
 
-import { SelectUI } from "ui";
+import { DarkModeUI } from "ui";
 
 const meta = {
   title: "Components/SwitchDarkTheme",
-  component: SelectUI,
+  component: DarkModeUI,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof SelectUI>;
+} satisfies Meta<typeof DarkModeUI>;
 
 export default meta;
 
 export const Select = {
-  render: () => <></>,
+  render: () => <DarkModeUI />,
 };

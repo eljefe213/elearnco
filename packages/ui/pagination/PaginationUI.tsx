@@ -23,14 +23,17 @@ export const PaginationUI = (props: IProps): JSX.Element => {
     total = 10,
     activePage = 1,
     children,
+   
   } = props;
+ 
+  
 
   useEffect(() => {
     void 0;
   }, [total]);
 
   return (
-    <BarUI classnames={classnames} fixedInPosition={fixedInPosition} position="fixed">
+    <BarUI classnames={classnames} fixedInPosition={fixedInPosition}  position="fixed">
       <Pagination
         onChange={(page) => onChange?.(page)}
         total={total}

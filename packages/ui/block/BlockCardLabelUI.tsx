@@ -29,7 +29,7 @@ export const BlocCardTextUI = (props: IProps) => {
     []
   );
 
-  const ICON = type.toLocaleLowerCase().trim().replace(/\s/g, "");
+  const ICON = type?.toLocaleLowerCase().trim().replace(/\s/g, "");
   return (
     <Chip
       onMouseDown={_handleMouseDown}

@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import dynamic from "next/dynamic";
 import {  Spinner } from "@nextui-org/react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { TFolder } from "schemas/courses";
 import { useDisabledStore, useFoldersStore } from "store";
@@ -23,7 +24,7 @@ interface IProps {
 }
 
 export const AddCourseUI = (props: IProps) => {
-  const { id, onClose } = props;
+  const { id} = props;
   const [addNewFolder, setNewFolder] = useState<boolean>(false);
   const folders = useFoldersStore((state) => state.folders);
   const { onStopDisabled } = useDisabledStore();
@@ -56,7 +57,7 @@ export const AddCourseUI = (props: IProps) => {
       ) : (
         <>
           <span className="cursor-pointer text-tiny" onClick={switchView}>
-            Retour
+            Back
           </span>
           <p>Enter you name folder.</p>
         </>

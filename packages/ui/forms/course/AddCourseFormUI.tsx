@@ -46,7 +46,7 @@ type FormData = z.infer<typeof newCourseSchema>;
 
 export const AddCourseUI = (props: IProps) => {
   const user = useUser();
-  const { title, description, folder, id, onClose, switchView } = props;
+  const { id, onClose, switchView } = props;
   const [selected, setSelected] = React.useState<string>(CourseType.CLASSIC);
   const [banner, setBanner] = useState<string>("default");
   const folders = useFoldersStore((state) => state.folders);
@@ -89,7 +89,6 @@ export const AddCourseUI = (props: IProps) => {
       image: image_name?.[0]?.name || "Aare",
       authorId: "cln4kv8xl000j0989p42rcs3i",
     });
-
 
     courses.addCourse(newCourse as TotalCourse);
 
