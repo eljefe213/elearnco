@@ -1,6 +1,9 @@
 import { JSXElementConstructor, ReactElement } from "react";
 import { Resend } from "resend";
 
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
 export const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
@@ -18,18 +21,15 @@ export const sendEmail = async ({
   marketing?: boolean;
   test?: boolean;
 }) => {
-  
   if (!resend) {
     console.log(
       "Resend is not configured. You need to add a RESEND_API_KEY in your .env file for emails to work."
     );
     return Promise.resolve();
   }
- 
 
   try {
-
-    const { data, error }  = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: marketing
         ? "laurent.heneman@edukeasy.com"
         : "laurent.heneman@edukeasy.com",
@@ -37,14 +37,13 @@ export const sendEmail = async ({
       subject,
       react,
     });
-    console.log("sucess",data)
-    console.log(error)
+    console.log("sucess", data);
+    console.log(error);
     if (error) {
-      return  Promise.resolve(error);
+      return Promise.resolve(error);
     } else {
       return Promise.resolve("Success");
     }
-    
   } catch (error) {
     console.log("Error sending", error);
     Promise.resolve(error);
