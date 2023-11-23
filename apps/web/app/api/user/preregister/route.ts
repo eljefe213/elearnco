@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 import { sendEmail } from "@/emails";
 import PregisterEmail from "@/emails/preregister-email";
 
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
 export async function POST(request: Request) {
   const { data } = await request.json();
 

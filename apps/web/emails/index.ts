@@ -1,8 +1,7 @@
 import { JSXElementConstructor, ReactElement } from "react";
 import { Resend } from "resend";
 
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
+
 
 export const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
