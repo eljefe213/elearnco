@@ -79,7 +79,8 @@
       "preregister": {
         "title": "Se pré-enregistrer",
         "success": "Vous êtes pré-enregistré !",
-        "error": "Oups, essayez plus tard."
+        "error": "Oups, essayez plus tard.",
+        "description": "Enter your email to inform when Elearnco is available."
       },
 
       "submit": "Soumettre",
@@ -146,7 +147,9 @@
     "open": "Ouvrir",
     "valid": "Valider",
     "cancel": "Annuler",
-    "confirm": "Confirmer"
+    "confirm": "Confirmer",
+    "preregister": "Pre-register",
+    "loading" : "Loading..."
   },
   "tooltip": {
     "back": "Retour"

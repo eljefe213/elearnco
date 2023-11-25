@@ -1,7 +1,8 @@
 "use client";
 import { Spacer } from "@nextui-org/react";
-import React from "react";
 import { useTranslations } from "next-intl";
+import React from "react";
+
 import { DarkModeUI } from "../darkmode/DarkModeUI";
 import { LangUI } from "../lang/LangUI";
 

@@ -14,7 +14,6 @@ export async function GET(
   }
 
   try {
-    
     const id = params.id;
     const course = await prisma.course.findUnique({
       where: {

@@ -1,5 +1,5 @@
 import { useCoursesParams } from "customhooks";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CourseDate, CourseStatus, CourseTitle } from "schemas/menus/dropdown";
 import { useCoursesStore } from "store";
 import { PaginationUI } from "ui";
@@ -33,9 +33,31 @@ const Paginate = () => {
   );
 };
 
+const CoursesCollectionList = ({ courses }) => {
+  return courses?.map((course) => {
+    return (
+      <CardUI
+        key={course.id}
+        title={course.title}
+        status={course.status}
+        description={course.description}
+        folder={course.folder}
+        author={course.author}
+        id={course.id}
+        image={course.image}
+        userId={course.userId}
+        type={course.type}
+        updatedAt={course.updatedAt}
+        createdAt={course.createdAt}
+        authorId={course.authorId}
+        mode={course.mode}
+      />
+    );
+  });
+};
+
 const CoursesQuery = () => {
-  const { courses, isLoading, error, fetchData, totalCourses } =
-    useCoursesStore();
+  const { courses, isLoading, error, fetchData } = useCoursesStore();
   const {
     getCurrentPage,
     getCurrentStatus,
@@ -70,27 +92,12 @@ const CoursesQuery = () => {
   )
     return <CourseAdd />;
 
+  console.log(courses);
+
   return courses?.length > 0 ? (
     <>
       <CourseAdd />
-      {[...courses]?.map((course) => (
-        <CardUI
-          key={course.id}
-          title={course.title}
-          status={course.status}
-          description={course.description}
-          folder={course.folder}
-          author={course.author}
-          id={course.id}
-          image={course.image}
-          userId={course.userId}
-          type={course.type}
-          updatedAt={course.updatedAt}
-          createdAt={course.createdAt}
-          authorId={course.authorId}
-          mode={course.mode}
-        />
-      ))}
+      <CoursesCollectionList courses={courses} />
     </>
   ) : (
     <CourseLoading />

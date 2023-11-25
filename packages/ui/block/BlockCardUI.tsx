@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { BlocCardTextUI } from "./BlockCardLabelUI";
 import {
   ActivityBlockType,
   DraggableBlockType,
@@ -8,6 +7,8 @@ import {
   MediaBlockType,
   TextBlockType,
 } from "schemas";
+
+import { BlocCardTextUI } from "./BlockCardLabelUI";
 
 type IProps = {
   draggedBlockType: DraggableBlockType | undefined;

@@ -1,7 +1,7 @@
 import { Image } from "@nextui-org/react";
-import React from "react";
+import { GenericObject } from "schemas";
 const Collection = (props: {
-  collection: any;
+  collection: GenericObject[];
   totalPages: number;
   currentPage: number;
   _handleClick: (str: string) => void;
@@ -9,34 +9,12 @@ const Collection = (props: {
 }) => {
   const {
     collection,
-    totalPages,
     _handleClick,
-    _handlePageChange,
-    currentPage,
   } = props;
 
   return (
     <div className="relative">
-      {/* <Paginator
-        paginationProps={{
-          display: 'flex',
-          marginBottom: '1rem',
-          marginTop: '1rem',
-          justifyContent: 'flex-end',
-
-          bottom: 0,
-        }}
-        activeStyles={{
-          bg: 'blue.300',
-          color: 'white',
-          _hover: {
-            bg: 'blue.400',
-          },
-        }}
-        current={currentPage}
-        total={totalPages}
-        onChange={(val) => _handlePageChange(val as number)}
-      /> */}
+     
       <div className="grid grid-cols-4 gap-4 mx-auto">
         {collection?.map((image): JSX.Element => {
           return (

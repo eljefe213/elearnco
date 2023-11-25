@@ -13,7 +13,7 @@ import {
   Image,
   Tooltip,
 } from "@nextui-org/react";
-import { IconUI } from "../icon/IconUI";
+import React from "react";
 import {
   CourseMode,
   CourseStatus,
@@ -21,9 +21,17 @@ import {
   EActionsCourse,
   EActionsCourseInDrop,
   EActionsCourseInFooterCard,
+  TotalCourse,
 } from "schemas";
 
-export const CardContentUI = (props: any) => {
+import { IconUI } from "../icon/IconUI";
+
+type ActionHandler = {
+  actionHandler(action: string): void;
+};
+export const CardContentUI = (
+  props: TotalCourse & ActionHandler & { banner: string }
+) => {
   const {
     actionHandler,
     banner,

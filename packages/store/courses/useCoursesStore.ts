@@ -3,7 +3,6 @@ import { TotalCourse } from "schemas/courses";
 import { CourseDate, CourseStatus, CourseTitle } from "schemas/menus/dropdown";
 import { create } from "zustand";
 
-// Define the interface of the Courses state
 interface State {
   courses: TotalCourse[];
   totalCourses: number;
@@ -15,7 +14,6 @@ interface State {
   folder: string;
 }
 
-// Define the interface of the actions that can be performed in the Courses
 interface Actions {
   addCourse: (Item: TotalCourse) => void;
   updateCourse: (courseID: string, data: Partial<TotalCourse>) => void;
@@ -29,7 +27,6 @@ interface Actions {
   ) => Promise<void>;
 }
 
-// Initialize a default state
 const INITIAL_STATE: State = {
   courses: [],
   totalCourses: 0,
@@ -41,7 +38,6 @@ const INITIAL_STATE: State = {
   folder: "all",
 };
 
-// Create the store with Zustand, combining the status interface and actions
 export const useCoursesStore = create<State & Actions>((set, get) => ({
   courses: INITIAL_STATE.courses,
   totalCourses: INITIAL_STATE.totalCourses,
@@ -81,9 +77,8 @@ export const useCoursesStore = create<State & Actions>((set, get) => ({
   },
 
   addCourse: (course: TotalCourse): void => {
-    //const courses = get().courses;
     set((state) => ({
-      courses: [...state.courses, { ...course }],
+      courses: [...state.courses, course],
       //.sort((a,b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
       totalCourses: state.totalCourses + 1,
     }));

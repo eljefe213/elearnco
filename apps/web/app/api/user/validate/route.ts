@@ -1,10 +1,10 @@
 import { prisma } from "database";
-import { hash256 } from "lib";
+//import { hash256 } from "lib";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const { data } = await request.json();
-  const hash = hash256(data.token);
+  const hash = data.token;
 
   try {
     const emailVerificationToken =

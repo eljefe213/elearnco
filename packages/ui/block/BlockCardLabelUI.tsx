@@ -2,6 +2,7 @@ import { Chip } from "@nextui-org/react";
 import { changeCursor, getBlockColor, resetCursor } from "lib/utils";
 import React, { useMemo } from "react";
 import { BlockType } from "schemas";
+
 import { IconUI } from "../icon/IconUI";
 
 type IProps = {

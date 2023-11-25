@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
-import dynamic from "next/dynamic";
 import {  Spinner } from "@nextui-org/react";
+import dynamic from "next/dynamic";
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { TFolder } from "schemas/courses";

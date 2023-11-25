@@ -1,10 +1,10 @@
+import { CourseStatus, CourseType, CourseMode } from "database";
 import { PATTERNS, generateRandomDate, getRandomItem } from "lib";
-import { TImage } from "schemas/courses";
-import { TotalCourse } from "schemas/courses";
+import { TCourse, TImage } from "schemas/courses";
 
 function generateMockImages(): TImage[] {
   const startDate = new Date("2023-01-01T00:00:00Z");
-  const endDate = new Date(); // Date actuelle
+  const endDate = new Date();
 
   const mockImages: TImage[] = [];
 
@@ -24,51 +24,31 @@ function generateMockImages(): TImage[] {
 
   return mockImages;
 }
-function generateMockCourses(): TotalCourse[] {
+function generateMockCourses(): TCourse[] {
   const startDate = new Date("2023-01-01T00:00:00Z");
-  const endDate = new Date(); // Date actuelle
+  const endDate = new Date();
 
-  const mockCourses: TotalCourse[] = [];
+  const mockCourses: TCourse[] = [];
 
   for (let i = 1; i <= 20; i++) {
-    const newCourse: TotalCourse = {
+    const newCourse = {
       id: `course${i}`,
       userId: `user${i}`,
       title: `Course ${i}`,
       description: `Description for Course ${i}`,
-      status: "ACTIVE",
-      type: "CLASSIC",
+      status: CourseStatus.DRAFT,
+      type: CourseType.CLASSIC,
+      mode: CourseMode.PRIVATE,
       folderId: "course",
       authorId: "author",
-      author: {
-        id: `author${i}`,
-        updatedAt: generateRandomDate(startDate, endDate),
-        createdAt: generateRandomDate(startDate, endDate),
-        role: "TEACHER",
-        name: `author${i}`,
-        image:
-          process.env.DIRECTORY_IMAGES +
-          `patterns/${getRandomItem(PATTERNS)}.svg`,
-      },
+
       updatedAt: generateRandomDate(startDate, endDate),
       createdAt: generateRandomDate(startDate, endDate),
       imageId: `image${i}`,
-      folder: {
-        id: `folder${i}`,
-        updatedAt: generateRandomDate(startDate, endDate),
-        createdAt: generateRandomDate(startDate, endDate),
-        userId: `User${i}`,
-        name: `Folder${i}`,
-      },
-      image: {
-        id: `image${i}`,
-        alt: "",
-        updatedAt: generateRandomDate(startDate, endDate),
-        createdAt: generateRandomDate(startDate, endDate),
-        image:
-          process.env.DIRECTORY_IMAGES +
-          `patterns/${getRandomItem(PATTERNS)}.svg`,
-      },
+
+      image: `${process.env.DIRECTORY_IMAGES}patterns/${getRandomItem(
+        PATTERNS
+      )}.svg`,
     };
 
     mockCourses.push(newCourse);
@@ -77,5 +57,5 @@ function generateMockCourses(): TotalCourse[] {
   return mockCourses;
 }
 
-export const MOCK_COURSE: TotalCourse[] = generateMockCourses();
+export const MOCK_COURSE: TCourse[] = generateMockCourses();
 export const MOCK_IMAGE: TImage[] = generateMockImages();

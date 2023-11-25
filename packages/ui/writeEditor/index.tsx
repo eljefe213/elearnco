@@ -1,6 +1,4 @@
 "use client";
-import React, { KeyboardEvent } from "react";
-import { EditorContent, useEditor } from "@tiptap/react";
 import Blockquote from "@tiptap/extension-blockquote";
 import Bold from "@tiptap/extension-bold";
 import Code from "@tiptap/extension-code";
@@ -18,9 +16,12 @@ import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import Text from "@tiptap/extension-text";
 import Underline from "@tiptap/extension-underline";
+import { EditorContent, useEditor } from "@tiptap/react";
+import React from "react";
+import { TextBlockType } from "schemas/blocks/text";
+
 import BubbleMenu from "./bubbleMenu";
 import styles from "./Editor.module.scss";
-import { TextBlockType } from "schemas/blocks/text";
 export default function WriterEditor(props: Readonly<{
   blockID: string;
   type: string;
@@ -28,7 +29,7 @@ export default function WriterEditor(props: Readonly<{
 }>) {
   const { blockID, type = "paragraph", editable = true } = props;
 
-  function handleTitleEditorKeyDown(event: KeyboardEvent<HTMLDivElement>) {  void 0}
+  function handleTitleEditorKeyDown() {  void 0}
 
   const titleEditor = useEditor(
     {
@@ -95,7 +96,7 @@ export default function WriterEditor(props: Readonly<{
 
   return (
     <div className={styles.editorContainer}>
-      {type === TextBlockType.TITLE ? (
+      {type === TextBlockType.TITLE as string ? (
         <EditorContent
           className={styles.titleEditor}
           editor={titleEditor}

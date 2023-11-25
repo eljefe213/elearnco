@@ -6,6 +6,8 @@ import { ERoutes } from "schemas";
 import { toast } from "sonner";
 import { useLoadingStore } from "store/loading";
 import { AuthUI, LayoutUI, WallUI } from "ui";
+
+//TODO - TRANSLATION
 const FeatureAuthSign = () => {
   const router = useRouter();
   const searchParams = useSearchParams();

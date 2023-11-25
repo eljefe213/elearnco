@@ -2,6 +2,7 @@ import { Chip } from "@nextui-org/react";
 import { getBlockColor } from "lib";
 import React, { useMemo } from "react";
 import { DraggableBlockType } from "schemas";
+
 import { IconUI } from "../icon/IconUI";
 
 export const BlockCardOverlayUI = ({

@@ -9,7 +9,6 @@ import { FolderSchema } from "schemas/folder";
 import { useFoldersStore } from "store";
 import { useDisabledStore } from "store/disabled/useDisabledStore";
 import { useLoadingStore } from "store/loading/useLoadingStore";
-
 import * as z from "zod";
 
 //We need data folder if exist else default folder name is default

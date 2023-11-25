@@ -15,6 +15,7 @@
 - <a href="#contributing">Contributing</a>
   - <a href="#commit">Commit message</a>
 - <a href="#utilities">Utilities</a>
+- <a href="#licence">Licence</a>
 
 ### <a id="presentation" href="#presentation">Presentation</a>
 
@@ -233,3 +234,8 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+### <a id="licence" href="#licence">Licence</a>
+
+The source code for various apps and packages in this repository are currently licensed under BSD 3-Clause. These licenses are subject to change.
+

@@ -9,8 +9,9 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    isBlack: {
-      control: { type: "boolean" },
+    color: {
+      options: ["white", "black"],
+      control: { type: "select" },
     },
   },
 } satisfies Meta<typeof LogoSymbolUI>;
@@ -25,18 +26,18 @@ export const LogoSymbo: Story = {
       <LogoSymbolUI color="currentColor" className="top-0 left-10 relative" />
       <Divider />
       <p className="top-10 left-10 relative">Word branding :</p>
-      <LogoTextUI isBlack={!args.isBlack} className="top-5 left-10 relative" />
+      <LogoTextUI color={args.color} className="top-5 left-10 relative" />
       <Divider />
       <p className="top-0 p-10">Vertical branding :</p>
       <div className="flex flex-col left-10 relative">
         <LogoSymbolUI width={80} height={80} />
-        <LogoTextUI isBlack={!args.isBlack} width={80} height={40} />
+        <LogoTextUI color={args.color} width={80} height={40} />
       </div>
       <Divider />
       <p className="top-0 p-10">Horizontal branding:</p>
       <div className="flex gap-2 relative left-0 items-center">
         <LogoSymbolUI width={80} height={80} />
-        <LogoTextUI isBlack={!args.isBlack} />
+        <LogoTextUI color={args.color} />
       </div>
     </>
   ),

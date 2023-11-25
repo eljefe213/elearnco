@@ -1,4 +1,4 @@
-import { useCollaboration, useYMapItem } from "collaboration";
+//import { useCollaboration, useYMapItem } from "collaboration";
 import React from "react";
 
 import { BannerUI } from "./BannerUI";
@@ -7,11 +7,11 @@ export const BannerGeneric = () => {
 };
 
 export const BannerWithCollaboration = () => {
-  const { doc } = useCollaboration();
+  /* const { doc } = useCollaboration() ;
   const [banner, setBanner] = useYMapItem<string>(
     doc?.getMap("page"),
     "banner"
-  );
-
-  return <BannerUI setBanner={setBanner} bannerT={banner} isHidden={false} />;
+  ); */
+ return <></>
+  //return <BannerUI setBanner={setBanner} bannerT={banner} isHidden={false} />;
 };

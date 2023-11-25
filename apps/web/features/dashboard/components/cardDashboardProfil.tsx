@@ -1,33 +1,60 @@
-import { Spinner } from "@nextui-org/react";
+import { Button, Spinner, Image } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
+import { useCallback } from "react";
 import { EActionsUser } from "schemas/actions/enums";
 import { SafeUser } from "schemas/auth/Auth";
 import { useGlobalModalStore } from "store/modal";
-//import { CardDashboardUI } from "ui/card/CardDashboardUI";
+import { CardDashboardUI } from "ui/card/CardDashboardUI";
 
 //TODO: Translation
-const CardDashboardProfil = () => {
+
+const HeaderChildren = (user) => {
   const modalStore = useGlobalModalStore();
+  const { image } = user;
+  const openModal = useCallback(
+    () => modalStore.onOpen(EActionsUser.EDIT_PROFIL as string, { data: user }),
+    []
+  );
+
+  return (
+    <div className="flex justify-between w-full">
+      <div className="bg-black rounded-full w-14 h-14 flex justify-center items-center">
+        <Image
+          removeWrapper
+          alt=""
+          className="object-cover rounded-xl"
+          src={`/avatars/${image as string}.svg`}
+          width="100%"
+        />
+      </div>
+      <Button color="primary" radius="full" size="sm" onPress={openModal}>
+        See my profile
+      </Button>
+    </div>
+  );
+};
+const BodyChildren = (user) => {
+  const { name, role = "LEARNER" } = user;
+
+  return (
+    <div className="flex flex-col mt-2">
+      <p className="text-md">Welcome {name}</p>
+      <p className="text-small text-default-500 line-clamp-2">{role}</p>
+    </div>
+  );
+};
+const CardDashboardProfil = () => {
   const { data: user } = useSession();
   const _user = user?.user as unknown as SafeUser;
 
-  const actionHandler = async (): Promise<void> => {
-    if (user)
-      modalStore.onOpen(EActionsUser.EDIT_PROFIL as string, { data: user });
-  };
-
-  return user ? <></> : <Spinner />;
+  return user ? (
+    <CardDashboardUI
+      headerChildren={<HeaderChildren {..._user} />}
+      bodyChildren={<BodyChildren {..._user} />}
+    />
+  ) : (
+    <Spinner />
+  );
 };
 
 export default CardDashboardProfil;
-{
-  /* <CardDashboardUI
-      title={_user?.name as string}
-      description={_user?.role as string}
-      image={`/avatars/${_user?.image as string}.svg`}
-      classNameImage = 'translate-y-50'
-      bodyChildren={ <Button onClick={actionHandler} radius="full" size="sm">
-      Edit
-    </Button>}
-    /> */
-}

@@ -3,20 +3,19 @@ import { getCourseMoreRecentFromApi } from "lib/requests/course";
 import { Course } from "database";
 import { useEffect, useState } from "react";
 import { CardDashboardUI } from "ui/card/CardDashboardUI";
+import React from "react";
 
 const HeaderChildren = (props) => {
   return (
-    
-      <div className="flex justify-between w-full overflow-hidden h-[76px]">
-        <Image
-          removeWrapper
-          alt=""
-          className="object-cover rounded-xl"
-          src={props.image}
-          width="100%"
-        />
-      </div>
-    
+    <div className="flex justify-between w-full overflow-hidden h-[76px]">
+      <Image
+        removeWrapper
+        alt=""
+        className="object-cover rounded-xl"
+        src={props.image}
+        width="100%"
+      />
+    </div>
   );
 };
 
@@ -30,16 +29,17 @@ const BodyChildren = (props) => {
     </div>
   );
 };
-const CardDashboardRecentCourse = () => {
-  const [getResultMoreRecentCourse, setMoreRecentCourse] =
-    useState<Course | null>({} as Course);
+const CardDashboardRecentCourse = React.memo(() => {
+  const [getResultMoreRecentCourse, setMoreRecentCourse] = useState<Course | null>({} as Course);
+  const [isLoading,setIsLoading ]=useState<boolean>(true)
 
   const _getCourseMoreRecent = async (): Promise<void> => {
     const course = await getCourseMoreRecentFromApi();
     if (course) setMoreRecentCourse(course);
+    setIsLoading(false)
   };
 
-  const actionHandler = (): void => {};
+  //const actionHandler = (): void => { void 0};
 
   const props = {
     title: getResultMoreRecentCourse?.title,
@@ -50,7 +50,13 @@ const CardDashboardRecentCourse = () => {
   useEffect(() => {
     _getCourseMoreRecent();
   }, []);
-  return getResultMoreRecentCourse && getResultMoreRecentCourse?.title ? (
+
+
+
+  if(isLoading) return <Spinner />
+  if(!isLoading && !getResultMoreRecentCourse?.title) return <></>
+
+  return getResultMoreRecentCourse?.title ? (
     <CardDashboardUI
       headerChildren={<HeaderChildren {...props} />}
       bodyChildren={<BodyChildren {...props} />}
@@ -58,6 +64,6 @@ const CardDashboardRecentCourse = () => {
   ) : (
     <Spinner />
   );
-};
+});
 
 export default CardDashboardRecentCourse;

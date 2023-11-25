@@ -4,11 +4,12 @@ import { useLockedBody } from "customhooks";
 import { useTranslations } from "next-intl";
 import React, { useCallback } from "react";
 import { userAuthSigninSchema, userAuthSignupSchema } from "schemas/auth/Auth";
+import { LogoSymbolUI } from "ui/logo/LogoSymbolUI";
 import * as z from "zod";
 
-import { LogoSymbolUI } from "ui/logo/LogoSymbolUI";
 import { SigninUI } from "./SigninUI";
 import { SignupUI } from "./SignupUI";
+
 
 type UserAuthSigninSchema = z.infer<typeof userAuthSigninSchema>;
 type UserAuthSignupSchema = z.infer<typeof userAuthSignupSchema>;
@@ -37,7 +38,7 @@ export const AuthUI = (props: IProps): JSX.Element => {
 
   return (
     <div className={`flex flex-col ${className}`}>
-      <Card radius='none' className="h-full w-full items-center" style={{borderTopLeftRadius:24,borderBottomLeftRadius:24}}>
+      <Card radius='none' className="h-full w-full items-center rounded-none sm:rounded-s-3xl">
         <CardBody className="overflow-hidden w-full max-w-2xl">
           <div className="w-full flex justify-center">
             <LogoSymbolUI width={80} height={80} />

@@ -1,12 +1,13 @@
 "use client";
-import React, { useCallback, useEffect } from "react";
+import "@tldraw/tldraw/tldraw.css";
+
 import {
+  setUserPreferences,
   Tldraw,
   TLEventInfo,
-  setUserPreferences,
-  useEditor,
 } from "@tldraw/tldraw";
-import "@tldraw/tldraw/tldraw.css";
+import React, { useCallback, useEffect } from "react";
+
 import WriterEditor from "../writeEditor";
 // persistenceKey
 const DrawingEditor = (props: {

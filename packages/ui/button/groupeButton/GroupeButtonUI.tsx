@@ -1,14 +1,15 @@
 "use client";
 import { Button, ButtonGroup, Tooltip } from "@nextui-org/react";
 import React from "react";
-import { IconUI } from "../../icon/IconUI";
 import { GenericObject } from "schemas";
+
+import { IconUI } from "../../icon/IconUI";
 
 
 type TOrientation = "horizontal" | "vertical";
 
 interface IProps {
-  data:GenericObject;
+  data:GenericObject[];
   isDisabled: boolean;
   orientation: TOrientation;
   onClickHandler: (action: string, id: string) => void;
@@ -34,3 +35,5 @@ export const GoupeButtonUI = React.memo((props: IProps) => {
     </ButtonGroup>
   );
 });
+
+GoupeButtonUI.displayName="GoupeButton"

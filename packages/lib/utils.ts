@@ -1,4 +1,4 @@
-import * as DOMPurify from 'isomorphic-dompurify';
+import * as DOMPurify from "isomorphic-dompurify";
 import { KbdKey } from "@nextui-org/react";
 import { customAlphabet } from "nanoid";
 import { ChangeEvent } from "react";
@@ -33,10 +33,11 @@ export const PATTERNS = [
   "Rangitikei",
   "Reuss",
   "Rhone",
-] as const;
-export const hash256 = (data: string): string => {
-  return data; //createHash("sha256").update(data).digest("hex");
-};
+];
+// WHAT ARE YOU DOING HERE ??
+/* export const hash256 = (data: string): string => {
+  return createHash("sha256").update(data).digest("hex");
+}; */
 export const isNotEmpty = (value: string | undefined | null): value is string =>
   value !== undefined && value !== null && value !== "";
 
@@ -140,7 +141,8 @@ export function filterKeysFromString(inputString: string): {
   accepted: string[];
   rejected: string[];
 } {
-  const terms = inputString.split("+").map((term) => term.trim());
+  if (!inputString) return { accepted: [], rejected: [] };
+  const terms = inputString?.split("+").map((term) => term.trim());
   const allowedKeys = [
     "command",
     "shift",
@@ -216,22 +218,24 @@ export const computeNearestPlaceholderIndex = (
   );
   return closestIndex;
 };
-//TODO: REMOVE ANY
-export const getId = (data: any, name: string): string => {
-  const result = data.filter((item: any) => name === (item.value || item.name));
+
+export const getId = (data: GenericObject[], name: string): string => {
+  const result = data.filter(
+    (item: GenericObject) => name === (item.value || item.name)
+  );
 
   if (result.length > 0) {
-    return result[0].id;
+    return result[0].id as string;
   }
   return "";
 };
-export function convertBytesToKB(bytes: number) {
+export function convertBytesToKB(bytes: number):number {
   const kb = bytes / 1024;
   return kb;
 }
-//TODO: REMOVE ANY
+
 interface IParseType {
-  blob: any;
+  blob: GenericObject;
   name: string;
   data: any;
 }
@@ -344,13 +348,13 @@ export function handleParseData(props: IParseType): IBlobReturnType {
     ...JSON.parse(JSON.stringify(props.blob)),
     [props.name]: props.data,
   };
-  return newData;
+  return newData as GenericObject;
 }
 
 interface FileValidationType {
   fileType: FileType;
-  event: ChangeEvent<HTMLInputElement> | any;
-  handleError: (props: any) => void;
+  event: ChangeEvent<HTMLInputElement> | GenericObject;
+  handleError: (props: GenericObject) => void;
 }
 export const handleFileTypeValidations = ({
   fileType,
@@ -365,7 +369,7 @@ export const handleFileTypeValidations = ({
     });
     throw new Error("Invalid file Type");
   } catch (error) {
-    console.error(error);
+     throw new Error("Error")
   }
 };
 
@@ -457,7 +461,7 @@ export const getBlockColor = (
     | undefined;
 } => {
   if (
-    category === BlockCategories.text ||
+    category === BlockCategories.text as string ||
     BLOCK_TEXT_LIST.includes(category as TextBlockType)
   ) {
     return {
@@ -465,7 +469,7 @@ export const getBlockColor = (
       backgroundColor: "primary",
     };
   } else if (
-    category === BlockCategories.media ||
+    category === BlockCategories.media as string ||
     BLOCK_MEDIA_LIST.includes(category as MediaBlockType)
   ) {
     return {
@@ -473,7 +477,7 @@ export const getBlockColor = (
       backgroundColor: "secondary",
     };
   } else if (
-    category === BlockCategories.logic ||
+    category === BlockCategories.logic as string ||
     BLOCK_LOGIC_LIST.includes(category as LogicBlockType)
   ) {
     return {
@@ -590,10 +594,10 @@ export const resetCursor = (): void => {
   document.body.style.cssText = `cursor: default;overflow:hidden;`;
 };
 /**
-* It takes a string, sanitizes it, and returns the sanitized string
-* @param {string} str - The string to be cleaned.
-* @returns A function that takes a string and returns a sanitized string.
-*/
+ * It takes a string, sanitizes it, and returns the sanitized string
+ * @param {string} str - The string to be cleaned.
+ * @returns A function that takes a string and returns a sanitized string.
+ */
 export const clean = (str: string): string => {
- return sanitizer(str);
+  return sanitizer(str);
 };

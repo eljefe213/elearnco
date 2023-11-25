@@ -1,9 +1,9 @@
 "use client";
 import { Button, Input } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { nanoid } from "nanoid";
 import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { IconUI } from "ui/icon/IconUI";
-import { nanoid } from "nanoid";
 
 /**
  * It takes a center point, a radius, and an angle in degrees, and returns the point on the
@@ -71,7 +71,7 @@ export const DIM = 500;
 export const MAX_SECTORS = 9;
 export const MIN_SECTORS = 3;
 
-const TOOLBAR_DATAS = [
+/* const TOOLBAR_DATAS = [
   {
     label: "delete.media",
     icon: "palette",
@@ -86,7 +86,7 @@ const TOOLBAR_DATAS = [
     type: "button",
     id: "83f1778e-fr7gt-11ed-b5ea-0242ze7485",
   },
-];
+]; */
 export type TTimestamp = {
   index: number;
   time: number;
@@ -99,7 +99,6 @@ export interface ITimestamp {
   mode: string;
   updateSector: (val: TTimestamp[]) => void;
 }
-// Fonction pour interpoler une valeur entre deux valeurs
 function interpolate(start: number, end: number, t: number): number {
   return Math.round(start + (end - start) * t);
 }
@@ -110,7 +109,7 @@ export function hexToRgb(hex: string): {
 } | null {
   const hexValue = hex.replace(
     /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-    (m, r, g, b) => {
+    ( r, g, b) => {
       return r + r + g + g + b + b;
     }
   );
@@ -185,8 +184,8 @@ const Sectors = (props: ITimestamp): JSX.Element => {
   const _updateTimeStep = useCallback(
     (event: ChangeEvent<HTMLInputElement>, id: string): void => {
       const _target = event.currentTarget as HTMLInputElement;
-      const _value = _target.value as string;
-      const _newState = [...timestamp].filter(
+      const _value = _target.value;
+      const _newState = timestamp.filter(
         (timeStep: TTimestamp) => timeStep.id === id
       );
       if (_newState.length) {

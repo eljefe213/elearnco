@@ -28,7 +28,7 @@ export const SigninUI = (props: IProps): JSX.Element => {
   });
 
   const onSubmit = async (data: FormData): Promise<void> => {
-    await authSignin?.(data);
+    authSignin?.(data);
     reset();
   };
 

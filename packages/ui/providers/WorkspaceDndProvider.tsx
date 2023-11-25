@@ -1,4 +1,7 @@
 "use client";
+import { useEventListener } from "customhooks";
+import { Block } from "database";
+import { changeCursor, resetCursor } from "lib";
 import React, {
   createContext,
   Dispatch,
@@ -10,10 +13,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { useEventListener } from "customhooks";
 import { DraggableBlockType, IdMap, TPoint } from "schemas";
-import { Block } from "database";
-import { changeCursor, resetCursor } from "lib";
 export type GroupsCoordinates = IdMap<TPoint>;
 type NodeElement = {
   id: string;

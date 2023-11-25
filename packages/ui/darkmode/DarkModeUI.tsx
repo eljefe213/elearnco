@@ -1,8 +1,9 @@
 "use client";
 import { useTheme } from "next-themes";
-import { SwitchUI } from "../switch/SwitchUI";
 import { useState } from "react";
+
 import { IconUI } from "../icon/IconUI";
+import { SwitchUI } from "../switch/SwitchUI";
 
 export const DarkModeUI = (): JSX.Element => {
   const { theme, setTheme } = useTheme();
@@ -18,7 +19,7 @@ export const DarkModeUI = (): JSX.Element => {
   return (
     <SwitchUI
       initialState={isSelected}
-      children={null}
+      content={null}
       setHandler={(val: boolean): void => {
         _setSelectedTheme(val);
       }}

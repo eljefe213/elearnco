@@ -8,6 +8,7 @@ module.exports = {
     DIRECTORY_IMAGES: "/",
     DIRECTORY_AVATARS: "/avatars/",
   },
+  
   async headers() {
     return [
       {

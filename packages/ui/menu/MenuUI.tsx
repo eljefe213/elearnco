@@ -4,14 +4,14 @@ import { matchRoute } from "lib/utils";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next13-progressbar";
 import React, { useMemo } from "react";
+import {  TFixedInPosition, TPosition } from "schemas/global";
+
 import { IconUI } from "../icon/IconUI";
 import BarUI from "./BarUI";
-import { TFixedInPosition, TPosition } from "schemas/global";
-
 
 interface IProps {
   fixedInPosition: TFixedInPosition;
-  data: any;
+  data: IItem[];
   classnames?: string;
   position?: TPosition;
 }
@@ -37,8 +37,10 @@ const ButtonWithIcon = React.forwardRef<HTMLElement, IItem>(
       e.preventDefault();
       router.push(`/${props.route}`);
     };
- 
-    const isActive = matchRoute(pathname, props.route) || pathname.includes('editor')&& props.route.includes('courses');
+
+    const isActive =
+      matchRoute(pathname, props.route) ||
+      (pathname.includes("editor") && props.route.includes("courses"));
 
     return (
       <span ref={ref} {...props} {...{ hastooltip: String(props.hastooltip) }}>

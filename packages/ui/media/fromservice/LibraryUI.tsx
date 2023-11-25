@@ -1,11 +1,11 @@
 "use client";
-import { Pagination, Spinner } from "@nextui-org/react";
+import { Pagination } from "@nextui-org/react";
 import useLocalStorage from "customhooks/use-local-storage";
-import UnsplashApi from "lib/services/unsplash";
 import React, { useEffect, useState } from "react";
 import { EActionsMedia } from "schemas";
 import { useCourseStore } from "store";
 
+import { LoadingSpinnerUI } from "../../loading";
 import SearchUI from "../../search/SearchUI";
 import Collection from "./Collection";
 
@@ -15,9 +15,6 @@ interface Photo {
     regular: string;
   };
 }
-export const unsplashApi = process.env.UNSPLASH_KEY
-  ? new UnsplashApi(process.env.UNSPLASH_KEY)
-  : new UnsplashApi("DgRJiwmtsvDgvZl2NCCKOey1Scam6iOir-B-nUzyxbQ");
 
 interface IProps {
   action: string;
@@ -45,40 +42,37 @@ export const LibraryUI = (props: IProps) => {
   };
 
   const _handleChange = async (value: string): Promise<void> => {
-    // await e.preventDefault();
     await _handleSearch(value);
+  };
+
+  const fetchData = async (query, page, perpage) => {
+    try {
+      const response = await fetch(
+        `/api/unsplash?query=${query}&page=${page}&perPage=${perpage}`
+      );
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      const { photos: fetchedPhotos, totalPages: fetchedTotalPages } =
+        await response.json();
+
+      setMedias(fetchedPhotos);
+      setTotalPages(fetchedTotalPages);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching data from Unsplash API route", error);
+    }
   };
 
   const _handleSearch = async (query: string): Promise<void> => {
     setIsLoading(true);
     setSearch(query);
-    if (unsplashApi) {
-      const [fetchedPhotos, fetchedTotalPages] = await unsplashApi.searchPhotos(
-        query,
-        1,
-        12
-      );
-
-      setMedias(fetchedPhotos);
-      setTotalPages(fetchedTotalPages);
-    } else {
-      setError("error");
-    }
-    setIsLoading(false);
+    fetchData(query, 1, 12);
   };
 
   async function _handlePageChange(newPage: number): Promise<void> {
     setIsLoading(true);
-    if (unsplashApi) {
-      const [fetchedPhotos] = await unsplashApi.searchPhotos(
-        isSearch,
-        newPage,
-        12
-      );
-      setMedias(fetchedPhotos);
-      setCurrentPage(newPage);
-    }
-    setIsLoading(false);
+    fetchData(isSearch, newPage, 12);
   }
 
   useEffect(() => {
@@ -103,9 +97,7 @@ export const LibraryUI = (props: IProps) => {
         />
       </div>
       {isLoading ? (
-        <div className="flex justify-center">
-          <Spinner />
-        </div>
+        <LoadingSpinnerUI />
       ) : (
         <Collection
           {...{

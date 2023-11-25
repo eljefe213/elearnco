@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { MediaBlockType, TextBlockType } from "schemas";
 import { BlockCardUI } from "ui";
 
@@ -22,9 +22,9 @@ const meta = {
 } satisfies Meta<typeof BlockCardUI>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
-export const BlockCard: Story = {
-  render: (args: any) => (
+
+export const BlockCard = {
+  render: (args:{type:string}) => (
     <BlockCardUI
       type={args.type}
       onMouseDown={() => void 0}
@@ -32,4 +32,4 @@ export const BlockCard: Story = {
       category=""
     />
   ),
-} as unknown as Story;
+};

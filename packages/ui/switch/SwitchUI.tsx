@@ -1,11 +1,11 @@
 "use client";
-import React, {  useEffect } from "react";
 import { Switch } from "@nextui-org/react";
+import React, {  useEffect } from "react";
 
 
 interface IProps {
   initialState: boolean;
-  children?: React.ReactNode | null;
+  content?: React.ReactNode | null;
   setHandler: (state: boolean) => void;
   startContent?: React.ReactNode | null;
   endContent?: React.ReactNode | null;
@@ -14,7 +14,7 @@ interface IProps {
 export const SwitchUI = (props: IProps) => {
   const {
     initialState = false,
-    children = null,
+    content = null,
     setHandler = null,
     startContent = null,
     endContent = null,
@@ -42,7 +42,7 @@ export const SwitchUI = (props: IProps) => {
       startContent={startContent}
       endContent={endContent}
     >
-      {children && children}
+      {content && content}
     </Switch>
   );
 };

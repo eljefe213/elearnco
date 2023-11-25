@@ -1,5 +1,8 @@
 import FeatureHome from "@/features/home";
 import { getMessages } from "@/lib/messages";
+import { getServerSession } from "next-auth/next";
+import { redirect } from "next/navigation";
+import { ERoutes } from "schemas/routes";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -18,6 +21,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function HomedPage() {
+export default async function HomedPage() {
+  const session = await getServerSession();
+  if (session) {
+    redirect(`/${ERoutes.DASHBOARD}`);
+  }
+
   return <FeatureHome />;
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import {
+  ActivityBlockType,
+  DraggableBlockType,
   LogicBlockType,
   MediaBlockType,
   TextBlockType,
-  ActivityBlockType,
-  DraggableBlockType,
 } from "schemas";
 
 import { BlockCardUI } from "./BlockCardUI";

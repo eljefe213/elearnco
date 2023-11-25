@@ -3,8 +3,8 @@ import { Card, CardBody, Spacer } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import React, { useCallback } from "react";
 
-import { AuthValidationFormData, ValidateUI } from "./ValidateUI";
 import { LogoSymbolUI } from "../../logo/LogoSymbolUI";
+import { AuthValidationFormData, ValidateUI } from "./ValidateUI";
 interface IProps {
   children?: React.ReactNode | null;
   authValidate?: (data: AuthValidationFormData) => void;

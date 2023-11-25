@@ -2,7 +2,7 @@ import { Role } from "@prisma/client"
 import bcrypt from "bcrypt";
 import { randomBytes } from "crypto";
 import { prisma } from "database";
-import { generateConfirmationCode, hash256 } from "lib/utils";
+import { generateConfirmationCode } from "lib/utils";
 import { NextResponse } from "next/server";
 
 import { sendEmail } from "@/emails";
@@ -15,7 +15,7 @@ interface IData {
 export async function POST(request: Request) {
   const { data } = (await request.json()) as IData;
 
-  const defaultLocale = request.headers.get("x-default-locale") || "fr";
+  const defaultLocale = request.headers.get("x-default-locale") ?? "fr";
   const HASH = await bcrypt.hash(data.password, 10);
 
   /** CREATE A NEW USER IN DB */
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 1);
     const token = randomBytes(32).toString("hex");
-    const hashed = hash256(token);
+    const hashed = token;
     const code = generateConfirmationCode();
     await prisma.emailVerificationToken.create({
       data: {

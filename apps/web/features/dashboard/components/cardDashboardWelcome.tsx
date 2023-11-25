@@ -8,6 +8,8 @@ import {
 import { useSession } from "next-auth/react";
 import { SafeUser } from "schemas/auth/Auth";
 
+//TODO - CARD WELCOME
+
 const GREETING = getGreeting();
 const MESSAGE = getRandomMessage(messagesForCurrentSeason);
 const IMAGE = getImageForSeason();
@@ -18,12 +20,5 @@ const CardDashboardWelcome = () => {
 
   return user ? <></> : <Spinner />;
 };
-{
-  /* <CardDashboardUI
-      title={`${GREETING}, ${_user?.name}`}
-      description={MESSAGE}
-      image={IMAGE}
-      classNameImage=""
-    /> */
-}
+
 export default CardDashboardWelcome;

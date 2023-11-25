@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-
+//TODO - TEST THIS PART WITH HOOK - CONFLICT
 const WrapperChild = (props) => {
   const pathname = usePathname();
   const { children } = props;

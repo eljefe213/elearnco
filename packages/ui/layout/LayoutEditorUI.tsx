@@ -2,12 +2,13 @@
 import { useIsCollaboration } from "customhooks";
 import { useEffect } from "react";
 import { useCourseStore, usePageStore } from "store";
+
 import {
   BannerGeneric,
   BannerWithCollaboration,
 } from "../course/banner/BannerGenericUI";
-import { BlockNodesListUI } from "../nodes/BlockNodesListUI";
 import { LoadingSpinnerUI } from "../loading";
+import { BlockNodesListUI } from "../nodes/BlockNodesListUI";
 
 //TODO - REMOVE STYLES AND ADD CLASSNAME
 //TODO - PASS CONST LAYOUT

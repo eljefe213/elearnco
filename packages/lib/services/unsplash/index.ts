@@ -1,39 +1,39 @@
-import axios from "axios";
-
 interface Photo {
   id: string;
   urls: {
     regular: string;
   };
 }
-interface ApiResponse {
-  results: Photo[];
-  total_pages: number;
-}
-const UNSPLASH_KEY = process.env.UNSPLASH_KEY as string;
+
+
 class UnsplashApi {
-  constructor(private accessKey: string) {}
+  private apiKey: string;
+  private apiUrl = "https://api.unsplash.com/search/photos";
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
 
   async searchPhotos(
     query: string,
     page: number,
     perPage: number
   ): Promise<[Photo[], number]> {
-    const url = "https://api.unsplash.com/search/photos";
-
     const encodedWord = query.replace(/\s+/g, "+").toLowerCase();
-    const response = await axios.get<ApiResponse>(url, {
-      params: {
-        query: encodedWord,
-        page,
-        per_page: perPage,
-      },
-      headers: {
-        Authorization: `Client-ID ${this.accessKey}`,
-      },
-    });
-    const photos = response.data.results;
-    const totalPages = response.data.total_pages;
+    const response = await fetch(
+      `${this.apiUrl}?query=${encodedWord}&page=${page}&per_page=${perPage}`,
+      {
+        headers: {
+          Authorization: `Client-ID ${this.apiKey}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+    const responseData = await response.json();
+    const photos = responseData.results;
+    const totalPages = responseData.total_pages;
     return [photos, totalPages];
   }
 }

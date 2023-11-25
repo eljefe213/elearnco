@@ -21,13 +21,16 @@ import * as z from "zod";
 import PreviewFeature from "../previewVideo";
 type UserAuthPreregisterSchema = z.infer<typeof userAuthPreregisterSchema>;
 
-//TODO: translation
-
 const PreregisterFeature = () => {
   const t = useTranslations("");
   const te = useTranslations("errors");
   const SUCCESS = t("auth.form.preregister.success");
   const TITLE = t("auth.form.preregister.title");
+  const BUTTON_REGISTER = t("button.preregister");
+  const LOADING = t("button.loading");
+  const EMAIL_PLACEHOLDER = t("auth.form.email.placeholder");
+  const DESCRIPTION = t("auth.form.preregister.description");
+
   const PREVIEW_IS_READY = false;
 
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -81,15 +84,15 @@ const PreregisterFeature = () => {
                       <Input
                         isRequired
                         label="Email"
-                        placeholder="Enter your email"
+                        placeholder={EMAIL_PLACEHOLDER}
                         type="email"
-                        description="Enter your email to inform when Elearnco is available"
+                        description={DESCRIPTION}
                         autoCorrect="off"
                         color={errors?.email ? "danger" : "default"}
                         autoCapitalize="none"
                         errorMessage={
                           errors?.email
-                            ? (errors.email.message as unknown as string)
+                            ? (t(errors.email.message) as unknown as string)
                             : ""
                         }
                         {...field}
@@ -106,7 +109,7 @@ const PreregisterFeature = () => {
                       fullWidth
                       color="primary"
                     >
-                      {isLoading ? "Loading..." : "Pre-register"}
+                      {isLoading ? LOADING : BUTTON_REGISTER}
                     </Button>
                   </div>
                 </form>
@@ -117,7 +120,7 @@ const PreregisterFeature = () => {
       </Modal>
       <div className="flex gap-4 items-center">
         <Button onClick={handleOpen} size="md" color="primary">
-          Pre-register
+          {BUTTON_REGISTER}
         </Button>
         {PREVIEW_IS_READY && (
           <>

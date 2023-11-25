@@ -18,16 +18,14 @@ const HeaderChildren = () => {
   );
 
   return (
-    <>
-      <div className="flex justify-between w-full">
-        <div className="bg-black rounded-lg w-14 h-14 flex justify-center items-center">
-          <LogoSymbolUI color="white" width={40} height={40} />
-        </div>
-        <Button color="primary" radius="full" size="sm" onPress={openModal}>
-          See all features
-        </Button>
+    <div className="flex justify-between w-full">
+      <div className="bg-black rounded-lg w-14 h-14 flex justify-center items-center">
+        <LogoSymbolUI color="white" width={40} height={40} />
       </div>
-    </>
+      <Button color="primary" radius="full" size="sm" onPress={openModal}>
+        See all features
+      </Button>
+    </div>
   );
 };
 const BodyChildren = (props: GridItemInterface) => {

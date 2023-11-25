@@ -22,7 +22,6 @@ export async function GET(
   }
   try {
     const req = request.nextUrl.searchParams;
-    //const date = request.nextUrl.searchParams.get("date") || CourseDate.RECENT;
     const page = Number(req.get("page")) || (1 as number);
     const status = (req.get("status") as CourseStatus) || CourseStatus.DRAFT as CourseStatus;
     const folder = (req.get("folder") as string) || "all";
@@ -130,10 +129,10 @@ export async function POST(
         author: true,
       },
     });
-
+   
     const json_response = {
       status: "success",
-      data: { course },
+      data:  course ,
     };
 
     return new NextResponse(JSON.stringify(json_response), {

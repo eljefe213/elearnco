@@ -1,6 +1,5 @@
 const FeatureAuthForgot = () => {
+  return <>IN PROGRESS</>;
+};
 
-    return <>IN PROGRESS</>
-}
-
-export default FeatureAuthForgot
+export default FeatureAuthForgot;

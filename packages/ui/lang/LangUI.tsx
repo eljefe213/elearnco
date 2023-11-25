@@ -1,10 +1,9 @@
 "use client";
 import { Avatar, Select, Selection, SelectItem } from "@nextui-org/react";
-
-import React, { useTransition } from "react";
-import { useRouter, usePathname } from "next-intl/client";
-import { useLocale } from "next-intl";
 import { useCoursesParams } from "customhooks";
+import { useLocale } from "next-intl";
+import { usePathname,useRouter } from "next-intl/client";
+import React, { useTransition } from "react";
 
 const DATA_FLAG = [
   {

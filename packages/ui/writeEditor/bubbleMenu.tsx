@@ -1,15 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-
+import { Button } from "@nextui-org/react";
 import { CellSelection } from "@tiptap/prosemirror-tables";
 import {
   BubbleMenu as TiptapBubbleMenu,
   Editor,
   isNodeSelection,
 } from "@tiptap/react";
-
-import { Button } from "@nextui-org/react";
-import { IconUI } from "ui/icon/IconUI";
+import { useEffect, useRef, useState } from "react";
 import React from "react";
+import { IconUI } from "ui/icon/IconUI";
 
 function isCellSelection(value: unknown): value is CellSelection {
   return value instanceof CellSelection;

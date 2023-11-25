@@ -9,8 +9,13 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import Plyr, { APITypes } from "plyr-react";
+import { APITypes } from "plyr-react";
 import { useRef } from "react";
+import dynamic from "next/dynamic";
+
+const DynamicPlyr = dynamic(() => import("plyr-react"), {
+  loading: () => <p>Loading...</p>,
+});
 
 const videoId = "yWtFb9LJs3o";
 const provider = "youtube";
@@ -33,7 +38,7 @@ const PreviewFeature = () => {
             <>
               <ModalHeader className="flex flex-col gap-1">Preview</ModalHeader>
               <ModalBody>
-                <Plyr
+                <DynamicPlyr
                   ref={ref}
                   source={{
                     type: "video",

@@ -26,7 +26,7 @@ export const SignupUI = (props: IProps): JSX.Element => {
 
   const onSubmit = async (data: UserAuthSignupSchema): Promise<void> => {
     setLoading(true);
-    await authSignup?.(data);
+    authSignup?.(data);
     setLoading(false);
     reset();
   };

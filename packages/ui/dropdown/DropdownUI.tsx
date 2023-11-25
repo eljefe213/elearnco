@@ -9,8 +9,8 @@ import {
 } from "@nextui-org/react";
 import { useCallback } from "react";
 import React from "react";
+
 import { IconUI } from "../icon/IconUI";
-import { GenericObject } from "schemas/global";
 
 type TColor =
   | "default"
@@ -51,8 +51,7 @@ interface IProps {
   showArrow?: boolean;
   placement?: OverlayPlacement | undefined;
   classNamesDropdown?: IClassNamesDropdown;
-  data: GenericObject;
-  //IData[];
+  data: [IData];
   actionHandler?: (action: string) => void;
   color?: TColor;
 }
@@ -74,8 +73,9 @@ export const DropdownUI = (props: IProps): JSX.Element => {
   return (
     <Dropdown showArrow={showArrow} placement={placement}>
       <DropdownTrigger>{children}</DropdownTrigger>
-      <DropdownMenu aria-label="Menu" variant="faded">
-        {data.map((section: IData, index: number): JSX.Element => {
+     
+      <DropdownMenu aria-label="Menu"  variant="faded">
+         {data.map((section: IData, index: number) => {
           return (
             <DropdownSection
               title={section.title}
@@ -86,7 +86,7 @@ export const DropdownUI = (props: IProps): JSX.Element => {
               {section.data.map((item: IDropdownItem): JSX.Element => {
                 return (
                   <DropdownItem
-                    onClick={() => actionHandler?.(item.action)}
+                    onClick={():void => actionHandler?.(item.action)}
                     id={item.id}
                     key={item.id}
                     description={item.description}
@@ -110,8 +110,9 @@ export const DropdownUI = (props: IProps): JSX.Element => {
               })}
             </DropdownSection>
           );
-        })}
-      </DropdownMenu>
+        })} 
+       
+      </DropdownMenu> 
     </Dropdown>
   );
 };

@@ -28,7 +28,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
     const message = isJson
       ? data.message || response.statusText
       : response.statusText;
-    return message;
+    return message as T;
   }
 
   return data as T;

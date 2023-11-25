@@ -1,10 +1,10 @@
 "use client";
 import dynamic from "next/dynamic";
-import { motion,stagger, useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { motion, stagger, useAnimate } from "framer-motion";
+import { useEffect, useMemo } from "react";
 import { useLockedBody } from "customhooks";
 import { cn } from "lib/utils";
-import { GridItemProps  } from "schemas";
+import { GridItemProps } from "schemas";
 import { GridItems, variants } from "schemas/dashboard/const";
 import { Spinner } from "@nextui-org/react";
 
@@ -92,18 +92,20 @@ const FeatureDashboard = () => {
     }
   }, [scope]);
 
+  const GRID_ITEMS = useMemo(() => { return GridItems.map((item) => {
+    return (
+      <GridItem key={item.id} size={item.layout}>
+        {getCardTemplate(item.type, item)}
+      </GridItem>
+    );
+  })},[])
+
   return (
     <div
       ref={scope}
       className="grid w-full grid-cols-4 xl:gap-5 gap-6 p-5 auto-rows-[76px]"
     >
-      {GridItems.map((item) => {
-        return (
-          <GridItem key={item.id} size={item.layout}>
-            {getCardTemplate(item.type, item)}
-          </GridItem>
-        );
-      })}
+      {GRID_ITEMS}
     </div>
   );
 };

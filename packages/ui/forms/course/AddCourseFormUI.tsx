@@ -1,21 +1,16 @@
 "use client";
-import dynamic from "next/dynamic";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
   Image,
   Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Radio,
-  RadioGroup,
   Spinner,
   Textarea,
 } from "@nextui-org/react";
-
 import { useUser } from "lib/providers/auth.provider";
+import { createCourseFromApi } from "lib/requests/course";
 import { patternsObjects } from "lib/utils";
+import dynamic from "next/dynamic";
 import React, { useRef } from "react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -25,8 +20,7 @@ import { useCoursesStore, useFoldersStore } from "store";
 import * as z from "zod";
 
 import { SelectUI } from "../../select/SelecUI";
-import { createCourseFromApi } from "lib/requests/course";
-import { Course } from "database";
+
 
 const DynamicAddFolderUI = dynamic(() => import("./AddFolderFormUI"), {
   loading: () => <Spinner />,
@@ -54,6 +48,7 @@ export const AddCourseUI = (props: IProps) => {
   const folderIdRef = useRef<string>(folders?.[0]?.id || "");
   const imageIdRef = useRef<string>("");
 
+  const isInvalid = false;
   const {
     handleSubmit,
     control,
@@ -89,9 +84,8 @@ export const AddCourseUI = (props: IProps) => {
       image: image_name?.[0]?.name || "Aare",
       authorId: "cln4kv8xl000j0989p42rcs3i",
     });
-
+    
     courses.addCourse(newCourse as TotalCourse);
-
     onClose();
   };
 
@@ -105,7 +99,6 @@ export const AddCourseUI = (props: IProps) => {
     </>
   ) : (
     <>
-      {" "}
       <div
         style={{ width: "100%", height: "80px" }}
         className="flex justify-start items-center"
@@ -183,15 +176,16 @@ export const AddCourseUI = (props: IProps) => {
             />
           )}
         />
-        <RadioGroup
+       {/*  <RadioGroup
           defaultValue="author"
           label="Select the course type"
           orientation="vertical"
           onValueChange={setSelected}
           value={selected}
+          isInvalid={isInvalid}
         >
           <div className="flex gap-2 items-center">
-            <Radio value={CourseType.CLASSIC}>You are the author</Radio>
+            <Radio  value={CourseType.CLASSIC}>You are the author</Radio>
             <Popover placement="top" color="primary" showArrow backdrop="blur">
               <PopoverTrigger>
                 <div
@@ -210,7 +204,7 @@ export const AddCourseUI = (props: IProps) => {
             </Popover>
           </div>
           <div className="flex gap-2 items-center">
-            <Radio value={CourseType.WORK}>Learner is the author</Radio>
+            <Radio  value={CourseType.WORK}>Learner is the author</Radio>
             <Popover placement="top" color="primary" showArrow backdrop="blur">
               <PopoverTrigger>
                 <div
@@ -231,7 +225,7 @@ export const AddCourseUI = (props: IProps) => {
             </Popover>
           </div>
           <div className="flex gap-2 items-center">
-            <Radio value={CourseType.LIVE}>Learners are the authors</Radio>
+            <Radio  value={CourseType.LIVE}>Learners are the authors</Radio>
             <Popover
               style={{ width: "240px" }}
               placement="top"
@@ -255,7 +249,7 @@ export const AddCourseUI = (props: IProps) => {
               </PopoverContent>
             </Popover>
           </div>
-        </RadioGroup>
+        </RadioGroup> */}
 
         <SelectUI
           data={folders}

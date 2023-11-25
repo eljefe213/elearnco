@@ -1,13 +1,14 @@
 "use client";
+import { Block } from "database";
+import { changeCursor, getBlockColor, resetCursor } from "lib/utils";
 import { useCallback, useRef } from "react";
+import React from "react";
 import { DATA_MENU_BLOCK, EActionsBloc, TPoint } from "schemas";
+import { usePageStore } from "store";
+
 import { GoupeButtonUI } from "../button/groupeButton/GroupeButtonUI";
 import { IconUI } from "../icon/IconUI";
 import { useDragDistance } from "../providers/WorkspaceDndProvider";
-import { usePageStore } from "store";
-import { Block } from "database";
-import React from "react";
-import { changeCursor, getBlockColor, resetCursor } from "lib/utils";
 import BlockNodeContentUI from "./BlockNodeContentUI";
 
 interface IProps {

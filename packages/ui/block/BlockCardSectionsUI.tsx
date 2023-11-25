@@ -1,14 +1,15 @@
 "use client";
+import { changeCursor } from "lib";
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { BlockCategories, BlockType, POINT, TextBlockType, TPoint } from "schemas";
-import { MediaBlockType } from "schemas/blocks/media";
+import { ActivityBlockType } from "schemas/blocks/activity";
 import {LogicBlockType } from "schemas/blocks/logic"
+import { MediaBlockType } from "schemas/blocks/media";
+
 import { useBlockDnd } from "../providers/WorkspaceDndProvider";
 import { BlockCardList } from "./BlockCardListUI";
 import { BlockCardOverlayUI } from "./BlockCardOverlayUI";
-import { ActivityBlockType } from "schemas/blocks/activity";
-import { changeCursor } from "lib";
 
 export const BlockCardSectionsUI = () => {
   const { setDraggedBlockType, draggedBlockType } = useBlockDnd();

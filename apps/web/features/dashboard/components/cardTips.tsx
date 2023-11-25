@@ -20,14 +20,12 @@ const HeaderChildren = () => {
   useHotkeys([["mod+K", (): void => openModal()]]);
 
   return (
-    <>
-      <div className="flex justify-between w-full">
-        <div className="bg-black rounded-lg w-14 h-14 flex justify-center items-center"></div>
-        <Button color="primary" radius="full" size="sm" onPress={openModal}>
-          Open
-        </Button>
-      </div>
-    </>
+    <div className="flex justify-between w-full">
+      <div className="bg-black rounded-lg w-14 h-14 flex justify-center items-center"/>
+      <Button color="primary" radius="full" size="sm" onPress={openModal}>
+        Open
+      </Button>
+    </div>
   );
 };
 

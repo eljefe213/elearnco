@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { EActionsCourse } from "schemas";
 import { useDisabledStore, useLoadingStore } from "store";
 
 //TODO: ARCHIVE IN A OTHER FOLDER
@@ -22,16 +21,15 @@ export const ModalFooterUI = (props: IProps) => {
       <Button color="danger" variant="light" onPress={onClose}>
         Close
       </Button>
-      <Button isDisabled={isDisabled} isLoading={isLoading} type="submit" color="primary" form={action}>
+      <Button
+        isDisabled={isDisabled}
+        isLoading={isLoading}
+        type="submit"
+        color="primary"
+        form={action}
+      >
         {isLoading ? "Loading..." : "Valid"}
       </Button>
-     {/*  {action === EActionsCourse.ADD as string ? (
-        <Button color="primary" onPress={onClose}>
-          Add a new folder
-        </Button>
-      ) : (
-        <></> */}
-      
     </>
   );
 };

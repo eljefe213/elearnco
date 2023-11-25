@@ -16,7 +16,8 @@
     "dev": "turbo run dev --concurrency 12",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "generate": "turbo run generate",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "prepare": "husky install"
    
   },
   "dependencies": {
@@ -24,7 +25,10 @@
     "sonner": "^1.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "commitizen": "^4.3.0",
+    "husky": "^8.0.0",
     "prettier": "^2.5.1",
     "tsx": "^3.7.1",
     "turbo": "^1.10.15"

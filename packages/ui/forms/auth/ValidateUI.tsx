@@ -1,6 +1,6 @@
 "use client";
 import { Button, Spacer } from "@nextui-org/react";
-import confetti from "canvas-confetti";
+//import confetti from "canvas-confetti";
 import { PinInputActions, usePinInput } from "customhooks";
 import { concatElementsToString } from "lib";
 import { useSearchParams } from "next/navigation";

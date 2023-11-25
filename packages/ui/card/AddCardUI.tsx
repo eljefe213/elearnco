@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardBody, Image } from "@nextui-org/react";
-import React, { useCallback } from "react";
+import React from "react";
 import { EActionskeysCourse } from "schemas";
 
 import HotkeysUI from "../hotkeys/HotkeysUI";
@@ -12,13 +12,11 @@ interface IProps {
 export const AddCardUI = (props: IProps): JSX.Element => {
   const { clickHandler } = props;
 
-  const actionHandler = useCallback(() => {
-    clickHandler?.();
-  }, []);
+  const actionHandler = clickHandler?.();
 
   return (
     <>
-      <Card style={{width:300, height:350}} className="py-0 cursor-pointer">
+      <Card style={{ width: 300, height: 350 }} className="py-0 cursor-pointer">
         <CardBody className="p-0">
           <Image
             removeWrapper

@@ -3,21 +3,23 @@ import { Link, Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import { useHotkeys } from "customhooks/use-hotkeys/use-hotkeys";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import React from "react";
 import { ERoutes } from "schemas";
 import {
   EActionskeysUser,
   EActionsMenuShortcuts,
   EActionsUser,
 } from "schemas/actions/enums";
-import { DATA_MENU_UI, DATA_USER } from "schemas/mocks";
-import { useGlobalModalStore } from "../../store/modal/useModalStore";
-import { DropdownUI } from "../dropdown/DropdownUI";
-import { LogoSymbolUI } from "ui/logo/LogoSymbolUI";
-import { UserUI } from "../user/UserUI";
 import { SafeUser } from "schemas/auth/Auth";
-import { MenuUI } from "./MenuUI";
+import { DATA_MENU_UI, DATA_USER } from "schemas/mocks";
+import { LogoSymbolUI } from "ui/logo/LogoSymbolUI";
+
+import { useGlobalModalStore } from "../../store/modal/useModalStore";
 import { LAYOUT } from "../const";
 import { CourseTitleUI } from "../course/CourseTitleUI";
+import { DropdownUI } from "../dropdown/DropdownUI";
+import { UserUI } from "../user/UserUI";
+import { MenuUI } from "./MenuUI";
 
 export const NavBarTopUI = () => {
   const { data: user } = useSession();
@@ -68,7 +70,6 @@ export const NavBarTopUI = () => {
         <Link href="/dashboard">
           <NavbarBrand className="flex items-center">
             <LogoSymbolUI width={50} height={50} />
-            {/* <LogoTextUI isBlack width={80} /> */}
           </NavbarBrand>
         </Link>
         <div className="flex justify-start ml-4">

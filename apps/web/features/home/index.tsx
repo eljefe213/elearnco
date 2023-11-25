@@ -3,9 +3,7 @@ import { Image } from "@nextui-org/react";
 import { DarkModeUI, LangUI, LogoSymbolUI, LogoTextUI } from "ui";
 import PreregisterFeature from "../preregister";
 import { useTheme } from "next-themes";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HomeTitle from "./components/title";
 import HomeParagraph from "./components/paragraph";
 import Cartridge from "./components/cartridge";
@@ -34,15 +32,15 @@ const FeatureHomeImage = ({ theme }: { theme: string }) => {
 
 const FeatureHome = () => {
   const { theme, setTheme } = useTheme();
-  const t = useTranslations();
 
   useEffect(() => {
-    
     if (theme) setTheme(theme);
   }, [theme]);
 
+  
+
   return (
-    <div className="fixed w-full h-full ">
+    <div className="fixed w-full h-full bg-default-50">
       <div className="absolute top-1/4 left-24 scale-150 hidden xl:block">
         <svg width="150" height="150" viewBox="0 0 96 96">
           <g fill="currentColor">
@@ -77,7 +75,7 @@ const FeatureHome = () => {
           height={70}
         />
         <span className="hidden md:block">
-          <LogoTextUI isBlack={theme === "dark"} />
+          <LogoTextUI color={theme !== "light" ? "white" : "black"} />
         </span>
       </div>
       <div className="absolute right-20 top-5 flex items-center gap-2">

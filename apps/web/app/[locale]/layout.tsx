@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export default async function LocaleLayout({
   children,
   params: { locale },
-}: Props) {
+}: Readonly<Props>) {
   const messages = await getMessages(locale);
 
   return (

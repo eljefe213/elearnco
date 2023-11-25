@@ -3,7 +3,6 @@ import React from "react";
 
 const MORE_SYLES = {
   backgroundColor: "#c084fc1a",
- 
   backgroundSize: "7.07px 7.07px",
   marginTop: "4px",
   marginBottom: "4px",

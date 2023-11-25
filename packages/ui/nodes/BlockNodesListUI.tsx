@@ -1,18 +1,19 @@
 "use client";
 import { useEventListener } from "customhooks";
+import { Block } from "database";
 import {
   changeCursor,
   computeNearestPlaceholderIndex,
   getBlockColor,
 } from "lib/utils";
 import React, { useMemo, useRef, useState } from "react";
+import { TPoint } from "schemas";
+import { usePageStore } from "store";
+
 import { IconUI } from "../icon/IconUI";
 import { useBlockDnd } from "../providers/WorkspaceDndProvider";
 import { BlockNodeUI } from "./BlockNodeUI";
 import { PlaceholderNodeUI } from "./PlaceholderNodeUI";
-import { usePageStore } from "store";
-import { Block } from "database";
-import { TPoint } from "schemas";
 
 interface IProps {
   data: Partial<Block>[];

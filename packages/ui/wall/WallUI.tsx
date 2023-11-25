@@ -1,10 +1,10 @@
 "use client";
-import React,{ useMemo } from "react";
 import { motion } from "framer-motion";
-import { IconAvatarUI } from "../icon/IconAvartarUI";
-import { AVATARS } from "./mock";
+import React,{ useMemo } from "react";
 
+import { IconAvatarUI } from "../icon/IconAvartarUI";
 import { IProps } from "./interface";
+import { AVATARS } from "./mock";
 
 export const WallUI = (IProps: IProps): JSX.Element => {
   const { className, width = "50%" } = IProps;

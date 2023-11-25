@@ -1,10 +1,10 @@
-import React from "react";
 import {
   Card,
-  CardHeader,
-  CardFooter,
   CardBody,
+  CardFooter,
+  CardHeader,
 } from "@nextui-org/react";
+import React from "react";
 
 interface IProps {
   headerChildren?: React.ReactNode;

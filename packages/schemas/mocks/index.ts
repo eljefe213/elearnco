@@ -21,7 +21,7 @@ export const DATAS_MENU_MEDIA = [
     description: "",
     icon: "imageupload",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "a6e2898e-8273-11ee-b962-0242ac120002",
@@ -33,7 +33,7 @@ export const DATAS_MENU_MEDIA = [
     description: "",
     icon: "imageservice",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "a2d61694-8273-11ee-b962-0242ac120002",
@@ -45,7 +45,7 @@ export const DATAS_MENU_MEDIA = [
     description: "",
     icon: "imagelib",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
 ];
 
@@ -60,7 +60,7 @@ export const DATAS_MENU_IMAGE = [
     description: "",
     icon: "resizemax",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "90dc0b88-8273-11ee-b962-0242ac120002",
@@ -72,7 +72,7 @@ export const DATAS_MENU_IMAGE = [
     description: "",
     icon: "resizemin",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "950c505a-8273-11ee-b962-0242ac120002",
@@ -84,7 +84,7 @@ export const DATAS_MENU_IMAGE = [
     description: "",
     icon: "movev",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "9882c124-8273-11ee-b962-0242ac120002",
@@ -96,7 +96,7 @@ export const DATAS_MENU_IMAGE = [
     description: "",
     icon: "imageedit",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "9b86daa4-8273-11ee-b962-0242ac120002",
@@ -108,7 +108,7 @@ export const DATAS_MENU_IMAGE = [
     description: "",
     icon: "delete",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
 ];
 
@@ -123,7 +123,7 @@ export const DATA_MENU_BLOCK = [
     description: "",
     icon: "blockup",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "458cfffc-8273-11ee-b962-0242ac120002",
@@ -135,7 +135,7 @@ export const DATA_MENU_BLOCK = [
     description: "",
     icon: "blockdown",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "4c5f9b96-8273-11ee-b962-0242ac120002",
@@ -147,7 +147,7 @@ export const DATA_MENU_BLOCK = [
     description: "",
     icon: "blockduplicate",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
   {
     id: "5344d0de-8273-11ee-b962-0242ac120002",
@@ -159,7 +159,7 @@ export const DATA_MENU_BLOCK = [
     description: "",
     icon: "delete",
     hastooltip: true,
-    isdisabled: false,
+    isdisabled: "false",
   },
 ];
 
@@ -175,8 +175,8 @@ export const DATA_MENU_UI = [
     description: "",
     icon: "home",
     hastooltip: true,
-    isdisabled: false,
-    isvisible: true,
+    isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "618bb022-8273-11ee-b962-0242ac120002",
@@ -191,8 +191,8 @@ export const DATA_MENU_UI = [
     description: "",
     icon: "cards",
     hastooltip: true,
-    isdisabled: false,
-    isvisible: true,
+    isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "68ef9126-8273-11ee-b962-0242ac120002",
@@ -202,8 +202,8 @@ export const DATA_MENU_UI = [
     description: "",
     icon: "users",
     hastooltip: true,
-    isdisabled: false,
-    isvisible: true,
+    isdisabled: "false",
+    isvisible: "true",
   },
 
   {
@@ -214,8 +214,8 @@ export const DATA_MENU_UI = [
     description: "",
     icon: "chart",
     hastooltip: true,
-    isdisabled: false,
-    isvisible: true,
+    isdisabled: "false",
+    isvisible: "true",
   },
 ];
 

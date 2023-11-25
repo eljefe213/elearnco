@@ -65,7 +65,6 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-  
     async jwt({ token, user, trigger, session }) {
       if (trigger === "update" && session) {
         const user = await prisma.user.update({

@@ -1,8 +1,9 @@
-import React from "react";
 import dynamic from "next/dynamic";
-import { LoadingSpinnerUI } from "../loading";
-import { BLOCK_TEXT_LIST, TextBlockType } from "schemas/blocks/text";
+import React from "react";
 import { ActivityBlockType, BLOCK_ACTIVITY_LIST } from "schemas";
+import { BLOCK_TEXT_LIST, TextBlockType } from "schemas/blocks/text";
+
+import { LoadingSpinnerUI } from "../loading";
 
 //TODO:PASSE ID BLOCK
 
@@ -29,5 +30,5 @@ const BlockNodeContentUI = React.memo(({ type }: { type: string }) => {
 
   return getModule();
 });
-
+BlockNodeContentUI.displayName="BlocNodeContentUI";
 export default BlockNodeContentUI;
