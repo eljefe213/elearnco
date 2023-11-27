@@ -7,7 +7,7 @@ import { IconUI } from "ui/icon/IconUI";
 
 import { DATA_DATE, DATA_STATUS, DATA_TITLE } from "@/const";
 
-import FolderFilter from "./folderFilter";
+import FolderFilter from "../folderFilter";
 //TODO - TRANSLATION
 //TODO - ADD SEARCH BY TITLE
 
@@ -29,10 +29,10 @@ const CourseFilters = () => {
       newDate: string | null,
       newOrder: string | null
     ) => {
-      const statusParam = newStatus !== null ? newStatus : "";
-      const folderParam = newFolder !== null ? newFolder : "";
-      const dateParam = newDate !== null ? newDate : "";
-      const orderParam = newOrder !== null ? newOrder : "";
+      const statusParam = newStatus ?? "";
+      const folderParam = newFolder ?? "";
+      const dateParam = newDate ?? "";
+      const orderParam = newOrder ?? "";
       setNewSearchParamsInCurrentPage(
         statusParam,
         folderParam,
@@ -43,7 +43,7 @@ const CourseFilters = () => {
     [currentPage, currentStatus, currentFolder, currentDate, currentOrder]
   );
 
-  const changeHandlerStatus = useCallback(
+  const _changeHandlerStatus = useCallback(
     (value: string) => {
       const course = DATA_STATUS.filter((item) => value === item.id);
       if (course.length > 0) {
@@ -58,14 +58,14 @@ const CourseFilters = () => {
     [currentFolder, currentDate, currentOrder]
   );
 
-  const changeHandlerFolder = useCallback(
+  const _changeHandlerFolder = useCallback(
     (value: string) => {
       updateSearchParams(currentStatus, value, currentDate, currentOrder);
     },
     [currentStatus, currentDate, currentOrder, value]
   );
 
-  const changeHandlerOrder = useCallback(
+  const _changeHandlerOrder = useCallback(
     (value: string) => {
       const course = DATA_TITLE.filter((item) => value === item.id);
       if (course.length > 0) {
@@ -80,7 +80,7 @@ const CourseFilters = () => {
     [currentStatus, currentFolder, currentDate]
   );
 
-  const changeHandlerDate = useCallback((value: string):void => {
+  const _changeHandlerDate = useCallback((value: string):void => {
     const course = DATA_DATE.filter((item) => value === item.id);
     if (course.length > 0) {
       updateSearchParams(
@@ -101,19 +101,19 @@ const CourseFilters = () => {
           label="Filter by status"
           placeholder="Published courses"
           labelPlacement="inside"
-          onChange={changeHandlerStatus}
+          onChange={_changeHandlerStatus}
           selectedKey={getId(DATA_STATUS, currentStatus)}
         />
         <FolderFilter
-          currentFolder={currentFolder ? currentFolder : "Default"}
-          onChange={changeHandlerFolder}
+          currentFolder={currentFolder || "Default"}
+          onChange={_changeHandlerFolder}
         />
         <SelectUI
           data={DATA_DATE}
           label="Filter by date"
           placeholder="Recently updated"
           labelPlacement="inside"
-          onChange={changeHandlerDate}
+          onChange={_changeHandlerDate}
           variant="flat"
           selectedKey={getId(DATA_DATE, currentDate)}
         />
@@ -123,7 +123,7 @@ const CourseFilters = () => {
           placeholder="Title (A-Z)"
           labelPlacement="inside"
           variant="flat"
-          onChange={changeHandlerOrder}
+          onChange={_changeHandlerOrder}
           selectedKey={getId(DATA_TITLE, currentOrder)}
         />
       </div>

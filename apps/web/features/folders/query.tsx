@@ -7,7 +7,7 @@ interface Iprops {
   currentFolder: string;
 }
 
-const FolderFilter = (props: Iprops) => {
+const QueryFolders = (props: Iprops) => {
   const { onChange, currentFolder } = props;
   const { folders, isLoading, fetchDataFolders } = useFoldersStore();
   const changeHandlerFolders = (value: string): void => {
@@ -36,4 +36,4 @@ const FolderFilter = (props: Iprops) => {
   );
 };
 
-export default FolderFilter;
+export default QueryFolders;

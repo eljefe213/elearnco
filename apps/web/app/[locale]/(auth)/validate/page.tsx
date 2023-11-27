@@ -1,5 +1,5 @@
-import FeatureAuthValidate from "@/features/auth/featureAuthValidate";
+import FeatureAuthValidateAccount from "@/features/auth/featureAuthValidateAccount";
 
 export default function ValidateAccountPage() {
-  return <FeatureAuthValidate />;
+  return <FeatureAuthValidateAccount />;
 }

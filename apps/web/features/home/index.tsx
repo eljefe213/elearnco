@@ -1,6 +1,5 @@
 "use client";
 import { Image } from "@nextui-org/react";
-import { DarkModeUI, LangUI, LogoSymbolUI, LogoTextUI } from "ui";
 import PreregisterFeature from "../preregister";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
@@ -8,6 +7,7 @@ import HomeTitle from "./components/title";
 import HomeParagraph from "./components/paragraph";
 import Cartridge from "./components/cartridge";
 import TitleBloc from "./components/titleBloc";
+import HomeHeader from "./components/header";
 
 //ANCHOR This is a temporary page presentation of ELEARNCO
 
@@ -34,10 +34,8 @@ const FeatureHome = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    if (theme) setTheme(theme);
+    theme && setTheme(theme);
   }, [theme]);
-
-  
 
   return (
     <div className="fixed w-full h-full bg-default-50">
@@ -68,20 +66,7 @@ const FeatureHome = () => {
           </g>
         </svg>
       </div>
-      <div className="absolute flex gap-2 items-center left-5 top-3 md:top-0">
-        <LogoSymbolUI
-          color={theme !== "light" ? "white" : "black"}
-          width={70}
-          height={70}
-        />
-        <span className="hidden md:block">
-          <LogoTextUI color={theme !== "light" ? "white" : "black"} />
-        </span>
-      </div>
-      <div className="absolute right-20 top-5 flex items-center gap-2">
-        <LangUI />
-        <DarkModeUI />
-      </div>
+      <HomeHeader theme={theme} />
 
       <div className="flex justify-start items-center flex-col pt-24">
         <h1 className="text-center p-5 font-bold relative text-3xl md:text-5xl">

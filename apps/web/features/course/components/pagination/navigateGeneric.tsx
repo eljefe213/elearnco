@@ -1,10 +1,8 @@
 import { Button, Tooltip } from "@nextui-org/react";
-import { useCollaboration, useYMapItem } from "collaboration";
 import { useCoursesParams } from "customhooks";
 import { useRouter } from "next13-progressbar";
 import React from "react";
 import {
-  CompleteBlock,
   DATA_MENU_PAGES,
   EActionsCourse,
   EActionsPage,
@@ -44,12 +42,12 @@ export const PaginationGeneric = ({
   };
 
   const _addPage = async (): Promise<void> => {
-    await addPage();
+    addPage();
     gotoPage(currentPage + 1);
   };
 
   const _deletePage = async (pageIndex: number): Promise<void> => {
-    await deletePage(pageIndex);
+    deletePage(pageIndex);
     gotoPage(currentPage - 1);
   };
 
@@ -57,7 +55,7 @@ export const PaginationGeneric = ({
     if (action === EActionsPage.DELETE) {
       if (totalPages > 1) _deletePage(currentPage);
     } else if (action === EActionsPage.DUPLICATE) {
-      //("DUPLICATE PAGE: " + currentPage);
+      duplicatePage(currentPage);
     } else if (
       action === EActionsPage.PREVIEW ||
       action === EActionsPage.REORDER ||
@@ -103,12 +101,8 @@ export const PaginationGeneric = ({
       </DropdownUI>
     );
   };
-  //TODO - Refactor this part
-  const testpage = _testpage
-    ? _testpage
-    : totalPages === 0
-    ? totalPages + 1
-    : totalPages;
+
+  const testpage = _testpage ?? (totalPages === 0 ? totalPages + 1 : totalPages);
 
   return testpage > 0 && currentPage > 0 && currentPage < testpage + 1 ? (
     <PaginationUI
@@ -116,8 +110,6 @@ export const PaginationGeneric = ({
       activePage={currentPage}
       fixedInPosition="bottom"
       onChange={_gotoPage}
-      classnames="z-50"
-     
     >
       {addPageComponent()}
       {settingsPageComponent()}
@@ -134,16 +126,15 @@ export const PaginationWithCollaboration = ({
   courseID: string;
   isCollaboration: boolean;
 }) => {
-  const { doc } = useCollaboration();
-  const [block] = useYMapItem<CompleteBlock[]>(doc?.getMap("page"), "bloc");
-  //TODO: ADD TYPES INSTEAD OF any[]
-  const _testpage = 0; //block && block.pages ? block.pages.length : null;
+  //const { doc } = useCollaboration();
+  //const [block] = useYMapItem<CompleteBlock[]>(doc?.getMap("page"), "bloc");
+  //const _testpage = 0; //block && block.pages ? block.pages.length : null;
 
   return (
     <PaginationGeneric
       isCollaboration={isCollaboration}
       courseID={courseID}
-      _testpage={_testpage}
+      _testpage={0}
     />
   );
 };

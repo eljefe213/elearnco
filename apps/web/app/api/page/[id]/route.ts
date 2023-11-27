@@ -6,7 +6,7 @@ import { ERoutes } from "schemas";
 
 export async function GET(request) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
   const pathname = request.nextUrl.pathname as string;
@@ -26,7 +26,7 @@ export async function GET(request) {
 }
 export async function POST(request: Request) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 
@@ -61,7 +61,7 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 
@@ -108,7 +108,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 

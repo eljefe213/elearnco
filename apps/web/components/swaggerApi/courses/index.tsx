@@ -111,7 +111,6 @@ const CoursesApi = () => {
       {generateTitle("GET", "Return all user courses", pathApiCourses)}
 
       <div className={CLASSNAME_BLOCK}>
-        {/*  {setBlock("Model", getParametersCourses, Course)} */}
         {setSchema("FormData", getParametersCourses, setParametersCourses)}
         {setBlock("Parameters", getParametersCourses)}
         {setBlock("Result", getResultCourses)}

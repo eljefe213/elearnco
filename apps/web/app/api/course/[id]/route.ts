@@ -9,7 +9,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 
@@ -60,7 +60,7 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 
@@ -108,7 +108,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
   try {

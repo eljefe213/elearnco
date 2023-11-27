@@ -1,5 +1,5 @@
 import { Spinner, Image } from "@nextui-org/react";
-import { getCourseMoreRecentFromApi } from "lib/requests/course";
+import { getCourseMoreRecentFromApi } from "lib/requests/course/course";
 import { Course } from "database";
 import { useEffect, useState } from "react";
 import { CardDashboardUI } from "ui/card/CardDashboardUI";

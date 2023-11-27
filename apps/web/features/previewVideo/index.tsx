@@ -12,9 +12,10 @@ import {
 import { APITypes } from "plyr-react";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
+import { LoadingSpinnerUI } from "ui";
 
 const DynamicPlyr = dynamic(() => import("plyr-react"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <LoadingSpinnerUI />,
 });
 
 const videoId = "yWtFb9LJs3o";

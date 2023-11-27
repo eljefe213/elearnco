@@ -18,6 +18,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function CourseEditPage() {
+export default function CourseEditorPage() {
   return <FeatureCourseEditor />;
 }

@@ -14,6 +14,8 @@ import { ERoutes } from "schemas/routes/enums";
 
 import { providers } from "./providers";
 
+//TODO - Add others providers
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as any),
   session: {

@@ -51,7 +51,7 @@ const DynamicMediaFomService = dynamic(
 export const ParentModalUI = () => {
   const { isOpen, onClose, action, data } = useGlobalModalStore();
 
-  const getBody = useCallback((): JSX.Element => {
+  const getBody = useCallback(() => {
     // USER
     if (action === (EActionsUser.EDIT_PROFIL as string)) {
       return <DynamicProfil action={EActionsUser.EDIT_PROFIL} />;
@@ -115,7 +115,7 @@ export const ParentModalUI = () => {
     return <></>;
   }, [action, data, onClose]);
 
-  const getFooter = useCallback((): JSX.Element | null => {
+  const getFooter = useCallback(() => {
     if (action === EActionsMenuShortcuts.TIPS) {
       return null;
     }

@@ -24,17 +24,16 @@ type UserAuthPreregisterSchema = z.infer<typeof userAuthPreregisterSchema>;
 const PreregisterFeature = () => {
   const t = useTranslations("");
   const te = useTranslations("errors");
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const SUCCESS = t("auth.form.preregister.success");
   const TITLE = t("auth.form.preregister.title");
   const BUTTON_REGISTER = t("button.preregister");
   const LOADING = t("button.loading");
   const EMAIL_PLACEHOLDER = t("auth.form.email.placeholder");
   const DESCRIPTION = t("auth.form.preregister.description");
-
   const PREVIEW_IS_READY = false;
 
-  const [isLoading, setLoading] = useState<boolean>(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const handleOpen = (): void => {
     onOpen();
   };

@@ -7,26 +7,16 @@ import { GenericObject } from "schemas/global";
 
 import { CLASSNAME_BLOCK_CHILD } from "./const";
 import { setPath } from "./utils";
-export const generateTitle = (
-  method: string,
-  title: string,
-  path: string
-): JSX.Element => {
+export const generateTitle = (method: string, title: string, path: string) => {
+  const _getColor = () => {
+    if (method === "GET") return "success";
+    if (method === "DELETE" || method === "PATCH") return "danger";
+    return "warning";
+  };
+
   return (
     <div className="flex items-center gap-2 p-2 bg-slate-200 mb-2 mt-2">
-      <Chip
-        radius="none"
-        variant="faded"
-        color={
-          method === "GET"
-            ? "success"
-            : method === "DELETE"
-            ? "danger"
-            : method === "PATCH"
-            ? "danger"
-            : "warning"
-        }
-      >
+      <Chip radius="none" variant="faded" color={_getColor()}>
         {method}
       </Chip>
       <p className="m-0"> {setPath(path)} </p>
@@ -35,7 +25,7 @@ export const generateTitle = (
   );
 };
 
-export const sectionTitle = (title: string): JSX.Element => {
+export const sectionTitle = (title: string) => {
   return (
     <div>
       <p className="pl-2 pt-2">{title}</p>

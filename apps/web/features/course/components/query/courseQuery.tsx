@@ -11,6 +11,8 @@ export const CourseQuery = ({ courseId }: { courseId: string }) => {
   const { getCurrentPage } = useCoursesParams();
   const page = getCurrentPage();
   const isMonted = useRef<boolean>(false);
+  
+  /* FETCH DATA */
   useEffect(() => {
     fetchData(page, courseId);
     isMonted.current = true;

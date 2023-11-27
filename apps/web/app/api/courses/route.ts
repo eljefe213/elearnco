@@ -17,7 +17,7 @@ export async function GET(
   request: NextRequest
 ): Promise<NextResponse<CourseResponse>> {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
   try {
@@ -116,7 +116,7 @@ export async function POST(
   request: NextRequest
 ): Promise<NextResponse<CourseResponse>> {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 

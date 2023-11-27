@@ -7,13 +7,12 @@ import { Next13ProgressBar } from "next13-progressbar";
 import { Toaster } from "sonner";
 
 export interface ProvidersProps {
-  children: React.ReactNode;
   themeProps?: ThemeProviderProps;
 }
 export function Providers({
-  children,
   themeProps,
-}: ProvidersProps): JSX.Element {
+  children,
+}: React.PropsWithChildren<ProvidersProps>) {
   return (
     <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark" {...themeProps}>

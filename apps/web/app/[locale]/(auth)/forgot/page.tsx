@@ -1,5 +1,5 @@
-import FeatureAuthForgot from "@/features/auth/featureAuthForgot";
+import FeatureAuthForgotPassword from "@/features/auth/featureAuthForgotPassword";
 
-export default function SigninPage() {
-  return <FeatureAuthForgot />;
+export default function ForgotPasswordPage() {
+  return <FeatureAuthForgotPassword />;
 }

@@ -7,7 +7,7 @@ interface JSONObject {
 }
 
 interface JSONArray extends Array<JSONValue> {}
-export async function getMessages(locale: string) {
+export async function getMessages(locale: string): Promise<JSONValue> {
   try {
     const messages = (await import(`../messages/${locale}.json`)) as JSONObject;
     return messages.default;

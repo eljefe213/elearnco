@@ -1,6 +1,16 @@
 import UnsplashApi from "lib/services/unsplash";
+import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
-export async function GET(request: NextRequest, res) {
+import { ERoutes } from "schemas/routes/enums";
+
+import { getServerSession } from "@/lib/auth.options";
+
+export async function GET(request: NextRequest) {
+  const session = await getServerSession();
+  if (!session?.user) {
+    redirect(`/${ERoutes.SIGN}`);
+  }
+
   const req = request.nextUrl.searchParams;
   const page = Number(req.get("page")) || 1;
   const query = req.get("query") || "";

@@ -11,7 +11,7 @@ import { getServerSession } from "@/lib/auth.options";
  */
 export async function GET() {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
   try {
@@ -48,7 +48,7 @@ export async function GET() {
  */
 export async function POST(request: NextRequest) {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
 

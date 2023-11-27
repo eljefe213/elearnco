@@ -1,9 +1,9 @@
+import { PropsWithChildren } from "react";
+
 import { ParentModalUI } from "@/components/parentModalUI";
 export default async function Layout({
   children,
-}: {
-  children?: React.ReactNode;
-}) {
+}: Readonly<PropsWithChildren>) {
   return (
     <div className="flex py-6 md:py-0 h-screen h-screen-ios">
       <div className="relative flex bg-foreground-100 grow max-w-full bg-n-1 rounded-[1.25rem] md:rounded-none lg:pr-0">

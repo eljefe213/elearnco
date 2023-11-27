@@ -1,8 +1,9 @@
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth/next";
+import { ERoutes } from "schemas/routes";
+
 import FeatureHome from "@/features/home";
 import { getMessages } from "@/lib/messages";
-import { getServerSession } from "next-auth/next";
-import { redirect } from "next/navigation";
-import { ERoutes } from "schemas/routes";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;

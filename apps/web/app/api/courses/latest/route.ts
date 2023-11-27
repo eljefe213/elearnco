@@ -13,7 +13,7 @@ import { getServerSession } from "@/lib/auth.options";
 
 export async function GET(): Promise<NextResponse<CourseResponse>> {
   const session = await getServerSession();
-  if (!session || !session.user) {
+  if (!session?.user) {
     redirect(`/${ERoutes.SIGN}`);
   }
   try {

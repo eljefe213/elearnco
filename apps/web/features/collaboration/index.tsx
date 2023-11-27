@@ -1,5 +1,5 @@
 "use client";
-import {
+/*  import {
   AwarenessState,
   CollaborationProvider,
   useAwarenessStateField,
@@ -8,31 +8,29 @@ import {
   YjsProvider,
 } from "collaboration";
 import { random } from "lodash";
-import { useEffect, useMemo } from "react";
+import {  useMemo } from "react";
 import { PresenceBarTopUI } from "ui";
-
 import FeatureCourseEditor from "../course";
 import { changeCursor } from "lib";
-
-const FeatureCollaboration = () => {
+ */
+/* const FeatureCollaboration = () => {
   const username = useMemo(() => `User ${random(10000, 99999)}`, []);
 
-  return (
-    <YjsProvider>
+  return  <YjsProvider>
       <CollaborationProvider
         username={username}
         collaboratorElement={({ mouse }) => <Cursor {...mouse} />}
       >
         <Editor />
       </CollaborationProvider>
-    </YjsProvider>
-  );
-};
-const couleurAleatoire = () => {
+    </YjsProvider> 
+  
+}; */
+/* const couleurAleatoire = () => {
   const couleur = Math.floor(Math.random() * 16777215).toString(16);
   return "#" + "0".repeat(6 - couleur.length) + couleur;
-};
-const Cursor = (props) => {
+}; */
+/* const Cursor = (props) => {
   const { x, y, username } = props;
   const color = useMemo(() => couleurAleatoire(), [username]);
 
@@ -73,50 +71,39 @@ const Cursor = (props) => {
       </span>
     </div>
   );
-};
-
-const Editor = () => {
+}; */
+/* const Editor = () => {
   const { connect, doc, isLeader, connected, disconnect } = useCollaboration();
   const [name, setName] = useYMapItem<string>(doc.getMap("page"), "name");
-  const [usernames] =
-    useAwarenessStateField<AwarenessState["username"]>("username");
-  ///const [mouses, mouse, setMouse] =useAwarenessStateField<AwarenessState['bloc']>('bloc');
-  //const [block, setBlock] = useYMapItem<any[]>(doc.getMap("page"), "bloc");
+  const [usernames] = useAwarenessStateField<AwarenessState["username"]>("username");
+  const [mouses, mouse, setMouse] =useAwarenessStateField<AwarenessState['bloc']>('bloc');
+  const [block, setBlock] = useYMapItem<any[]>(doc.getMap("page"), "bloc");
 
   useEffect(() => {
     if (connected) return;
     connect(`Elearnco-course-${"course.id"}`);
-  }, [connect, connected, name]);
+  }, [connect, connected, name]); 
+  
+  
   return (
     <div>
-      <button
+       <button
         onClick={disconnect}
         style={{ position: "absolute", left: 0, top: 0, zIndex: 99 }}
       >
         Disconnect
       </button>
       <PresenceBarTopUI users={usernames} />
-      {/* <button onClick={addBlocl}>ADD BLOCK</button> <ul>
-        {block?.map((item) => (
-          <li style={{ color: "white" }} key={item.id}>
-            {item.label}
-          </li>
-        ))}
-      </ul>  */}
+    
       <FeatureCourseEditor />
 
-      {/* Leader: {isLeader ? "Yes" : "No"}
+       Leader: {isLeader ? "Yes" : "No"}
       <br />
-      Users:
-      <ul>
-        {Object.entries(usernames).map(([clientId, username]) => (
-          <li style={{ color: "white" }} key={clientId}>
-            {username}
-          </li>
-        ))}
-      </ul> */}
+      
     </div>
   );
-};
+}; */
 
+
+const FeatureCollaboration = () =>  <></>
 export default FeatureCollaboration;

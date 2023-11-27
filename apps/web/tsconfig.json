@@ -19,7 +19,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "**/*.svg"
-, "../../packages/ui/modals/GlobalModalUI.tsx", "../../packages/ui/share/shareWithTrainer.tsx", "../../packages/store/index.ts", "../../packages/lib/requests/api.request.ts", "../../packages/lib/providers/auth.provider.tsx"  ],
+, "../../packages/ui/modals/GlobalModalUI.tsx", "../../packages/ui/share/shareWithTrainer.tsx", "../../packages/store/index.ts", "../../packages/lib/requests/api.request.ts", "../../packages/lib/providers/auth.provider.tsx", "../../packages/lib/providers/conditionalWrapper.tsx"  ],
   "exclude": [
     "node_modules"
   ]
