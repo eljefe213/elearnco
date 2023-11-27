@@ -14,7 +14,7 @@ interface IProps {
   authForgetPassword?: () => void;
 }
 
-export const SigninUI = (props: IProps): JSX.Element => {
+export const SigninUI = (props: IProps) => {
   const { authSignin, switchVue, authForgetPassword } = props;
   const { isLoading } = useLoadingStore();
 

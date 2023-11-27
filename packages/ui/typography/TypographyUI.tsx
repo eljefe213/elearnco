@@ -44,7 +44,7 @@ function Title(props: TitleProps) {
   const { children, className = "", style, level = 2 } = props;
 
   const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
-  // ${styles.title}
+
   return (
     <HeadingTag className={`${`h${level}`} ${className}`} style={style}>
       {children}
@@ -109,7 +109,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   ref
 ) {
   const { children, className, style, target, href, onClick } = props;
-  /* ${styles.link} */
+
   return (
     <a
       onClick={onClick}
@@ -124,7 +124,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
     </a>
   );
 });
-/* ${styles.typography} */
+
 export default function Typography(props: TypographyProps) {
   const { children, className, style } = props;
 

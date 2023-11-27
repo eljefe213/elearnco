@@ -6,7 +6,7 @@ import { IconAvatarUI } from "../icon/IconAvartarUI";
 import { IProps } from "./interface";
 import { AVATARS } from "./mock";
 
-export const WallUI = (IProps: IProps): JSX.Element => {
+export const WallUI = (IProps: IProps) => {
   const { className, width = "50%" } = IProps;
   const memoWall = useMemo(() => {
     return AVATARS.map((avatar) => (

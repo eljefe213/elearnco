@@ -29,6 +29,12 @@ import { IconUI } from "../icon/IconUI";
 type ActionHandler = {
   actionHandler(action: string): void;
 };
+
+const CARD = {
+  width: 300,
+  height: 350,
+};
+
 export const CardContentUI = (
   props: TotalCourse & ActionHandler & { banner: string }
 ) => {
@@ -43,6 +49,23 @@ export const CardContentUI = (
     updatedAt,
     author,
   } = props;
+
+  const _getColorChipStatus = () => {
+    if (status === CourseStatus.ACTIVE) return "success";
+    if (status === CourseStatus.ARCHIVED) return "default";
+    return "warning";
+  };
+
+  const _getColorChipType = () => {
+    if (type === CourseType.LIVE) return "success";
+    if (type === CourseType.CLASSIC) return "primary";
+    return "default";
+  };
+
+  const _getColorChipMode = () => {
+    if (mode === CourseMode.PRIVATE) return "danger";
+    return "secondary";
+  };
 
   return (
     <div className="relative flex justify-center items-center">
@@ -62,55 +85,31 @@ export const CardContentUI = (
       <Card
         isDisabled={status === CourseStatus.ARCHIVED}
         className="py-0"
-        style={{ width: 300, height: 350 }}
+        style={{ width: CARD.width, height: CARD.height }}
       >
         <CardBody className="p-0">
           <Image
             alt="Course image"
-            className="object-cover h-[120px]"
+            className="object-cover"
             src={`${banner}?x=200&y=200&mode=fill`}
             width="100%"
             radius="none"
             style={{ height: "120px" }}
           />
-          <div className="pt-4 px-4 flex-col items-start">
+          <div className="pt-2 px-4 flex-col items-start">
             <h4 className="font-bold text-large line-clamp-1">{title}</h4>
             <p className="pt-2 text-tiny uppercase font-bold line-clamp-2">
               {description}
             </p>
 
             <div className="flex py-4 gap-2 flex-wrap">
-              <Chip
-                size="sm"
-                variant="flat"
-                color={
-                  status === CourseStatus.ACTIVE
-                    ? "success"
-                    : status === CourseStatus.ARCHIVED
-                    ? "default"
-                    : "warning"
-                }
-              >
+              <Chip size="sm" variant="flat" color={_getColorChipStatus()}>
                 {status}
               </Chip>
-              <Chip
-                size="sm"
-                variant="flat"
-                color={mode === CourseMode.PRIVATE ? "danger" : "secondary"}
-              >
+              <Chip size="sm" variant="flat" color={_getColorChipMode()}>
                 {mode}
               </Chip>
-              <Chip
-                size="sm"
-                variant="flat"
-                color={
-                  type === CourseType.LIVE
-                    ? "success"
-                    : type === CourseType.CLASSIC
-                    ? "primary"
-                    : "default"
-                }
-              >
+              <Chip size="sm" variant="flat" color={_getColorChipType()}>
                 {type?.toUpperCase() || "Status"}
               </Chip>
             </div>

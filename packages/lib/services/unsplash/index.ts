@@ -5,7 +5,6 @@ interface Photo {
   };
 }
 
-
 class UnsplashApi {
   private apiKey: string;
   private apiUrl = "https://api.unsplash.com/search/photos";

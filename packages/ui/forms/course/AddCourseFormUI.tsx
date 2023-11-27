@@ -8,7 +8,7 @@ import {
   Textarea,
 } from "@nextui-org/react";
 import { useUser } from "lib/providers/auth.provider";
-import { createCourseFromApi } from "lib/requests/course";
+import { createCourseFromApi } from "lib/requests/course/course";
 import { patternsObjects } from "lib/utils";
 import dynamic from "next/dynamic";
 import React, { useRef } from "react";

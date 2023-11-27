@@ -28,7 +28,7 @@ type IProps = {
     type: string
   ) => void;
 };
-export const BlockCardList = (props: IProps): JSX.Element => {
+export const BlockCardList = (props: IProps) => {
   const { blockType, onMouseDown, section, category, draggedBlockType } = props;
 
   return (

@@ -6,7 +6,7 @@ interface IProps {
   collectionKeys: string;
 }
 
-export const HotkeysUI = (props: IProps): JSX.Element => {
+export const HotkeysUI = (props: IProps)=> {
   const { collectionKeys } = props;
   const keys = filterKeysFromString(collectionKeys);
 

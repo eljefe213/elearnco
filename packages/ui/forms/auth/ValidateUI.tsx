@@ -1,13 +1,10 @@
 "use client";
 import { Button, Spacer } from "@nextui-org/react";
-//import confetti from "canvas-confetti";
 import { PinInputActions, usePinInput } from "customhooks";
 import { concatElementsToString } from "lib";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-//import { UserResponse } from "schemas/api";
 import { userAuthValidationSchema } from "schemas/auth/Auth";
-//import { toast } from "sonner";
 import * as z from "zod";
 export type AuthValidationFormData = z.infer<typeof userAuthValidationSchema>;
 
@@ -16,7 +13,7 @@ interface IProps {
   switchVue?: (key: React.Key) => void;
 }
 
-export const ValidateUI = (props: IProps): JSX.Element => {
+export const ValidateUI = (props: IProps) => {
   const { authValidate } = props;
   const [isLoading, setLoading] = useState<boolean>(false);
   const [values, setValues] = useState<string[]>(["", "", "", "", "", ""]);

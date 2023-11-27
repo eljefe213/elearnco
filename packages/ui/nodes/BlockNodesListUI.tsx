@@ -19,7 +19,7 @@ interface IProps {
   data: Partial<Block>[];
 }
 
-export const BlockNodesListUI = (props: IProps): JSX.Element => {
+export const BlockNodesListUI = (props: IProps) => {
   const { data } = props;
   const { addBlock, reorderBlock } = usePageStore();
 

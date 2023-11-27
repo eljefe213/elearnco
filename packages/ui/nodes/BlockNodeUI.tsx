@@ -1,8 +1,7 @@
 "use client";
 import { Block } from "database";
 import { changeCursor, getBlockColor, resetCursor } from "lib/utils";
-import { useCallback, useRef } from "react";
-import React from "react";
+import React, { useCallback, useRef } from "react";
 import { DATA_MENU_BLOCK, EActionsBloc, TPoint } from "schemas";
 import { usePageStore } from "store";
 
@@ -17,7 +16,7 @@ interface IProps {
   showSortPlaceholders: boolean;
   totalBlocks: number;
 }
-export const BlockNodeUI = (props: IProps): JSX.Element => {
+export const BlockNodeUI = (props: IProps) => {
   const {
     onMouseDown,
     bloc,
@@ -33,26 +32,26 @@ export const BlockNodeUI = (props: IProps): JSX.Element => {
     onMouseDown?.(position, bloc);
   };
 
-  const _onClickHandler = useCallback((action, id) => {
-    if (action === EActionsBloc.DELETE) {
+  const _onClickHandler = useCallback((action: string, id: string) => {
+    if (action === (EActionsBloc.DELETE as string)) {
       removeBlock(id);
-    } else if (action === EActionsBloc.DUPLICATE) {
+    } else if (action === (EActionsBloc.DUPLICATE as string)) {
       duplicateBlock(id);
-    } else if (action === EActionsBloc.MOVEDOWN) {
+    } else if (action === (EActionsBloc.MOVEDOWN as string)) {
       moveDown(id);
-    } else if (action === EActionsBloc.MOVEUP) {
+    } else if (action === (EActionsBloc.MOVEUP as string)) {
       moveUp(id);
     }
   }, []);
   const newDataMenuBlock = [...DATA_MENU_BLOCK];
   if (bloc.index === 0) {
-    newDataMenuBlock[0] = { ...newDataMenuBlock[0], isdisabled: true };
+    newDataMenuBlock[0] = { ...newDataMenuBlock[0], isdisabled: "true" };
   }
 
   if (bloc.index === totalBlocks - 1) {
     newDataMenuBlock[1] = {
       ...newDataMenuBlock[1],
-      isdisabled: true,
+      isdisabled: "true",
     };
   }
 

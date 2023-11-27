@@ -4,7 +4,7 @@ import {
   apiDeleteFolder,
   apiGetFolders,
   apiUpdateFolder,
-} from "./api.request";
+} from "../api.request";
 import { TPartialFolder } from "schemas/api";
 import { Folder } from "@prisma/client";
 

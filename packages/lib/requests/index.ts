@@ -1,4 +1,4 @@
 export * from "./api.request";
-export * from "./folder";
-export * from "./course";
-export * from "./user";
+export * from "./folder/folder";
+export * from "./course/course";
+export * from "./user/user";

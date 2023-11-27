@@ -10,10 +10,12 @@ import {
   TPartialFolder,
   UserResponse,
 } from "schemas/api";
-import { pathApiFolder, pathApiFolders } from "./folder";
-import { pathApiCourse, pathApiCourses } from "./course";
-import { pathApiUser } from "./user";
+import { pathApiFolder, pathApiFolders } from "./folder/folder";
+import { pathApiCourse, pathApiCourses } from "./course/course";
+import { pathApiUser } from "./user/user";
 import { SafeUser } from "schemas/auth/Auth";
+
+//TODO - Move https://elearnco-web.vercel.app in env variables
 
 const SERVER_ENDPOINT =
   process.env.NODE_ENV === "production"
@@ -39,6 +41,14 @@ export async function apiPreregister(data: {
   email: string;
 }): Promise<PreregisterResponse> {
   const response = await fetch(`${SERVER_ENDPOINT}/api/user/preregister`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }),
+  });
+
+   await fetch(`${SERVER_ENDPOINT}/api/emails/preregister`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

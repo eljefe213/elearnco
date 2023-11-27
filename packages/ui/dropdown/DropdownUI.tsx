@@ -7,27 +7,16 @@ import {
   DropdownSection,
   DropdownTrigger,
 } from "@nextui-org/react";
-import { useCallback } from "react";
-import React from "react";
+import React, { useCallback } from "react";
 
 import { IconUI } from "../icon/IconUI";
+import { TColor } from "schemas/global";
 
-type TColor =
-  | "default"
-  | "primary"
-  | "secondary"
-  | "success"
-  | "warning"
-  | "danger";
+
 
 interface IShortcut {
   name: string;
-  action: () => void;
-}
-
-interface IClassNamesDropdown {
-  base: string;
-  arrow: string;
+  action: string;
 }
 
 interface IDropdownItem {
@@ -38,6 +27,9 @@ interface IDropdownItem {
   label: string;
   action: string;
   color?: TColor;
+  route: string;
+  isdisabled: string;
+  isvisible: string;
 }
 
 export interface IData {
@@ -47,23 +39,20 @@ export interface IData {
 }
 
 interface IProps {
-  children?: React.ReactNode;
   showArrow?: boolean;
-  placement?: OverlayPlacement | undefined;
-  classNamesDropdown?: IClassNamesDropdown;
-  data: [IData];
+  placement: OverlayPlacement | undefined;
+  data: IData[];
   actionHandler?: (action: string) => void;
-  color?: TColor;
 }
 
-export const DropdownUI = (props: IProps): JSX.Element => {
+export const DropdownUI = (props: React.PropsWithChildren<IProps>) => {
   const {
     children = null,
     showArrow = true,
     data = [],
     placement = "bottom-end",
     actionHandler,
-    color = "",
+   
   } = props;
 
   const showDivider = useCallback((index: number) => {
@@ -73,9 +62,9 @@ export const DropdownUI = (props: IProps): JSX.Element => {
   return (
     <Dropdown showArrow={showArrow} placement={placement}>
       <DropdownTrigger>{children}</DropdownTrigger>
-     
-      <DropdownMenu aria-label="Menu"  variant="faded">
-         {data.map((section: IData, index: number) => {
+
+      <DropdownMenu aria-label="Menu" variant="faded">
+        {data.map((section: IData, index: number) => {
           return (
             <DropdownSection
               title={section.title}
@@ -83,10 +72,10 @@ export const DropdownUI = (props: IProps): JSX.Element => {
               id={section.id}
               key={section.id}
             >
-              {section.data.map((item: IDropdownItem): JSX.Element => {
+              {section.data.map((item: IDropdownItem) => {
                 return (
                   <DropdownItem
-                    onClick={():void => actionHandler?.(item.action)}
+                    onClick={(): void => actionHandler?.(item.action)}
                     id={item.id}
                     key={item.id}
                     description={item.description}
@@ -102,7 +91,7 @@ export const DropdownUI = (props: IProps): JSX.Element => {
                         <></>
                       )
                     }
-                    color={item.color}
+                    color={item.color as TColor}
                   >
                     {item.label}
                   </DropdownItem>
@@ -110,9 +99,8 @@ export const DropdownUI = (props: IProps): JSX.Element => {
               })}
             </DropdownSection>
           );
-        })} 
-       
-      </DropdownMenu> 
+        })}
+      </DropdownMenu>
     </Dropdown>
   );
 };

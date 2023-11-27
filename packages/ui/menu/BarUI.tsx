@@ -5,11 +5,9 @@ type TPosition = "top" | "bottom" | "left" | "right";
 interface IProps {
   position: string;
   fixedInPosition: TPosition;
-  classnames?: string;
-  children?: React.ReactNode;
 }
 
-export const BarUI = (props: IProps): JSX.Element => {
+export const BarUI = (props: React.PropsWithChildren<IProps>) => {
   const { fixedInPosition = "top", children, position = "fixed" } = props;
 
   const getPosition = useMemo((): string => {

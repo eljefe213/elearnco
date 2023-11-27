@@ -1,5 +1,5 @@
 import { SafeUser } from "schemas/auth/Auth";
-import { apiDeleteUser, apiGetUser } from "./api.request";
+import { apiDeleteUser, apiGetUser } from "../api.request";
 import { toast } from "sonner";
 
 export const pathApiUsers = "/api/users";

@@ -8,11 +8,11 @@ import { LoadingSpinnerUI } from "../loading";
 //TODO:PASSE ID BLOCK
 
 const DynamicWriterEditor = dynamic(() => import("../writeEditor"), {
-  loading: (): JSX.Element => <LoadingSpinnerUI />,
+  loading: ()=> <LoadingSpinnerUI />,
 });
 
 const DynamicDrawingEditor = dynamic(() => import("../drawingEditor"), {
-  loading: (): JSX.Element => <LoadingSpinnerUI />,
+  loading: () => <LoadingSpinnerUI />,
 });
 
 const BlockNodeContentUI = React.memo(({ type }: { type: string }) => {

@@ -4,12 +4,11 @@ import { useState } from "react";
 
 import { IconUI } from "../icon/IconUI";
 import { SwitchUI } from "../switch/SwitchUI";
+import React from "react";
 
-export const DarkModeUI = (): JSX.Element => {
+export const DarkModeUI = () => {
   const { theme, setTheme } = useTheme();
-  const [isSelected, setIsSelected] = useState<boolean>(
-    theme === "light" ? true : false
-  );
+  const [isSelected, setIsSelected] = useState<boolean>(theme === "light");
 
   const _setSelectedTheme = (val: boolean): void => {
     setIsSelected(val);

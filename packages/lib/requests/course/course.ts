@@ -7,11 +7,10 @@ import {
   apiGetCourses,
   apiGetMoreRecentCourse,
   apiUpdateCourse,
-} from "./api.request";
+} from "../api.request";
 
 export const pathApiCourses = "/api/courses";
 export const pathApiCourse = "/api/course";
-
 
 /**
  * Get All user courses

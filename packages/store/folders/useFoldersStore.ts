@@ -1,4 +1,4 @@
-import { getFolders } from "lib/requests/folder";
+import { getFolders } from "lib/requests/folder/folder";
 import { filterFolderAlphabetic } from "lib/utils";
 import { TFolder } from "schemas";
 import { create } from "zustand";

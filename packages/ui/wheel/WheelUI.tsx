@@ -2,7 +2,7 @@
 import { Button, Input } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { nanoid } from "nanoid";
-import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import React,{ ChangeEvent, useCallback, useMemo, useState } from "react";
 import { IconUI } from "ui/icon/IconUI";
 
 /**
@@ -109,7 +109,7 @@ export function hexToRgb(hex: string): {
 } | null {
   const hexValue = hex.replace(
     /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-    ( r, g, b) => {
+    (r, g, b) => {
       return r + r + g + g + b + b;
     }
   );
@@ -147,7 +147,7 @@ export function generateColorPalette(
 const baseColorHex = "#d34418";
 
 const propsButton = { fill: "transparent", size: 22 };
-const Sectors = (props: ITimestamp): JSX.Element => {
+const Sectors = (props: ITimestamp) => {
   const { timestamp = [], updateSector, mode } = props;
 
   const _addTimeStep = useCallback((): void => {
@@ -264,7 +264,7 @@ const createDatas = (): TTimestamp[] => {
 
   return data;
 };
-export const Wheel = (): JSX.Element => {
+export const Wheel = () => {
   const data = createDatas();
   const [angle, setAngle] = useState<number>(0);
   const [secteur, setSecteur] = useState<TTimestamp[]>(data);

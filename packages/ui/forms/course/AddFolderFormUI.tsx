@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@nextui-org/react";
 import { useUser } from "lib/providers/auth.provider";
-import { createFolderFromApi } from "lib/requests/folder";
+import { createFolderFromApi } from "lib/requests/folder/folder";
 import React, { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { FolderSchema } from "schemas/folder";

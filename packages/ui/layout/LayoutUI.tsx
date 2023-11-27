@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
 interface IProps {
-  children?: React.ReactNode;
   className?: string;
 }
 
-export const LayoutUI = (props: IProps) => {
+export const LayoutUI = (props: React.PropsWithChildren<IProps>) => {
   const { children, className } = props;
 
   return (

@@ -1,4 +1,5 @@
 import { Image } from "@nextui-org/react";
+import React from "react";
 import { GenericObject } from "schemas";
 const Collection = (props: {
   collection: GenericObject[];
@@ -16,7 +17,7 @@ const Collection = (props: {
     <div className="relative">
      
       <div className="grid grid-cols-4 gap-4 mx-auto">
-        {collection?.map((image): JSX.Element => {
+        {collection?.map((image)=> {
           return (
             <div
               key={image.id}

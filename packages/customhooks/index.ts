@@ -7,4 +7,3 @@ export * from "./use-courses-params";
 export * from "./use-local-storage";
 export * from "./use-window-size";
 export * from "./use-isCollaboration";
-

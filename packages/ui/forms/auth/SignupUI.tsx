@@ -12,7 +12,7 @@ interface IProps {
   switchVue?: (key: React.Key) => void;
 }
 
-export const SignupUI = (props: IProps): JSX.Element => {
+export const SignupUI = (props: IProps) => {
   const { authSignup, switchVue } = props;
   const [isLoading, setLoading] = useState<boolean>(false);
   const {

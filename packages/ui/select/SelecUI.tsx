@@ -30,9 +30,7 @@ export const SelectUI = (props: IProps) => {
     isRequired,
   } = props;
 
-  const [selectedValue, setSelectValue] = useState<string[]>([
-    selectedKey ? selectedKey : data[0]?.id,
-  ]);
+  const [selectedValue, setSelectValue] = useState<string[]>([selectedKey || data[0]?.id]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChange?.(e.target.value);
@@ -49,7 +47,6 @@ export const SelectUI = (props: IProps) => {
       placeholder={placeholder}
       labelPlacement={labelPlacement}
       classNames={{
-        label: "group-data-[filled=true]:-translate-y-5",
         base: "max-w-xs w-auto",
         trigger: "min-h-unit-12 h-12 bg-default-50",
       }}

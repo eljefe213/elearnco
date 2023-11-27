@@ -1,9 +1,10 @@
 "use client";
-import { ConditionalWrapper } from "@/components/conditionalWrapper";
+import React from "react";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { createContext, ReactNode, useContext } from "react";
 import { SafeUser } from "schemas/auth/Auth";
+import { ConditionalWrapper } from "./conditionalWrapper";
 
 export type AuthState = {
   user: SafeUser;
@@ -32,7 +33,7 @@ export default function AuthProvider({
   );
 }
 
-export const useAuth = () => {
+export const useAuth = (): AuthState => {
   const context = useContext(AuthContext);
   if (!context)
     throw new Error(
@@ -41,8 +42,7 @@ export const useAuth = () => {
   return context;
 };
 
-export const useUser = () => {
+export const useUser = (): SafeUser => {
   const { user } = useAuth();
-
   return user;
 };

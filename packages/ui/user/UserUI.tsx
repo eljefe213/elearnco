@@ -1,5 +1,6 @@
 "use client";
 import { User } from "@nextui-org/react";
+import React from "react";
 
 interface IProps {
   description: string;
@@ -7,7 +8,7 @@ interface IProps {
   image: string;
 }
 
-export const UserUI = (user: IProps): JSX.Element => {
+export const UserUI = (user: IProps) => {
   const { name, description, image } = user;
 
   return (

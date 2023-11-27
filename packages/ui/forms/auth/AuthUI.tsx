@@ -2,7 +2,7 @@
 import { Card, CardBody, Spacer, Tab, Tabs } from "@nextui-org/react";
 import { useLockedBody } from "customhooks";
 import { useTranslations } from "next-intl";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { userAuthSigninSchema, userAuthSignupSchema } from "schemas/auth/Auth";
 import { LogoSymbolUI } from "ui/logo/LogoSymbolUI";
 import * as z from "zod";
@@ -14,22 +14,21 @@ import { SignupUI } from "./SignupUI";
 type UserAuthSigninSchema = z.infer<typeof userAuthSigninSchema>;
 type UserAuthSignupSchema = z.infer<typeof userAuthSignupSchema>;
 interface IProps {
-  children?: React.ReactNode | null;
   authSignup?: (data: UserAuthSignupSchema) => void;
   authSignin?: (data: UserAuthSigninSchema) => void;
   authForgetPassword?:() => void;
   className?: string;
 }
 
-export const AuthUI = (props: IProps): JSX.Element => {
+export const AuthUI = (props: IProps) => {
   const [_] = useLockedBody(true, "body");
   const { authSignup, authSignin,authForgetPassword, className } = props;
-  const [selected, setSelected] = React.useState<React.Key>("login");
+  const [selected, setSelected] = useState<React.Key>("login");
   const t = useTranslations("auth");
 
   const _selected = (key: React.Key): void => setSelected(key);
 
-  const getSmiley = useCallback((): JSX.Element => {
+  const getSmiley = useCallback(() => {
     if (selected === "login") return <>👋 </>;
     return <>🥳 </>;
   }, [selected]);
@@ -53,7 +52,7 @@ export const AuthUI = (props: IProps): JSX.Element => {
             fullWidth
             size="md"
             aria-label="Tabs form"
-            selectedKey={selected}
+            selectedKey={selected as string}
             onSelectionChange={(key: React.Key): void => _selected(key)}
           >
             <Tab key="login" title="Sign in">

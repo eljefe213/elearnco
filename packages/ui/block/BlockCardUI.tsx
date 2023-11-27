@@ -25,7 +25,7 @@ type IProps = {
   ) => void;
 };
 
-export const BlockCardUI = (props: IProps): JSX.Element => {
+export const BlockCardUI = (props: IProps) => {
   const { type, onMouseDown, category, draggedBlockType } = props;
 
   return (

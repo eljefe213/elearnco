@@ -9,6 +9,7 @@ import {
 } from "../course/banner/BannerGenericUI";
 import { LoadingSpinnerUI } from "../loading";
 import { BlockNodesListUI } from "../nodes/BlockNodesListUI";
+import React from "react";
 
 //TODO - REMOVE STYLES AND ADD CLASSNAME
 //TODO - PASS CONST LAYOUT

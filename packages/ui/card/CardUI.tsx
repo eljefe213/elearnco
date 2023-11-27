@@ -2,8 +2,7 @@
 
 import { checkHttps } from "lib/utils";
 import { useRouter } from "next13-progressbar";
-import { useCallback } from "react";
-import React from "react";
+import React, { useCallback } from "react";
 import { EActionsCourseInFooterCard, ERoutes, TotalCourse } from "schemas";
 
 import { useGlobalModalStore } from "../../store";
@@ -13,18 +12,15 @@ import { CardContentUI } from "./CardContentUI";
 export const CardUI = (props: TotalCourse) => {
   const { image, title = "Title", id = "id" } = props;
 
-
-  console.log(props)
-
   const router = useRouter();
   const modalStore = useGlobalModalStore();
 
-  const actionHandler = useCallback((action: string):void => {
-    if (action === EActionsCourseInFooterCard.EDIT as string) {
+  const actionHandler = useCallback((action: string): void => {
+    if (action === (EActionsCourseInFooterCard.EDIT as string)) {
       router.push(`/${ERoutes.EDITOR}/${id}?page=${1}`);
       return;
     }
-    if (action === EActionsCourseInFooterCard.PREVIEW as string) {
+    if (action === (EActionsCourseInFooterCard.PREVIEW as string)) {
       router.push(`/${ERoutes.PREVIEW} /${id}?page=${1}`);
       return;
     }

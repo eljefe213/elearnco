@@ -7,11 +7,10 @@ const GRID = {
 };
 
 interface IProps {
-  children: React.ReactNode;
   classnames?: string;
 }
 
-export const LayoutGridUI = (props: IProps): JSX.Element => {
+export const LayoutGridUI = (props: React.PropsWithChildren<IProps>) => {
   const { children, classnames } = props;
 
   return (

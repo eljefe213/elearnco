@@ -6,15 +6,14 @@ import React, { useCallback } from "react";
 import { LogoSymbolUI } from "../../logo/LogoSymbolUI";
 import { AuthValidationFormData, ValidateUI } from "./ValidateUI";
 interface IProps {
-  children?: React.ReactNode | null;
   authValidate?: (data: AuthValidationFormData) => void;
   className?: string;
 }
 
-export const ConfirmUI = (props: IProps): JSX.Element => {
+export const ConfirmUI = (props: IProps) => {
   const { className, authValidate } = props;
   const t = useTranslations("auth");
-  const getSmiley = useCallback((): JSX.Element => {
+  const getSmiley = useCallback(() => {
     return <>🥳 </>;
   }, []);
   const TITLE = t("validation.message");

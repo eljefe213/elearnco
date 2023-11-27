@@ -9,10 +9,10 @@ interface IProps {
   clickHandler?: () => void;
 }
 
-export const AddCardUI = (props: IProps): JSX.Element => {
+export const AddCardUI = (props: IProps) => {
   const { clickHandler } = props;
 
-  const actionHandler = clickHandler?.();
+ 
 
   return (
     <>
@@ -25,7 +25,7 @@ export const AddCardUI = (props: IProps): JSX.Element => {
             src="/patterns/Mohaka.svg"
           />
           <div
-            onClick={actionHandler}
+            onClick={()=>clickHandler?.()}
             className="flex items-center justify-center w-full h-full absolute"
           >
             <div

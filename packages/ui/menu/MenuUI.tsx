@@ -4,7 +4,7 @@ import { matchRoute } from "lib/utils";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next13-progressbar";
 import React, { useMemo } from "react";
-import {  TFixedInPosition, TPosition } from "schemas/global";
+import { TFixedInPosition, TPosition } from "schemas/global";
 
 import { IconUI } from "../icon/IconUI";
 import BarUI from "./BarUI";
@@ -19,56 +19,62 @@ interface IProps {
 interface IItem {
   id: string;
   label: string;
-  route: string;
-  shortcut: {
+  shortcut?: {
     name: string;
-    action: () => void;
+    action: string;
   };
+  route?: string;
   description: string;
   icon?: string;
   hastooltip: boolean;
+  isvisible?: string;
+  isdisabled?: string;
 }
 
-const ButtonWithIcon = React.forwardRef<HTMLElement, IItem>(
-  (props, ref): JSX.Element => {
-    const router = useRouter();
-    const pathname = usePathname();
-    const handleClick = (e: React.MouseEvent): void => {
-      e.preventDefault();
-      router.push(`/${props.route}`);
-    };
+const ButtonWithIcon = React.forwardRef<HTMLElement, IItem>((props, ref) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleClick = (e: React.MouseEvent): void => {
+    e.preventDefault();
+    router.push(`/${props.route}`);
+  };
 
-    const isActive =
-      matchRoute(pathname, props.route) ||
-      (pathname.includes("editor") && props.route.includes("courses"));
+  const isActive =
+    matchRoute(pathname, props.route as string) ||
+    (pathname.includes("editor") && props?.route?.includes("courses"));
 
-    return (
-      <span ref={ref} {...props} {...{ hastooltip: String(props.hastooltip) }}>
-        <Button
-          size="sm"
-          variant="solid"
-          isIconOnly
-          className={`rounded-full ${isActive ? "bg-primary" : ""}`}
-          onClick={(e) => handleClick(e)}
-        >
-          <div className="flex flex-col items-center">
-            <IconUI
-              color={isActive ? "white" : "black"}
-              width={18}
-              height={18}
-              name={props.icon ? props.icon : "home"}
-            />
-          </div>
-        </Button>
-      </span>
-    );
-  }
-);
+  return (
+    <span ref={ref} {...props} {...{ hastooltip: String(props.hastooltip) }}>
+      <Button
+        size="sm"
+        variant="solid"
+        isIconOnly
+        className={`rounded-full ${isActive ? "bg-primary" : ""}`}
+        onClick={(e) => handleClick(e)}
+      >
+        <div className="flex flex-col items-center">
+          <IconUI
+            color={isActive ? "white" : "black"}
+            width={18}
+            height={18}
+            name={props.icon ? props.icon : "home"}
+          />
+        </div>
+      </Button>
+    </span>
+  );
+});
 ButtonWithIcon.displayName = "ButtonWithIcon";
-export const MenuUI = (props: IProps): JSX.Element => {
+export const MenuUI = (props: IProps) => {
   const { data, classnames = "", fixedInPosition, position = "fixed" } = props;
 
-  const setChildren = (item: IItem): JSX.Element => {
+  const _getPosition = () => {
+    if (fixedInPosition === "top") return "bottom";
+    if (fixedInPosition === "bottom") return "top";
+    return "left";
+  };
+
+  const setChildren = (item: IItem) => {
     if (item.label === "divider")
       return <Divider orientation="vertical" className="auto" />;
     if (item.hastooltip)
@@ -77,13 +83,7 @@ export const MenuUI = (props: IProps): JSX.Element => {
           showArrow
           shouldCloseOnBlur
           shouldFlip
-          placement={
-            fixedInPosition === "top"
-              ? "bottom"
-              : fixedInPosition === "bottom"
-              ? "top"
-              : "left"
-          }
+          placement={_getPosition()}
           offset={5}
           content={item.label}
           color="foreground"
@@ -102,11 +102,7 @@ export const MenuUI = (props: IProps): JSX.Element => {
   );
 
   return (
-    <BarUI
-      position={position}
-      classnames={classnames}
-      fixedInPosition={fixedInPosition}
-    >
+    <BarUI position={position} fixedInPosition={fixedInPosition}>
       {DATA_MEMO}
     </BarUI>
   );

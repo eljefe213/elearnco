@@ -7,6 +7,7 @@ import {
   EActionskeysMedia,
   EActionskeysUser,
 } from "../actions/enums";
+import {EColor} from "../../schemas/global"
 import { CourseDate, CourseStatus, CourseTitle } from "../menus";
 import { ERoutes } from "../routes";
 
@@ -22,6 +23,7 @@ export const DATAS_MENU_MEDIA = [
     icon: "imageupload",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "a6e2898e-8273-11ee-b962-0242ac120002",
@@ -34,6 +36,7 @@ export const DATAS_MENU_MEDIA = [
     icon: "imageservice",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "a2d61694-8273-11ee-b962-0242ac120002",
@@ -46,6 +49,7 @@ export const DATAS_MENU_MEDIA = [
     icon: "imagelib",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
 ];
 
@@ -61,6 +65,7 @@ export const DATAS_MENU_IMAGE = [
     icon: "resizemax",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "90dc0b88-8273-11ee-b962-0242ac120002",
@@ -73,6 +78,7 @@ export const DATAS_MENU_IMAGE = [
     icon: "resizemin",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "950c505a-8273-11ee-b962-0242ac120002",
@@ -85,6 +91,7 @@ export const DATAS_MENU_IMAGE = [
     icon: "movev",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "9882c124-8273-11ee-b962-0242ac120002",
@@ -97,6 +104,7 @@ export const DATAS_MENU_IMAGE = [
     icon: "imageedit",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "9b86daa4-8273-11ee-b962-0242ac120002",
@@ -109,6 +117,7 @@ export const DATAS_MENU_IMAGE = [
     icon: "delete",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
 ];
 
@@ -124,6 +133,7 @@ export const DATA_MENU_BLOCK = [
     icon: "blockup",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "458cfffc-8273-11ee-b962-0242ac120002",
@@ -136,6 +146,7 @@ export const DATA_MENU_BLOCK = [
     icon: "blockdown",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "4c5f9b96-8273-11ee-b962-0242ac120002",
@@ -148,6 +159,7 @@ export const DATA_MENU_BLOCK = [
     icon: "blockduplicate",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
   {
     id: "5344d0de-8273-11ee-b962-0242ac120002",
@@ -160,6 +172,7 @@ export const DATA_MENU_BLOCK = [
     icon: "delete",
     hastooltip: true,
     isdisabled: "false",
+    isvisible: "true",
   },
 ];
 
@@ -185,9 +198,7 @@ export const DATA_MENU_UI = [
       name: "mod+J",
       action: "",
     },
-    route: `${ERoutes.COURSES}?page=1&status=${
-      CourseStatus.DRAFT
-    }&folder=all&date=${CourseDate.RECENT}&order=${CourseTitle.AZ}`,
+    route: `${ERoutes.COURSES}?page=1&status=${CourseStatus.DRAFT}&folder=all&date=${CourseDate.RECENT}&order=${CourseTitle.AZ}`,
     description: "",
     icon: "cards",
     hastooltip: true,
@@ -197,7 +208,7 @@ export const DATA_MENU_UI = [
   {
     id: "68ef9126-8273-11ee-b962-0242ac120002",
     label: "Learners",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     route: "learners",
     description: "",
     icon: "users",
@@ -210,7 +221,7 @@ export const DATA_MENU_UI = [
     id: "70e1e668-8273-11ee-b962-0242ac120002",
     label: "Reports",
     route: "reports",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     icon: "chart",
     hastooltip: true,
@@ -218,6 +229,9 @@ export const DATA_MENU_UI = [
     isvisible: "true",
   },
 ];
+
+
+
 
 export const DATA_SECTION_1 = [
   {
@@ -230,7 +244,10 @@ export const DATA_SECTION_1 = [
     description: "",
     startContent: "profil",
     action: EActionsUser.EDIT_PROFIL,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "79a56fd6-8273-11ee-b962-0242ac120002",
@@ -242,7 +259,10 @@ export const DATA_SECTION_1 = [
     description: "",
     action: EActionsUser.LOGOUT,
     startContent: "logout",
-    color: "danger",
+    color:  EColor.danger,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
 ];
 export const DATA_SECTION_2 = [
@@ -257,7 +277,10 @@ export const DATA_SECTION_2 = [
     description: "",
     startContent: "help",
     action: EActionsUser.HELP,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "8329da60-8273-11ee-b962-0242ac120002",
@@ -269,7 +292,10 @@ export const DATA_SECTION_2 = [
     description: "",
     startContent: "setting",
     action: EActionsUser.SETTINGS,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
 ];
 export const DATA_USER = [
@@ -285,83 +311,110 @@ export const DATA_USER = [
   },
 ];
 
+
+
 const DATA_MENU_PAGES_SECTION_1 = [
   {
     id: "49b15a2c-da97-4a5d-bedc-a33ae64e2588",
     label: "Preview",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "preview",
     action: EActionsPage.PREVIEW,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "19e58ff2-8211-11ee-b962-0242ac120002",
     label: "Duplicate",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "duplicate",
     action: EActionsPage.DUPLICATE,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "1e815460-8211-11ee-b962-0242ac120002",
     label: "Validate",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "checkbadge",
     action: EActionsPage.VALIDATE,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "ea204064-821f-11ee-b962-0242ac120002",
     label: "Reorder",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "scrollist",
     action: EActionsPage.REORDER,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "22c55c7e-8211-11ee-b962-0242ac120002",
     label: "Delete",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "delete",
     action: EActionsPage.DELETE,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
 ];
 const DATA_MENU_PAGES_SECTION_2 = [
   {
     id: "ea204064-821f-11ee-b962-0242ac120002",
     label: "Preview as student",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "preview",
     action: EActionsCourse.PREVIEW,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
 
   {
     id: "63ad7b18-8211-11ee-b962-0242ac120002",
     label: "Share",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "share",
     action: EActionsCourse.SHARE,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
   {
     id: "cbba7db6-82be-11ee-b962-0242ac120002",
     label: "Preview path",
-    shortcut: {},
+    shortcut: { name: "", action: "" },
     description: "",
     startContent: "share",
     action: EActionsCourse.SHARE,
-    color: "default",
+    color:  EColor.default,
+    isdisabled: "false",
+    isvisible: "true",
+    route: "",
   },
 ];
+
 export const DATA_MENU_PAGES = [
   {
     data: DATA_MENU_PAGES_SECTION_1,

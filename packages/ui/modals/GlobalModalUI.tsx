@@ -6,6 +6,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
+import React from "react";
 
 export enum EPlacement {
   AUTO = "auto",
@@ -37,7 +38,6 @@ interface IProps {
   scrollBehavior?: EScrollBehavior;
   backdrop?: Ebackdrop;
   onClose?: () => void;
-  onOpen?: () => void;
   onOpenChange?: () => void;
   classNames?: string;
   size?:
@@ -54,7 +54,7 @@ interface IProps {
     | undefined;
 }
 
-export const GlobalModalUI = (props: IProps): JSX.Element => {
+export const GlobalModalUI = (props: IProps) => {
   const {
     isOpen,
     placement,
@@ -66,7 +66,6 @@ export const GlobalModalUI = (props: IProps): JSX.Element => {
     isDismissable,
     size,
     onClose,
-    onOpen,
     onOpenChange,
     shouldBlockScroll = true,
     classNames,
