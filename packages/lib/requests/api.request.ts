@@ -48,13 +48,13 @@ export async function apiPreregister(data: {
     body: JSON.stringify({ data }),
   });
 
-   await fetch(`${SERVER_ENDPOINT}/api/emails/preregister`, {
+  /*  await fetch(`${SERVER_ENDPOINT}/api/emails/preregister`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ data }),
-  });
+  }); */
 
   return handleResponse<PreregisterResponse>(response).then((data) => data);
 }
